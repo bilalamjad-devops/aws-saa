@@ -33,7 +33,7 @@ It is NOT your application itself.
 
 
 
-# 2. What is API Gateway throttling?
+## 2. What is API Gateway throttling?
 
 Now imagine your API normally receives:
 
@@ -84,7 +84,7 @@ Think:
 
 ---
 
-# 3. Now let's understand Question 31
+3. Now let's understand Question 31
 
 The company already has:
 
@@ -136,7 +136,7 @@ This is called a **canary deployment**.
 
 ---
 
-# 4. Why is it called Canary?
+## 3. Why is it called Canary?
 
 Imagine miners going into a dangerous mine.
 
