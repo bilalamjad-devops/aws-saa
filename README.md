@@ -14,6 +14,11 @@ S3:
  - Key Partition and Cardinality
 
 
+RDS and Aurora:
+- RDS Event
+- Aurora Lambda integration
+
+
 Redis:
 - Redis AUTH
 - encryption-enabled
