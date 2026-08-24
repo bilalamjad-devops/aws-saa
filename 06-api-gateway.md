@@ -1,14 +1,32 @@
-API Gateway Throttling
+## 1. What is API Gateway?
 
-- Backend (Lambda/Database) ko sudden traffic surge (tufan) se bachane ke liye gate par speed-breaker lagana.
+Think of **API Gateway as the front door of your backend application**.
 
-- Throttling: Limits lagana (e.g., max 1,000 req/sec) taake extra requests ruk jayen (Error 429) aur backend crash na ho.
+For example, imagine you have:
 
+```text
+Internet Users
+      ↓
+API Gateway
+      ↓
+    Lambda
+      ↓
+   DynamoDB
+```
 
+A user might call:
+
+```text
+GET /users/123
+POST /orders
+GET /products
+```
+
+API Gateway receives those HTTP requests and sends them to the appropriate backend, such as **Lambda, EC2, ECS, or other AWS services**.
 
 So:
 
-> API Gateway = It manages/receives API requests and sends them to your backend.
+> **API Gateway = manages/receives API requests and sends them to your backend.**
 
 It is NOT your application itself.
 
