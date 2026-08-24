@@ -1,4 +1,4 @@
-Partition key and Cardinality:
+**Partition key and Cardinality:**
 
 
 Problem: Database ka Write Capacity Units (WCU) unevenly consume ho raha hai. Iska matlab hai ke data kisi ek jagah bohot ziada ja raha hai (jisey hum AWS mein Hot Partition kehte hain), aur baki partitions khali pade hain.
