@@ -6,4 +6,11 @@ API Gateway Throttling
 
 
 
+So:
+
+> API Gateway = It manages/receives API requests and sends them to your backend.
+
+It is NOT your application itself.
+
+
 24-August-2026
