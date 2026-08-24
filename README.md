@@ -7,6 +7,7 @@ S3:
 - Cross Region Replicaton
 - S3 Event Notification
 - DataSync
+- S3 Transfer Acceleration
 
 
  DynamoDB:
