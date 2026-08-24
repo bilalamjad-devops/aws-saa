@@ -31,4 +31,13 @@ Wajah: Har row/record ke andar jo value hai woh bilkul distinct/unique hai.
 Nateeja: AWS har User_ID ke data ko alag-alag physical servers par barabar (spread) kar ke store karega. Dynamic workload perfectly balance ho jayega.
 
 
+### Exam rule 🧠
 
+> **DynamoDB performance problem + uneven workload / hot partitions → choose a high-cardinality partition key.**
+
+**High cardinality = many unique values → better distribution.**
+
+**Low cardinality = few unique values → risk of hot partitions.**
+
+
+24-August-2026
