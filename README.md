@@ -15,7 +15,7 @@ S3:
 
 
 Redis:
-- AUTH
+- Redis AUTH
 - encryption-enabled
 
 24-August-2026
