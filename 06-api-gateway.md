@@ -31,4 +31,44 @@ So:
 It is NOT your application itself.
 
 
+
+
+# 2. What is API Gateway throttling?
+
+Now imagine your API normally receives:
+
+```text
+100 requests/second
+```
+
+Suddenly a product becomes viral:
+
+```text
+100
+500
+1,000
+10,000
+50,000 requests/second 😱
+```
+
+Your backend may not be able to handle all of that.
+
+So you can tell API Gateway:
+
+> "Allow only 1,000 requests per second."
+
+That's **throttling**.
+
+```text
+Users
+ ↓
+API Gateway
+ ↓
+🚦 Throttling
+ ↓
+Backend
+```
+
+If 5,000 requests arrive but your configured limit is 1,000, API Gateway limits the traffic. Excess requests can receive **HTTP 429 (Too Many Requests)**.
+
 24-August-2026
