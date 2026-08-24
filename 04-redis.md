@@ -1,4 +1,3 @@
-Aap ki baat bilkul accurate hai:
 
 Redis = Database: In-memory database/cache hai.
 
