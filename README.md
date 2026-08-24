@@ -18,6 +18,10 @@ Redis:
 - Redis AUTH
 - encryption-enabled
 
+API Gateway:
+- API Gateway throttling
+- Canary deployement
+
 24-August-2026
 
 
