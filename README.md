@@ -10,10 +10,13 @@ S3:
 
  DynamoDB:
  - Key Partition and Cardinality
- - 
 
 
+Redis:
+- AUTH
+- encryption-enabled
 
+24-August-2026
 
 
 
