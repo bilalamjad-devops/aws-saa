@@ -19,4 +19,12 @@ DELETE
 ```
 
 
+**Multi-AZ:** Standby + Synchronous + HA
+
+**Read Replica:** Read scaling + Asynchronous
+
+**RDS Read Replica:** DynamoDB Global Tables
+
 24-August-2026
+
+27-August-2026
