@@ -4,7 +4,12 @@
 
 **SG:** Stateful firewall at instance level.
 
+**EC2 traffic** → Security Group
+
 **NACL:** Stateless firewall at subnet level.
+
+
+**Subnet traffic** → NACL
 
 24-August-2026
 
