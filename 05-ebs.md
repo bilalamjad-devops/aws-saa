@@ -6,6 +6,8 @@
 
 **S3 → object storage →** massive scalable storage
 
+<img width="1449" height="1001" alt="aws-storage-services" src="https://github.com/user-attachments/assets/d2fbdb47-504d-4bfc-9ee7-de84dc7877bc" />
+
 
 ### Your option confusion: FSx vs EFS vs EBS
 
