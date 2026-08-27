@@ -23,7 +23,7 @@ DELETE
 
 **Read Replica:** Read scaling + Asynchronous
 
-**RDS Read Replica:** DynamoDB Global Tables
+**RDS Read Replica =** DynamoDB Global Tables
 
 24-August-2026
 
