@@ -106,4 +106,47 @@ So the employee can use their **existing corporate identity**.
 > **Federation = allowing users from an external identity system to access AWS without creating separate IAM users for them.**
 
 
+# 🧠 Shortcut table
+
+| Term              | Simple meaning                              | Think                              |
+| ----------------- | ------------------------------------------- | ---------------------------------- |
+| **AD**            | Company's user directory                    | "Where our employees exist"        |
+| **LDAP**          | Protocol for communicating with directories | "Talk to directory"                |
+| **Federation**    | Use external identity to access AWS         | "Use company login in AWS"         |
+| **SSO**           | Login once using existing identity          | "No separate AWS login"            |
+| **SAML**          | Standard used for federation                | "Identity information exchange"    |
+| **IdP**           | Identity Provider                           | "I verify who you are"             |
+| **STS**           | Issues temporary AWS credentials            | "Temporary access"                 |
+| **IAM Role**      | Set of AWS permissions                      | "What can you do?"                 |
+| **IAM Policy**    | Detailed permission rules                   | "Exactly what can you access?"     |
+| **Okta/OneLogin** | Third-party identity/SSO solutions          | "Optional IdP products"            |
+| **IAM Users**     | Permanent AWS identities                    | Avoid creating 1,200 unnecessarily |
+
+### ⭐ Exam shortcut
+
+If you see:
+
+**"Existing corporate AD + SSO + AWS access"**
+
+→ **Federation / SAML**
+
+If you see:
+
+**"temporary credentials for federated users"**
+
+→ **STS**
+
+If you see:
+
+**"what can the user access?"**
+
+→ **IAM Role + IAM Policy**
+
+If you see:
+
+**"1200 employees already exist in corporate directory; don't create IAM users"**
+
+→ **Federation, not 1,200 IAM users.**
+
+
 28-August-2026
