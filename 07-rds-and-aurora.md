@@ -67,6 +67,23 @@ When you see:
 
 ✅ **Answer: Amazon DynamoDB**
 
+
+
+## 6. Your SAA memory table
+
+| Service/concept           | Think                                   |
+| ------------------------- | --------------------------------------- |
+| **IAM Role**              | Give AWS permissions to EC2             |
+| **STS**                   | Temporary AWS credentials               |
+| **IAM DB Authentication** | Temporary authentication token for RDS  |
+| **SSL/TLS**               | Encrypt data in transit                 |
+| **Secrets Manager**       | Store/rotate database passwords/secrets |
+| **RDS Multi-AZ**          | High availability                       |
+| **RDS Read Replica**      | Read scaling                            |
+
+
 24-August-2026
 
 27-August-2026
+
+28-August-2026
