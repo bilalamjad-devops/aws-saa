@@ -149,4 +149,7 @@ If you see:
 → **Federation, not 1,200 IAM users.**
 
 
+<img width="845" height="475" alt="saml-based-federation diagram (1)" src="https://github.com/user-attachments/assets/5b05b398-5b61-4515-8e51-80cb63cecbac" />
+
+
 28-August-2026
