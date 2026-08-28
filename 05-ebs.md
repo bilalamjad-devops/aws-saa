@@ -61,6 +61,57 @@ Think:
 
 <img width="1449" height="1001" alt="aws-storage-services" src="https://github.com/user-attachments/assets/d2fbdb47-504d-4bfc-9ee7-de84dc7877bc" />
 
+
+
+# 12. The FSx family — your exam cheat sheet
+
+This is the table I'd actually memorize:
+
+| Service              | Think                       | Protocol / characteristic | Typical clue                   |
+| -------------------- | --------------------------- | ------------------------- | ------------------------------ |
+| **EFS**              | Linux shared files          | NFS                       | Linux + shared storage         |
+| **FSx Windows**      | Windows file server         | SMB + AD                  | Windows + SMB + AD             |
+| **FSx Lustre**       | High-performance parallel   | Lustre                    | ML + HPC + parallel processing |
+| **FSx OpenZFS**      | OpenZFS file system         | NFS                       | OpenZFS/Linux workloads        |
+| **FSx NetApp ONTAP** | Flexible enterprise storage | NFS + SMB + **iSCSI**     | Windows + block + iSCSI        |
+
+### 🔥 The shortcuts
+
+| If question says...              | Think...         |
+| -------------------------------- | ---------------- |
+| **Linux + shared storage**       | EFS              |
+| **Windows + SMB + AD**           | FSx Windows      |
+| **ML/HPC + parallel processing** | FSx Lustre       |
+| **OpenZFS**                      | FSx OpenZFS      |
+| **Block storage + iSCSI**        | FSx NetApp ONTAP |
+| **Objects / photos / backups**   | S3               |
+
+---
+
+## 13. One important correction to keep in your notes
+
+Don't memorize:
+
+> "EFS is for Linux and FSx is for Windows."
+
+That's **too simplistic and can hurt you in the exam.**
+
+Instead memorize:
+
+> **EFS = NFS/shared file storage, primarily Linux workloads.**
+
+> **FSx for Windows = SMB/Windows/AD.**
+
+> **FSx for Lustre = high-performance parallel workloads.**
+
+> **FSx for NetApp ONTAP = flexible enterprise storage, including iSCSI block access.**
+
+That's a much safer SAA mental model.
+
+---
+
 24-August-2026
 
 27-August-2026
+
+28-August-2026
