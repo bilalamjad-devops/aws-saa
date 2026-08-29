@@ -1,3 +1,38 @@
+
+
+There are 2 types of SQS:
+
+**Standard Queue (Default):**
+
+- Throughput: Unlimited messages per second.
+
+- Ordering: Best-effort ordering (messages kabhi-kabhi out of order a sakte hain).
+
+- Delivery: At-least-once delivery (ek message kabhi 2 baar deliver ho sakta hai, is liye app ko duplicate-safe hona chahiye).
+
+**FIFO Queue (First-In-First-Out):**
+
+- Throughput: High throughput (up to 300 msg/sec or 3,000 with batching).
+
+- Ordering: Strict First-In-First-Out order guaranteed.
+
+- Delivery: Exactly-once processing (no duplicates).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Yes. These are **two different SQS concepts**, and the names can be confusing.
 
 ### 1. Priority queue
