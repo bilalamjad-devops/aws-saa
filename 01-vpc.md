@@ -1,4 +1,6 @@
 
+
+
 **Site-to-Site VPN:** We use this when we want to connect our on-premises data center's VPC to AWS VPC. We use 2 gateways. Customer Gateway and VPC Gateway. 
 
 
@@ -9,7 +11,11 @@
 **NACL:** Stateless firewall at subnet level.
 
 
+
 **Subnet traffic** → NACL
+
+
+VPC Peering (Incorrect): VPC Peering sirf do AWS VPCs ke darmiyan hota hai. On-premises network ko VPC se connect karne ke liye AWS Direct Connect ya AWS Site-to-Site VPN lagta hai, VPC Peering kaam nahi karta!
 
 Absolutely 👍
 
