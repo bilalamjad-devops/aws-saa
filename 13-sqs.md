@@ -19,6 +19,13 @@ There are 2 types of SQS:
 - Delivery: Exactly-once processing (no duplicates).
 
 
+**SQS Key Uses:**
+
+- Asynchronous background tasks (e.g., Image processing, Email sending).
+
+- Traffic spikes ko handle karna (Load Leveling).
+
+- Decoupling hybrid systems (On-Premises server message put karta hai, AWS EC2 consumer process karta hai).
 
 
 
