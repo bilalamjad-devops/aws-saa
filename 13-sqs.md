@@ -30,7 +30,17 @@ There are 2 types of SQS:
 
 
 
+### Decoupled Architecture Kya Hota Hai?
 
+**Tightly Coupled (Purana Tarika):** App A direct App B ko request bhejti hai. Agar App B slow hai ya crash ho gayi, toh App A bhi ruk jati hai ya crash ho jati hai.
+
+**Decoupled (AWS Best Practice):** App A aur App B ke beech mein ek Message Buffer / Queue (jaise SQS) rakh diya jata hai.
+
+- App A message queue mein daal kar aage nikal jati hai.
+
+- App B jab free hoti hai, queue se message utha kar process kar leti hai.
+
+- Is se dono components independently kaam karte hain.
 
 
 
