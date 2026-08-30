@@ -1,3 +1,39 @@
+Yes — this question is mainly testing **EKS vs ECS vs Fargate vs App Runner**, and especially the word **“cloud-agnostic + open-source.”**
+
+### 1. What is the question saying?
+
+Imagine the company currently has:
+
+**On-premises → Kubernetes → containers**
+
+They want to move to AWS, but they say:
+
+> “We don't want to become locked into AWS. We want an open-source platform that can also run on other clouds or on-premises.”
+
+That points directly to **Kubernetes → Amazon EKS**.
+
+So:
+
+**On-prem Kubernetes → Amazon EKS**
+
+The important clue is:
+
+> **cloud-agnostic + open-source**
+
+Kubernetes is open-source and can run on AWS, Azure, GCP, or on-premises.
+
+---
+
+## 2. EKS vs ECS
+
+Think of them as two different container orchestration platforms:
+
+| Service        | What is it?                                            | Open source? | Cloud-agnostic? |
+| -------------- | ------------------------------------------------------ | -----------: | --------------: |
+| **EKS**        | Managed Kubernetes                                     |        ✅ Yes |           ✅ Yes |
+| **ECS**        | AWS's own container orchestrator                       |         ❌ No |            ❌ No |
+| **Fargate**    | Serverless compute for containers                      |          N/A |  ❌ AWS-specific |
+| **App Runner** | Simple managed service for running web apps/containers |         ❌ No |            ❌ No |
 
 ### EKS
 
