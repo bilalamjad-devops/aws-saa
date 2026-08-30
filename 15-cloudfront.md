@@ -31,4 +31,16 @@ For **this question**, the key clue is:
 
 So yes, your understanding is basically right: **Lambda@Edge lets you execute custom code at CloudFront edge locations**, and here that code examines the **User-Agent** and helps decide which image version to return.
 
+
+### 🧠 Shortcut
+
+| Requirement in question        | Immediately think  |
+| ------------------------------ | ------------------ |
+| Durable object storage         | **S3**             |
+| Global content delivery        | **CloudFront**     |
+| Application/database caching   | **ElastiCache**    |
+| Data warehouse                 | **Redshift**       |
+| Temporary EC2 local storage    | **Instance Store** |
+| Archive/very infrequent access | **Glacier**        |
+
 30-August-2026
