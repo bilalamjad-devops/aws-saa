@@ -82,8 +82,28 @@ When you see:
 | **RDS Read Replica**      | Read scaling                            |
 
 
+### 🎯 Shortcut
+
+| If question says...      | Think...                     |
+| ------------------------ | ---------------------------- |
+| RDS primary fails        | **Multi-AZ failover**        |
+| Standby becomes primary  | **Automatic**                |
+| What changes?            | **CNAME/DNS**                |
+| New DB created?          | ❌ No, standby already exists |
+| IP address switched?     | ❌ No                         |
+| Main purpose of Multi-AZ | **High availability**        |
+
+**One-line memory:**
+
+> 🧠 **RDS Multi-AZ failure = Standby promoted + CNAME/DNS points to it.**
+
+
+
+
 24-August-2026
 
 27-August-2026
 
 28-August-2026
+
+30-August-2026
