@@ -97,6 +97,7 @@ When you see:
 
 > 🧠 **RDS Multi-AZ failure = Standby promoted + CNAME/DNS points to it.**
 
+<img width="500" height="498" alt="rds_ha_5 (1)" src="https://github.com/user-attachments/assets/28269856-5893-48a5-be42-f6b46ac16e1f" />
 
 
 
