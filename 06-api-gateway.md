@@ -200,4 +200,28 @@ Send traffic back to v1
 That's why **canary deployment** minimizes customer disruption.
 
 
+# 🧠 Make this table your exam memory
+
+| If question says...                        | Think                 |
+| ------------------------------------------ | --------------------- |
+| **API / REST API**                         | 🚪 API Gateway        |
+| **WebSocket API**                          | 🚪 API Gateway        |
+| **API throttling/auth/versioning**         | 🚪 API Gateway        |
+| **Pay per API call**                       | 🚪 API Gateway        |
+| **Static Anycast IP**                      | 🌍 Global Accelerator |
+| **Fixed IP entry point across Regions**    | 🌍 Global Accelerator |
+| **GraphQL**                                | GraphQL               |
+| **High-performance EC2-to-EC2 networking** | ⚡ EFA                 |
+
+### Q17 answer:
+
+✅ **API Gateway supports RESTful + WebSocket APIs**
+
+✅ **Pay based on API calls/data transferred**
+
+---
+
+
 24-August-2026
+
+31-August-2026
