@@ -110,8 +110,34 @@ That's a much safer SAA mental model.
 
 ---
 
+
+## 🔥 Memorize this EBS cheat sheet
+
+| EBS fact                                   | Correct? |
+| ------------------------------------------ | -------- |
+| Persistent block storage                   | ✅        |
+| Used with EC2                              | ✅        |
+| Survives EC2 termination if configured     | ✅        |
+| EBS + EC2 must be same AZ                  | ✅        |
+| Automatically replicated within AZ         | ✅        |
+| Automatically replicated to another Region | ❌        |
+| Snapshot stored in S3                      | ✅        |
+| Snapshot stored in RDS                     | ❌        |
+| Can modify size/type/IOPS while running    | ✅        |
+| Instance Store is persistent               | ❌        |
+
+### One sentence for your exam:
+
+> **EBS = persistent block storage for EC2, AZ-scoped, replicated within the AZ, snapshot-backed, and can be modified while in use.**
+
+That's the main lesson from Q14.
+
+31-August-2026
+
 24-August-2026
 
 27-August-2026
 
 28-August-2026
+
+31-August-2026
