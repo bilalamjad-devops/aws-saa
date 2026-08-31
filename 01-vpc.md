@@ -42,9 +42,66 @@ For example, for Question 58:
 
 I'll keep this format for the remaining questions so your final 65-question revision will be much easier.
 
+No — **S3 Gateway Endpoint is NOT a different type.** 👍
+
+It's just a more specific name.
+
+Think of it like this:
+
+```text
+VPC Endpoint
+     │
+     └── Gateway Endpoint
+             │
+             ├── S3
+             └── DynamoDB
+```
+
+So:
+
+* **Gateway Endpoint** = the type
+* **S3 Gateway Endpoint** = Gateway Endpoint used for **S3**
+* **DynamoDB Gateway Endpoint** = Gateway Endpoint used for **DynamoDB**
+
+### Example
+
+If you create an endpoint for S3:
+
+> **S3 Gateway Endpoint**
+
+If you create one for DynamoDB:
+
+> **DynamoDB Gateway Endpoint**
+
+Both are **Gateway Endpoints**.
+
+### 🧠 Shortcut
+
+| You see                   | Think                              |
+| ------------------------- | ---------------------------------- |
+| VPC Endpoint              | General/private connection concept |
+| Gateway Endpoint          | **S3 + DynamoDB**                  |
+| S3 Gateway Endpoint       | **Gateway → S3**                   |
+| DynamoDB Gateway Endpoint | **Gateway → DynamoDB**             |
+| Interface Endpoint        | ENI/private IP → many AWS services |
+
+So your statement:
+
+> **VPC Gateway = S3 + DynamoDB**
+
+✅ **100% correct.**
+
+And:
+
+> **S3 Gateway Endpoint = the S3-specific Gateway Endpoint**
+
+Also correct.
+
 
 24-August-2026
 
 27-August-2026
 
 28-August-2026
+
+31-August-2026
