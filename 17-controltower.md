@@ -12,4 +12,8 @@ And:
 
 > **Guardrails = governance controls/rules**
 
+<img width="1179" height="865" alt="aws-control-tower-landing-zone" src="https://github.com/user-attachments/assets/735256df-7c94-458e-8ae8-2b0cfd70106d" />
+
+
+
 31-August-2026
