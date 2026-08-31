@@ -40,4 +40,42 @@ Nateeja: AWS har User_ID ke data ko alag-alag physical servers par barabar (spre
 **Low cardinality = few unique values → risk of hot partitions.**
 
 
+# 🧠 Exam shortcut
+
+When you see:
+
+**"Key-value store"**
+
+👉 **DynamoDB**
+
+When you see:
+
+**"Document database / document model"**
+
+👉 **DynamoDB**
+
+When you see:
+
+**"Relational / SQL"**
+
+👉 **RDS / Aurora**
+
+When you see:
+
+**"Collaborate/edit/share documents"**
+
+👉 **WorkDocs**
+
+---
+
+### Q15 in one line:
+
+> **The application needs a key-value/document database → DynamoDB.**
+
+Don't overthink the ECS/Fargate part. **The database requirement is the giveaway.**
+
+
 24-August-2026
+
+31-August-2026
+
