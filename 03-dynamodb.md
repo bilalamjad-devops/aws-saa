@@ -74,6 +74,8 @@ When you see:
 
 Don't overthink the ECS/Fargate part. **The database requirement is the giveaway.**
 
+<img width="658" height="406" alt="2018-10-23_05-24-29-74b3e6dadc8ce683ccd2a5bd00f99889" src="https://github.com/user-attachments/assets/11de6d8a-d642-44b5-a6b0-dca0915fd1e2" />
+
 
 24-August-2026
 
