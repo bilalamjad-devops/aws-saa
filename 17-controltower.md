@@ -16,4 +16,68 @@ And:
 
 
 
+### Memorize these four:
+
+**AWS Organizations**
+→ Manage **multiple AWS accounts**
+
+**IAM Identity Center**
+→ Centralized **AWS account login/access**
+
+**AD Connector**
+→ Connect AWS to existing **Microsoft Active Directory**
+
+**Cognito**
+→ User authentication for **your applications/web/mobile apps**
+
+---
+
+## One-line exam trick 🧠
+
+When you see:
+
+> **"Multiple AWS accounts + existing corporate directory + centralized login"**
+
+Think:
+
+**AWS Organizations + IAM Identity Center + Active Directory Connector**
+
+And when you see:
+
+> **"Users need to log into our web/mobile application"**
+
+Think:
+
+**Amazon Cognito**.
+
+
+### ✅ Option 1
+
+> On the master account, use AWS Organizations to create a new organization with all features turned on. Invite the child accounts to this new organization.
+
+Correct.
+
+Why?
+
+Because the company wants to consolidate multiple AWS accounts.
+
+**AWS Organizations = account management.**
+
+```text
+Organization
+   ├── Account A
+   ├── Account B
+   ├── Account C
+   └── Account D
+```
+
+---
+
+### ✅ Option 2
+
+> Configure AWS IAM Identity Center for the organization and integrate it with the company's directory service using the Active Directory Connector.
+
+
 31-August-2026
+
+1-September-2026
