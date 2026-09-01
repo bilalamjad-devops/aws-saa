@@ -85,6 +85,48 @@ It's something Route 53 can use **with routing policies** to make routing decisi
 For your SAA preparation, **yes — you should learn these Route 53 concepts properly now**, because you'll keep seeing them in questions.
 
 
+## 🧠 Exam shortcut
+
+When you see:
+
+**"only if primary fails"**
+
+→ **Failover**
+
+When you see:
+
+**"90% / 10%"**
+
+→ **Weighted**
+
+When you see:
+
+**"closest/lowest latency Region"**
+
+→ **Latency**
+
+When you see:
+
+**"country/continent/location of user"**
+
+→ **Geolocation**
+
+When you see:
+
+**"geographic distance + bias"**
+
+→ **Geoproximity**
+
+So for Question 25:
+
+> **Primary normally, DR only during outage**
+
+### ✅ Route 53 Failover Routing + Health Check
+
+And importantly, **this is DNS-level failover**. Route 53 isn't moving your application or starting your DR environment; it's changing **which endpoint DNS answers point users toward**.
+
+
+
 30-August-2026
 
 1-September-2026
