@@ -77,7 +77,27 @@ Don't overthink the ECS/Fargate part. **The database requirement is the giveaway
 <img width="658" height="406" alt="2018-10-23_05-24-29-74b3e6dadc8ce683ccd2a5bd00f99889" src="https://github.com/user-attachments/assets/11de6d8a-d642-44b5-a6b0-dca0915fd1e2" />
 
 
+# 13. The most important concepts from this question
+
+You can put this tiny table in your notes:
+
+| Requirement                                  | Service                       |
+| -------------------------------------------- | ----------------------------- |
+| Private access to DynamoDB from VPC          | **DynamoDB Gateway Endpoint** |
+| Private access to S3 from VPC                | **S3 Gateway Endpoint**       |
+| Restore DynamoDB to an earlier point in time | **PITR**                      |
+| Cross-account DynamoDB backup                | **AWS Backup**                |
+| Time-series data                             | **Amazon Timestream**         |
+| Network traffic inspection/firewall          | **AWS Network Firewall**      |
+
+---
+
+<img width="1105" height="804" alt="amazon-dynamodb-gateway-endpoint (1)" src="https://github.com/user-attachments/assets/7c77137e-f155-456e-992a-fd0311b206f8" />
+
+
+
 24-August-2026
 
 31-August-2026
 
+1-September-2026
