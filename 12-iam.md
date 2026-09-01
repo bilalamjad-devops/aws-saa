@@ -239,4 +239,12 @@ The **big distinction** for your SAA exam:
 
 You're building the right mental model. Just don't say **"IAM policy attached to bucket"**—call it a **bucket policy**.
 
+**IAM Identity Center:** AWS IAM Identity Center (formerly AWS Single Sign-On) is a centralized service that lets you manage single sign-on (SSO) access to multiple AWS accounts.
+
+**AWS Directory Service:** lets you run Microsoft Active Directory as a managed service in the cloud or connect your AWS resources to an existing on-premises directory. it means we manage ms active dir in aws cloud or connect aws and on-premisis ms dir? 
+
+
+
 31-August-2026
+
+1-September-2026
