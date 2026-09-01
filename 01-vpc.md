@@ -98,6 +98,120 @@ And:
 Also correct.
 
 
+
+# 4. What is an Interface VPC Endpoint?
+
+This is the second major concept.
+
+Normally, imagine your resource is inside a private subnet:
+
+```text
+Private VPC
+    ↓
+Internet/NAT
+    ↓
+Amazon Rekognition
+```
+
+But the question says:
+
+> **Don't use the public Internet.**
+
+So we create:
+
+**Interface VPC Endpoint**
+
+```text
+Private VPC
+     │
+     │ private connection
+     ↓
+Interface VPC Endpoint
+     │
+     ↓
+Amazon Rekognition
+```
+
+The endpoint gives your VPC a **private entry point** to the AWS service.
+
+No Internet Gateway is required.
+
+---
+
+# 5. Why is it called "Interface"?
+
+Because AWS creates an **ENI (Elastic Network Interface)** inside your subnet.
+
+Conceptually:
+
+```text
+Your Private Subnet
+
+┌──────────────────────────────┐
+│                              │
+│ EC2 / Lambda                 │
+│      │                       │
+│      ↓                       │
+│ Interface Endpoint (ENI)    │
+│      │                       │
+└──────┼───────────────────────┘
+       │
+       ↓
+Amazon Rekognition
+```
+
+The endpoint has a **private IP address**.
+
+---
+
+# 6. Gateway Endpoint vs Interface Endpoint
+
+This connects directly to what you learned earlier.
+
+### Gateway Endpoint
+
+Used for:
+
+> **S3 + DynamoDB**
+
+```text
+VPC
+ ↓
+Gateway Endpoint
+ ↓
+S3 / DynamoDB
+```
+
+### Interface Endpoint
+
+Used for many other AWS services, such as Rekognition.
+
+```text
+VPC
+ ↓
+Interface Endpoint
+ ↓
+Rekognition
+```
+
+### 🧠 Exam shortcut
+
+| Endpoint               | Main idea                                    |
+| ---------------------- | -------------------------------------------- |
+| **Gateway Endpoint**   | S3 + DynamoDB                                |
+| **Interface Endpoint** | Many AWS services using private connectivity |
+
+So when you see:
+
+> **"Access Rekognition privately from a VPC"**
+
+Think:
+
+**Interface VPC Endpoint.** ✅
+
+---
+
+
 24-August-2026
 
 27-August-2026
@@ -105,3 +219,5 @@ Also correct.
 28-August-2026
 
 31-August-2026
+
+1-September-2026
