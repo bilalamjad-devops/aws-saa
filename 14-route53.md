@@ -126,6 +126,72 @@ So for Question 25:
 And importantly, **this is DNS-level failover**. Route 53 isn't moving your application or starting your DR environment; it's changing **which endpoint DNS answers point users toward**.
 
 
+# 🧠 The key concept
+
+You should now have these three Route 53 routing policies clearly separated:
+
+### Failover
+
+**"Primary or backup?"**
+
+```text
+Primary ✅ → Primary
+
+Primary ❌ → Backup
+```
+
+### Weighted
+
+**"How much traffic goes where?"**
+
+```text
+90% → A
+10% → B
+```
+
+### Latency
+
+**"Which endpoint gives the user the lowest latency?"**
+
+```text
+Pakistan user → Mumbai
+US user       → Virginia
+```
+
+---
+
+## One-line exam trick
+
+When you see:
+
+> **"If primary fails, automatically send users to backup/DR"**
+
+Think:
+
+### 🚨 Route 53 **Failover Routing**
+
+When you see:
+
+> **"90% traffic here, 10% there"**
+
+Think:
+
+### ⚖️ Route 53 **Weighted Routing**
+
+When you see:
+
+> **"Send users to the Region with lowest latency"**
+
+Think:
+
+### 🌎 Route 53 **Latency-based Routing**
+
+And Question 27 is simply:
+
+**Primary MEAN app → fails → Route 53 automatically sends users to cheap static S3/CloudFront backup.**
+
+
+1-September-2026
 
 30-August-2026
 
