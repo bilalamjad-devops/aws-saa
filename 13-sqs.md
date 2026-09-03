@@ -204,3 +204,15 @@ So your shortcut is:
 
 
 29-August-2026
+
+
+### 3. Don't confuse messaging services
+
+| Service           | Think                               |
+| ----------------- | ----------------------------------- |
+| **SQS**           | Queue / buffer / decouple workloads |
+| **Amazon MQ**     | Managed traditional message broker  |
+| **Data Firehose** | Streaming data delivery             |
+| **AppStream 2.0** | Stream desktop applications         |
+
+3-September-2026
