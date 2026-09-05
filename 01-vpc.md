@@ -212,6 +212,21 @@ Think:
 ---
 
 
+
+<img width="1322" height="845" alt="Amazon_VPC_IPv6" src="https://github.com/user-attachments/assets/579fa910-380e-405c-84ac-560e1a8d6c1e" />
+
+
+**It means, we can't create ipv4-free vpc. but we can create ipv4-free subnet.**
+
+
+Direct SAA-C03 Takeaway
+
+- IPv4 CIDR Exhaustion in Subnet + Future Scalability Needed: $\rightarrow$ Create an IPv6-only Subnet.
+- VPC IPv4 Disable/Removal: $\rightarrow$ Not Allowed / Invalid Action in AWS.
+
+
+
+
 24-August-2026
 
 27-August-2026
@@ -221,3 +236,5 @@ Think:
 31-August-2026
 
 1-September-2026
+
+5-September-2026
