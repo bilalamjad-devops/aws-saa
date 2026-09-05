@@ -20,5 +20,14 @@ Memorize:
 
 > **Oldest Launch Template first.**
 
+## 5. Decision Matrix (Exam Cheat Sheet)
+
+* **Default Auto Scaling Cooldown:** $\rightarrow$ **300 seconds (5 minutes)**.
+* **Main Objective of Cooldown:** $\rightarrow$ Prevent launch/termination of extra instances before previous scaling takes effect.
+* **What happens during Cooldown?** $\rightarrow$ ASG pauses simple scaling activities until the timer expires.
+
+---
 
 28-August-2026
+
+5-September-2026
