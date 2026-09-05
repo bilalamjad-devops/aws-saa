@@ -103,6 +103,9 @@ When you see:
 
 **RDS Proxy:** manage and scale database connections 
 
+<img width="713" height="481" alt="amazon-rds-proxy" src="https://github.com/user-attachments/assets/fdbbeee7-deca-4402-9273-b6819ea7ae63" />
+
+
 
 24-August-2026
 
@@ -111,3 +114,5 @@ When you see:
 28-August-2026
 
 30-August-2026
+
+5-September-2026
