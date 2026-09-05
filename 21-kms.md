@@ -8,5 +8,17 @@
 * **Keywords: "Encrypt data at rest", "Manage KMS Master Keys":** $\rightarrow$ **AWS KMS**
 * **Keywords: "HTTPS / SSL / TLS Certificates":** $\rightarrow$ **AWS ACM**
 
+# 🆚 6. Secrets Manager vs KMS vs ACM vs Parameter Store
+
+This table is extremely useful for SAA.
+
+| Service             | Main purpose              | Store secrets? |              Automatic secret rotation? |
+| ------------------- | ------------------------- | -------------: | --------------------------------------: |
+| **Secrets Manager** | **Store/manage secrets**  |              ✅ |                                       ✅ |
+| **KMS**             | Encryption key management |              ❌ | KMS rotates keys, not your DB passwords |
+| **ACM**             | SSL/TLS certificates      |              ❌ |                  Certificate management |
+| **Parameter Store** | Configuration parameters  | ✅ SecureString |          ❌ Not automatically by default |
+
+---
 
 5-September-2026
