@@ -1,19 +1,29 @@
 
+Yes! **Exactly.** 👍 Your understanding is correct.
 
-# Kinesis is actually a FAMILY of services
+I would just make the wording slightly more precise:
 
-This is extremely important for SAA.
+| Kinesis service            | Simple meaning                                  | Think                   |
+| -------------------------- | ----------------------------------------------- | ----------------------- |
+| **Kinesis Data Streams**   | **Collect/ingest real-time streaming data**     | 🌊 Data coming in       |
+| **Kinesis Data Firehose**  | **Deliver streaming data to a destination**     | 🚚 Data being delivered |
+| **Kinesis Data Analytics** | **Analyze/process streaming data in real time** | 🔎 Data being analyzed  |
+| **Kinesis Video Streams**  | **Collect/stream live video**                   | 📹 Camera video         |
 
-There are several Kinesis services, and they solve different streaming problems.
 
-The main ones you should know are:
 
-| Kinesis service            | Think                                  |
-| -------------------------- | -------------------------------------- |
-| **Kinesis Data Streams**   | Collect real-time streaming data       |
-| **Kinesis Data Firehose**  | Deliver streaming data to destinations |
-| **Kinesis Video Streams**  | Stream video from cameras/devices      |
-| **Kinesis Data Analytics** | Analyze streaming data in real time    |
+### 🔥 Your memorization version
+
+> **Data Streams = Collect**
+
+> **Firehose = Deliver**
+
+> **Data Analytics = Analyze**
+
+> **Video Streams = Video**
+
+That's a **very good SAA mental model**.
+
 
 
 # 🔥 Your Kinesis Cheat Sheet
