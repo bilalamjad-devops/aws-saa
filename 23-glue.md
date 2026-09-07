@@ -1,4 +1,21 @@
 
+# 📊 Final Revision Table
+
+| Requirement / Keyword              | Think of              |
+| ---------------------------------- | --------------------- |
+| Managed ETL                        | ⭐ AWS Glue            |
+| Discover schema in S3              | Glue Crawler          |
+| Store metadata/schema              | Glue Data Catalog     |
+| CSV → Parquet                      | ⭐ Glue ETL            |
+| Columnar analytics format          | Apache Parquet        |
+| General batch computing            | AWS Batch             |
+| Serverless code                    | Lambda                |
+| Big-data Hadoop/Spark platform     | EMR                   |
+| Serverless Spark/Hive              | EMR Serverless        |
+| EMR access to S3                   | EMRFS                 |
+| Detect new S3 object               | S3 Event Notification |
+| Least operational overhead for ETL | ⭐ Glue                |
+
 
 ---
 
