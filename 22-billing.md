@@ -16,6 +16,9 @@ Aap is feature ko AWS Console mein in locations par access kar sakte hain:
 
 5. Apne required Tag ko select karke **Activate** button par click kar dein.
 
+<img width="1429" height="550" alt="cost-allocation-tags-activation" src="https://github.com/user-attachments/assets/e76e5cc2-afb2-44f0-96a7-a50d991cd298" />
+
+
 ---
 
 ### **2. Integration with AWS Cost Tools**
