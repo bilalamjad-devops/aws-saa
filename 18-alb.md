@@ -369,4 +369,14 @@ your answer should immediately be:
 
 You don't need to memorize all the technical details of gRPC right now. For your exam, **"gRPC → ALB"** is the important association.
 
+| Option                       | Why?                                                                           | Result |
+| ---------------------------- | ------------------------------------------------------------------------------ | ------ |
+| **Elastic IP → NLB**         | NLB supports static EIPs                                                       | ✅      |
+| CloudFront → private EC2 IPs | CloudFront isn't the solution for providing the required whitelisted client IP | ❌      |
+| Elastic IP → ALB             | ALB doesn't support assigning EIPs directly                                    | ❌      |
+| gp3 EBS volumes              | Storage has nothing to do with IP addresses                                    | ❌      |
+
+
 1-Semtember-2026
+
+8-September-2026
