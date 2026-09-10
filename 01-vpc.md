@@ -224,6 +224,10 @@ Direct SAA-C03 Takeaway
 - IPv4 CIDR Exhaustion in Subnet + Future Scalability Needed: $\rightarrow$ Create an IPv6-only Subnet.
 - VPC IPv4 Disable/Removal: $\rightarrow$ Not Allowed / Invalid Action in AWS.
 
+### 🔥 Shortcut
+
+> **Site-to-Site VPN → Customer Gateway needs a static public IP.**
+
 
 
 
@@ -238,3 +242,5 @@ Direct SAA-C03 Takeaway
 1-September-2026
 
 5-September-2026
+
+10-September-2026
