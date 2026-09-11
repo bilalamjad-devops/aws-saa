@@ -248,6 +248,47 @@ In dono patterns ko bilkul asan alfaaz mein divide karte hain:
 | **Broadcast to EVERY subscriber** | **SNS Fanout** (No Filter Policy) |
 | **Route to SPECIFIC subscriber based on attributes** | **SNS Fanout + Subscription Filter Policies** |
 
+**SQS Message Retention Period** woh time duration hai jitni der tak Amazon SQS kisi message ko queue mein **sambhal kar (store karke)** rakhta hai, agar application (consumer) usay read karke process na kar sakay.
+
+Simple lafzon mein: Yeh message ki **"Expiry Date"** ya **"Life Span"** hai.
+
+---
+
+### **Key Rules (Exam Cheat Sheet):**
+
+1. **Default Retention Period:** **4 Days** (Agar aap change na karein, toh message 4 din tak queue mein pada rahega).
+2. **Minimum Retention:** **60 Seconds (1 Minute)**.
+3. **Maximum Retention:** **14 Days**.
+
+---
+
+### **Yeh Kaise Kaam Karta Hai?**
+
+1. Application (Publisher) SQS Queue mein message daalti hai.
+2. SQS retention timer start kar deta hai.
+3. Agar aap ka Consumer app kisi waja se **down / crash** ho gaya hai, toh message delete nahi hoga — woh SQS mein safe rahega.
+4. Jaise hi Consumer application wapis online aayegi, woh queue se message read kar ke process kar legi.
+5. **If Retention Limit Expires:** Agar 4 din (ya jo limit aap ne set ki ho, e.g. 14 days) guzar jayein aur consumer message process na kare, toh SQS us message ko **automatically delete** kar deta hai.
+
+---
+
+### **Real-Life Analogy (Mailbox):**
+
+Sochein aap ke ghar ke bahar ek **Letter Box (SQS)** hai. Postman us mein letter daal kar chala jata hai.
+
+* Agar aap 4 din tak ghar se bahar hain (Consumer Down), letter box mein letter safe pada rahega.
+* Jab aap 4th day wapis aayenge, aap letter nikal lenge.
+* Agar 14 days tak koi letter na nikale, toh box manager automatically purane letters ko clear/throw kar deta hai.
+
+---
+
+### **Question 59 Se Connection:**
+
+Question 59 mein shart thi: **"The entire message processing should not exceed 24 hours."**
+SQS ki default retention (4 days) 24 hours se zyada hai, is liye SQS is requirement ko naturally fulfill karta hai bina kisi extra configuration ke!
+
 3-September-2026
 
 11-September-2026
+
+12-September-2026
