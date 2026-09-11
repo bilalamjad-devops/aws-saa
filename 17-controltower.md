@@ -78,6 +78,59 @@ Organization
 > Configure AWS IAM Identity Center for the organization and integrate it with the company's directory service using the Active Directory Connector.
 
 
+
+
+
+
+
+
+
+
+
+<img width="2123" height="1505" alt="aws-organizations-scp-demo" src="https://github.com/user-attachments/assets/a4f7e3ec-7730-4a0b-a3a3-42b1ebf2b2cc" />
+
+### 🎯 What is being tested?
+
+**AWS Organizations + Service Control Policies (SCPs)** → centrally restrict what users/accounts can do.
+
+### ✅ Correct answer
+
+**Add the developers' AWS accounts to an Organizational Unit (OU). Attach a Service Control Policy (SCP) to the OU that restricts access to AWS Config.**
+
+### 🔑 Key concept
+
+**SCP = central permission guardrail**
+
+The company can put all developer accounts into an **OU** and attach an SCP that prevents them from:
+
+* Modifying AWS Config rules
+* Deleting AWS Config rules
+* Disabling AWS Config
+
+The developers can still have IAM permissions, but the **SCP sets the maximum permissions allowed**.
+
+**Organization → OU → Developer accounts → SCP**
+
+### ❌ Why others are wrong
+
+* **Config rule in root account** ❌ → can detect changes but doesn't prevent them.
+* **IAM role/trust relationship** ❌ → trust policies control *who can assume a role*, not Config permissions.
+* **Control Tower + IAM trust relationship** ❌ → unnecessary complexity; SCP directly solves the requirement.
+
+### 🔥 Exam shortcut
+
+> **Centrally prevent actions across AWS accounts → SCP**
+
+**SCP = Prevent**
+**AWS Config = Detect/assess compliance**
+
+So when the question says **“developers must be unable to modify/delete a service”**, think **SCP**.
+
+
+
+
 31-August-2026
 
 1-September-2026
+
+12-September-2026
