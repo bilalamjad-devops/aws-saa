@@ -132,6 +132,44 @@ That's a much safer SAA mental model.
 
 That's the main lesson from Q14.
 
+---
+---
+---
+
+### 🎯 What is being tested?
+
+**Automatically back up EBS volumes → simplest + fastest + cost-effective solution.**
+
+### ✅ Correct answer
+
+**Use Amazon Data Lifecycle Manager (Amazon DLM) to automate the creation of EBS snapshots.**
+
+* **Amazon DLM** → automatically creates and manages **EBS snapshots** according to a schedule.
+* No custom scripts, Lambda, cron jobs, or CLI automation required.
+* You can define **snapshot schedules + retention policies**.
+* Very simple to maintain.
+
+### 🔑 Key concept
+
+**EBS volume → EBS Snapshot → DLM automates snapshots**
+
+DLM is specifically designed for **automating EBS snapshot creation and retention**.
+
+### ❌ Why others are wrong
+
+* **AWS CLI scheduled job** → requires custom scheduling/script management → more operational work.
+* **Storage Gateway** → designed for hybrid/on-premises storage integration, not simple EBS snapshot automation.
+* **AWS Backup retention rule** → can manage EBS backups, but for this question **DLM is the fastest/simple native solution specifically for automated EBS snapshots**.
+
+### 🔥 Exam shortcut
+
+**EBS + automatic snapshots + simple maintenance = Amazon DLM**
+
+Think:
+
+> **DLM = “automatically take EBS snapshots and clean up old ones.”**
+
+
 31-August-2026
 
 24-August-2026
@@ -141,3 +179,5 @@ That's the main lesson from Q14.
 28-August-2026
 
 31-August-2026
+
+12-September-2026
