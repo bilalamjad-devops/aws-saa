@@ -44,4 +44,26 @@ Example:
 
 > **API activity + who/when/what → CloudTrail**
 
+
+### 🎯 What is being tested?
+
+**Monitoring S3 access and detecting suspicious/unauthorized access.**
+
+### ✅ Correct answer
+
+**Use Amazon GuardDuty to monitor malicious activity on S3.**
+
+🔥 **Exam shortcut:**
+**GuardDuty = threat detection / suspicious or malicious activity.**
+
+* **CloudTrail** → records **who did what, when** (API activity/audit logs).
+* **GuardDuty** → analyzes activity and identifies **potential threats/suspicious behavior**.
+* **Inspector** → vulnerability management for workloads, not S3 access monitoring.
+* **Rekognition** → image/video analysis.
+
+👉 Because the requirement specifically says **“risk of unauthorized access or suspicious access patterns”**, choose **GuardDuty**.
+
+
 8-September-2026
+
+11-September-2026
