@@ -1,4 +1,11 @@
 
+
+* **Crawler:** Scans S3/DB to find schemas.
+* **Data Catalog:** Stores the schemas as tables.
+* **Glue Job:** Executes the Python/Spark code to **Extract, Transform, and Load** the actual data.
+
+---
+
 # 📊 Final Revision Table
 
 | Requirement / Keyword              | Think of              |
@@ -91,3 +98,4 @@ Exam aur practical DevOps/Data Engineering ke context mein AWS Glue ke main comp
 
 7-September-2026
 
+12-September-2026
