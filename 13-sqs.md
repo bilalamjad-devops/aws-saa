@@ -215,4 +215,39 @@ So your shortcut is:
 | **Data Firehose** | Streaming data delivery             |
 | **AppStream 2.0** | Stream desktop applications         |
 
+---
+---
+---
+
+**Aap ne 100% Sahi Samjha Hai!**
+
+In dono patterns ko bilkul asan alfaaz mein divide karte hain:
+
+---
+
+### **1. SNS Fanout Pattern (Sub ko Bhejo)**
+
+* **Requirement:** Ek hi message **sab subscribers / SQS queues** ke paas jana chahiye.
+* **How it works:** Publisher 1 message SNS Topic mein daalta hai. SNS us message ki **exact copies** sari subscribed SQS queues mein push kar deta hai.
+* **Example:** Ek nayi Order Placement hui. Is order ka message **Inventory Queue**, **Billing Queue**, aur **Shipping Queue** — teeno ko chahiye.
+
+---
+
+### **2. SNS Filter Policies (Sahi Wale Ko Bhejo)**
+
+* **Requirement:** Message sirf usspecific subscriber ke paas jaye jo us ke matlab ka ho (e.g., Mouse message $\rightarrow$ Mouse Queue, Keyboard message $\rightarrow$ Keyboard Queue).
+* **How it works:** Single SNS Topic par message bhejte waqt ek attribute add kar diya jata hai (e.g., `item_type: "mouse"`). Subscriptions par **Filter Policy** lagi hoti hai. SNS check karta hai aur message **sirf matching SQS Queue** mein bhejta hai.
+* **Example:** Electronics store par jab product order ho, toh *Mouse* wala order sirf **Mouse Fulfillment Queue** mein jaye, *Keyboard* wala sirf **Keyboard Queue** mein.
+
+---
+
+### **Exam Cheat Sheet (Quick Recall)**
+
+| Scenario | Architectural Pattern |
+| --- | --- |
+| **Broadcast to EVERY subscriber** | **SNS Fanout** (No Filter Policy) |
+| **Route to SPECIFIC subscriber based on attributes** | **SNS Fanout + Subscription Filter Policies** |
+
 3-September-2026
+
+11-September-2026
