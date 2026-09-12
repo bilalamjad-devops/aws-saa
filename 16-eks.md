@@ -1,3 +1,32 @@
+Not exactly. **EKS can use EC2 nodes OR Fargate.**
+
+### EKS + EC2
+
+* AWS manages the **EKS control plane**.
+* **You manage the EC2 worker nodes** (patching, scaling, node groups, etc.).
+
+### EKS + Fargate
+
+* AWS manages the **EKS control plane**.
+* AWS also manages the **compute infrastructure** running your pods.
+* **You don't manage EC2 worker nodes.**
+
+🔥 **Exam shortcut:**
+
+| Architecture      | Manage EC2 worker nodes? |
+| ----------------- | ------------------------ |
+| **EKS + EC2**     | ✅ Yes                    |
+| **EKS + Fargate** | ❌ No                     |
+
+So when the question says **“remove the need to provision and manage servers” → EKS + Fargate**.
+
+
+
+
+
+
+
+
 Yes — this question is mainly testing **EKS vs ECS vs Fargate vs App Runner**, and especially the word **“cloud-agnostic + open-source.”**
 
 ### 1. What is the question saying?
@@ -226,3 +255,5 @@ The exam is basically shouting:
 And one small correction to keep your mental model clean: **EKS itself is an AWS managed service, but Kubernetes—the orchestration platform it provides—is open-source and portable.**
 
 30-August-2026
+
+12-September-2026
