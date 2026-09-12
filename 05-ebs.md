@@ -169,6 +169,9 @@ Think:
 
 > **DLM = “automatically take EBS snapshots and clean up old ones.”**
 
+<img width="1861" height="184" alt="amazon-ebs-deleteontermination (1)" src="https://github.com/user-attachments/assets/edede57a-b7f6-4abd-a1b4-1eedc77669fa" />
+
+
 
 31-August-2026
 
