@@ -247,6 +247,62 @@ If health checks are configured and a Region becomes unhealthy, Route 53 stops r
 **Active-Active = everyone works**
 **Active-Passive = one works, one waits**
 
+Is question mein **Amazon Route 53 Routing Policies**, **Active-Active vs Active-Passive Failover**, aur **Multi-Region Resiliency** ke concepts test ho rahe hain.
+
+Aayein point-by-point samajhte hain ke multi-region setup ke liye Active-Active failover aur Weighted Records ka concept kaise kaam karta hai.
+
+---
+
+## 1. Core Concepts: Active-Active vs Active-Passive
+
+| Feature | **Active-Active Failover** | **Active-Passive Failover** |
+| --- | --- | --- |
+| **How Traffic Flows** | **Saare regions / resources hamesha live hotay hain** aur simultaneous traffic receive karte hain. | Sirf **Primary resource** live hota hai. **Secondary (Standby)** tab tak free rehta hai jab tak Primary fail na ho jaye. |
+| **Availability / Uptime** | Maximum uptime (Zero downtime). Active region fail hote hi traffic doosre active region par shift rehti hai. | Downtime ka risk rehta hai jab tak failover switch na ho jaye. |
+| **Use Case** | International 24/7 services jahan thousands of global users simultaneously active hote hain. | Simple Disaster Recovery (DR) jahan secondary region backup ke taur par rakha gaya ho. |
+
+---
+
+## 2. Route 53 Routing Policies in This Scenario
+
+Question mein requirement hai ke **24/7 service available rahe**, **thousands of global users hain**, aur **poora AWS region down hone par bhi resilience rahe**.
+
+1. **Active-Active Setup:** Multiple regions mein resources deployed hain aur sab simultanously requests serve kar rahe hain.
+2. **Weighted Routing Policy:** Multiple resources / regions ko same domain name ke under list karke weights allocate kiye jatay hain (e.g., Region A weight 50, Region B weight 50).
+3. **Route 53 Health Checks:** Route 53 continuously har region ke resources ki health check karta hai. Agar koi Region/Resource unhealthy ho jaye (unresponsive), toh Route 53 usay DNS response se nikaal deta hai aur saara traffic baaki healthy active resources par route kar deta hai.
+
+---
+
+## 3. Correct Option Explanation
+
+#### ✅ **Configure an Active-Active Failover with Weighted routing policy.**
+
+* **Why it works:**
+1. **24/7 Global Availability:** Active-Active configuration ensure karti hai ke saare deployed regions simultaneously live hain aur requests process kar rahe hain.
+2. **Automatic Region Failover:** Weighted routing policy ke sath jab Route 53 Health Check detect karta hai ke ek region down / unhealthy ho gaya hai, toh Route 53 automatic us region ka weight 0 consider karta hai aur saari global DNS queries remaining healthy active regions par bhej deta hai.
+
+
+
+---
+
+## 4. Incorrect Options Breakdown (Elimination Strategy)
+
+| Option | Why It Fails the Exam Requirement |
+| --- | --- |
+| **Active-Passive Failover with Weighted Records** | Terminology contradiction. Active-Passive failover **Failover Routing Policy** (Primary/Secondary) use karta hai, Weighted policy nahi. |
+| **Active-Active Failover with One Primary and One Secondary** | Technical mismatch. Primary and Secondary naming convention **Active-Passive** failover ke liye hoti hai, Active-Active ke liye nahi. |
+| **Active-Passive Failover with Multiple Primary and Secondary** | Active-Passive configuration tab use hoti hai jab Secondary idle/standby ho. Active-Active multi-region deployment ke muqable is mein failover transition time aur limited active capacity ka issue rehta hai. |
+
+---
+
+## 5. Exam Decision Matrix (Route 53 Cheat Sheet)
+
+* **Route traffic to multiple healthy resources simultaneously (Active-Active):** $\rightarrow$ **Weighted / Latency / Geolocation Routing with Health Checks**
+* **Primary and Standby Disaster Recovery (Active-Passive):** $\rightarrow$ **Failover Routing Policy (Primary & Secondary)**
+* **Route traffic based on user's geographic location:** $\rightarrow$ **Geolocation Routing**
+* **Route traffic to the AWS region with lowest latency for the user:** $\rightarrow$ **Latency-Based Routing**
+
+---
 
 1-September-2026
 
