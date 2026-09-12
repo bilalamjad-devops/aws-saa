@@ -136,6 +136,50 @@ Aap application ko DB credentials (username/password) dene ke bajaye **AWS IAM A
 * **Keywords: "Serverless / Lambda connecting to RDS", "Database Connection Exhaustion", "Connection Pooling":** $\rightarrow$ **Amazon RDS Proxy**
 * **Keywords: "Reduce database failover time for applications":** $\rightarrow$ **Amazon RDS Proxy**
 
+
+### 🎯 What is being tested?
+
+**Read Replica vs Multi-AZ**
+
+### ✅ Correct answers — Select TWO
+
+**1. It elastically scales out beyond the capacity constraints of a single DB instance for read-heavy database workloads.**
+
+**2. Provides asynchronous replication and improves the performance of the primary database by taking read-heavy database workloads from it.**
+
+### 🔑 Key concept
+
+**Read Replica = Read scaling**
+
+Primary DB → **asynchronous replication** → Read Replica(s) → handle read queries
+
+This reduces the read workload on the primary DB and allows **horizontal read scaling**.
+
+### ❌ Key distinction
+
+**Multi-AZ** → **high availability**
+
+* Synchronous replication
+* Automatic failover
+* Not primarily for read scaling
+
+### 🔥 Exam shortcut
+
+> **Read Replica = scale READS + asynchronous**
+> **Multi-AZ = HA/failover + synchronous**
+
+
+12-September-2026
+
+## 4. Exam Decision Matrix (RDS Read Replica vs Multi-AZ Cheat Sheet)
+
+* **Scale READ queries / reporting workload:** $\rightarrow$ **Read Replicas**
+* **Replication Type for Read Replicas:** $\rightarrow$ **Asynchronous**
+* **High Availability (HA) & Automatic Failover:** $\rightarrow$ **Multi-AZ**
+* **Replication Type for Multi-AZ Standby:** $\rightarrow$ **Synchronous**
+
+---
+
 24-August-2026
 
 27-August-2026
@@ -147,3 +191,5 @@ Aap application ko DB credentials (username/password) dene ke bajaye **AWS IAM A
 5-September-2026
 
 11-September-2026
+
+12-September-2026
