@@ -191,8 +191,67 @@ And Question 27 is simply:
 **Primary MEAN app → fails → Route 53 automatically sends users to cheap static S3/CloudFront backup.**
 
 
+---
+
+### 🎯 What is being tested?
+
+**Route 53 routing policies for multi-Region high availability.**
+
+The key requirement is:
+
+> **All Regions should be active and serving traffic. If one becomes unhealthy, Route 53 should stop sending traffic to it.**
+
+That is **Active-Active**.
+
+### ✅ Correct answer
+
+**Configure an Active-Active Failover with Weighted routing policy.**
+
+With **Weighted Routing**, you can distribute traffic across resources in multiple Regions:
+
+`Users → Route 53 → Region A + Region B + Region C`
+
+If health checks are configured and a Region becomes unhealthy, Route 53 stops returning that unhealthy resource.
+
+### 🔑 Clear the concepts
+
+**Active-Passive**
+
+* One resource is **primary/active**
+* Other resource is **standby/passive**
+* Traffic normally goes only to primary.
+* ❌ Not ideal here because the question wants resources **available all the time**.
+
+**Active-Active**
+
+* Multiple resources are **active simultaneously**.
+* Traffic can go to all healthy resources.
+* ✅ Best for this scenario.
+
+**Weighted Routing**
+
+* Divides traffic according to weights.
+* Example: Region A = 50%, Region B = 50%.
+* Can be combined with **health checks**.
+
+### ❌ Other options
+
+* **Active-Passive + Weighted** ❌ → contradictory to the requirement; passive resources aren't serving traffic normally.
+* **Active-Active with One Primary + One Secondary** ❌ → primary/secondary implies passive/failover behavior.
+* **Active-Passive with Multiple Primary/Secondary** ❌ → still passive architecture.
+
+### 🔥 Exam shortcut
+
+> **Multiple Regions + all serving traffic + unhealthy resource removed → Active-Active + Weighted + Health Checks**
+
+**Active-Active = everyone works**
+**Active-Passive = one works, one waits**
+
+
 1-September-2026
 
 30-August-2026
 
 1-September-2026
+
+12-September-2026
