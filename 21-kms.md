@@ -66,8 +66,28 @@ think **SSE-S3** → `x-amz-server-side-encryption`.
 
 **`x-amz-server-side-encryption`** ✅
 
+---
+
+
+## 1. What Is Being Tested Here? (Core Exam Concepts)
+
+Is question mein AWS 2 main secrets/parameter storage services ko compare kar raha hai:
+
+1. **AWS SSM Parameter Store (Standard Parameters):**
+* **Cost:** Standard Parameters **completely FREE** hote hain (no storage cost, no API charge for standard throughput).
+* **Security:** `SecureString` parameter type supports **AWS KMS** encryption for sensitive data like DB passwords and API keys.
+* **Use Case:** Storing environment variables, hostnames, product keys, and credentials cost-effectively.
+
+
+2. **AWS Secrets Manager:**
+* **Cost:** **$0.40 per secret per month** plus API request charges.
+* **Key Feature:** Automatic DB password rotation (native integration with Aurora/RDS).
+* **Context Rule:** If automatic password rotation is **NOT explicitly requested**, SSM Parameter Store (`SecureString`) is always preferred over Secrets Manager due to lower cost.
+
 
 
 5-September-2026
 
 8-September-2026
+
+12-September-2026
