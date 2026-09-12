@@ -128,7 +128,35 @@ This is the table I would memorize for SAA:
 | Move existing on-premises data to AWS            | **DataSync**               |
 
 
+### 🎯 What is being tested?
+
+**Kinesis Data Streams retention period.**
+
+### ✅ Correct answer
+
+**By default, the data records are only accessible for 24 hours from the time they are added to a Kinesis stream.**
+
+### 🔑 Key concept
+
+Kinesis Data Streams keeps records for **24 hours by default**.
+
+Here:
+
+**Day 1 → data enters Kinesis**
+**Day 2 → consumer processes it**
+**Day 3 → consumer tries to process → some records may already be gone**
+
+So the consumer processing **every other day** can miss data.
+
+### 🔥 Exam shortcut
+
+> **Kinesis default retention = 24 hours**
+
+If consumers need to process data later, **increase the retention period** (up to 365 days).
+
 
 5-September-2026
 
 6-September-2026
+
+12-September-2026
