@@ -244,7 +244,46 @@ You're building the right mental model. Just don't say **"IAM policy attached to
 **AWS Directory Service:** lets you run Microsoft Active Directory as a managed service in the cloud or connect your AWS resources to an existing on-premises directory. it means we manage ms active dir in aws cloud or connect aws and on-premisis ms dir? 
 
 
+<img width="1457" height="876" alt="aws-iam-user-MFA-settings-saa-c03" src="https://github.com/user-attachments/assets/b1297eda-f0a4-46f8-8099-2311ddeada48" />
+
+### 🎯 What is being tested?
+
+**IAM Groups + least privilege + MFA**
+
+### ✅ Correct answer
+
+**Launch an IAM Group for each department. Create an IAM Policy that enforces MFA authentication with least-privilege permissions. Attach the IAM Policy to each IAM Group.**
+
+### 🔑 Key concept
+
+New users are added frequently and have **department-based permissions**:
+
+```text
+Department
+    ↓
+IAM Group
+    ↓
+MFA + Read-only Policy
+    ↓
+Users
+```
+
+You manage permissions **once at the group level**, rather than individually for every new user.
+
+### ❌ Others
+
+* **IAM Role attached to Groups** → roles aren't attached to groups ❌
+* **SCP** → requires AWS Organizations; not for individual IAM user permissions ❌
+* **Role per user + permissions boundary** → unnecessarily complex and doesn't directly solve group-based management ❌
+
+### 🔥 Exam shortcut
+
+**Many users + departments + same permissions → IAM Groups + policies.**
+
+
 
 31-August-2026
 
 1-September-2026
+14-September-2026
+
