@@ -180,6 +180,9 @@ This reduces the read workload on the primary DB and allows **horizontal read sc
 
 ---
 
+<img width="963" height="368" alt="auto-scaling-111723-1501" src="https://github.com/user-attachments/assets/97c3273c-d12b-4067-849f-b2e83898c27d" />
+
+
 ## 5. Exam Decision Matrix (Amazon RDS Scaling Cheat Sheet)
 
 * **Prevent RDS Out-of-Space errors automatically (Zero Overhead):** $\rightarrow$ **Enable Storage Auto Scaling**
