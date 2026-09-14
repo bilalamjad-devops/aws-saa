@@ -228,6 +228,31 @@ Direct SAA-C03 Takeaway
 
 > **Site-to-Site VPN → Customer Gateway needs a static public IP.**
 
+### 🎯 What is being tested?
+
+**VPC subnet basics**
+
+### ✅ Correct answers
+
+**1. Each newly created subnet is, by default, linked to the main route table of the VPC.**
+
+**2. Each subnet maps to a single Availability Zone.**
+
+### 🔑 Key concepts
+
+* **Main route table** → new subnets automatically use it unless you explicitly associate another route table.
+* **Subnet = one AZ** → A subnet cannot span multiple AZs.
+
+### ❌ Others
+
+* **Private subnet + Elastic IP** → EIP doesn't make a private subnet Internet-connected. It needs a **NAT Gateway** for outbound Internet access.
+* **Subnet spans 2 AZs** → ❌ One subnet = one AZ.
+* **/16 to /27** → ❌ The VPC CIDR range is `/16` to `/28` (IPv4); `/28` is the smallest allowed VPC subnet size.
+
+### 🔥 Exam shortcut
+
+**Subnet = single AZ**
+**New subnet → main route table by default**
 
 
 
@@ -244,3 +269,5 @@ Direct SAA-C03 Takeaway
 5-September-2026
 
 10-September-2026
+
+14-September-2026
