@@ -180,6 +180,13 @@ This reduces the read workload on the primary DB and allows **horizontal read sc
 
 ---
 
+## 5. Exam Decision Matrix (Amazon RDS Scaling Cheat Sheet)
+
+* **Prevent RDS Out-of-Space errors automatically (Zero Overhead):** $\rightarrow$ **Enable Storage Auto Scaling**
+* **Increase Read Performance across regions:** $\rightarrow$ **RDS Read Replicas**
+* **High Availability & Automatic Failover across AZs:** $\rightarrow$ **RDS Multi-AZ Deployment**
+
+
 24-August-2026
 
 27-August-2026
@@ -193,3 +200,5 @@ This reduces the read workload on the primary DB and allows **horizontal read sc
 11-September-2026
 
 12-September-2026
+
+14-September-2026
