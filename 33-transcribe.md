@@ -69,3 +69,15 @@ Another customer says:
 
 
 15-September-2026
+
+--
+
+## 5. Exam Decision Matrix (AWS AI Services Cheat Sheet)
+
+* **Speech to Text (Audio $\rightarrow$ Text):** $\rightarrow$ **Amazon Transcribe**
+* **Text to Speech (Text $\rightarrow$ Audio):** $\rightarrow$ **Amazon Polly**
+* **Language Translation (Text $\rightarrow$ Text):** $\rightarrow$ **Amazon Translate**
+* **Text Analytics & Sentiment Analysis:** $\rightarrow$ **Amazon Comprehend**
+* **Conversational Chatbot Interfaces:** $\rightarrow$ **Amazon Lex**
+
+---
