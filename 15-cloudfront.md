@@ -47,6 +47,9 @@ Aayein in dono sawalon ko Roman Urdu mein bilkul simple aur clear tarike se sama
 
 ---
 
+<img width="600" height="336" alt="Amazon_CloudFront_Origin_Access_Control_14March2024 (2)" src="https://github.com/user-attachments/assets/80d26bd5-0fa2-4145-83e4-271b6abf73e9" />
+
+
 ### 1. CloudFront URL Signed vs Unsigned Kya Hota Hai?
 
 Normal halat mein jab aap CloudFront distribution banate hain, toh CloudFront aapko ek **Normal (Unsigned) URL** deta hai (jaise: `[https://d111111abcdef8.cloudfront.net/image.png](https://d111111abcdef8.cloudfront.net/image.png)`).
