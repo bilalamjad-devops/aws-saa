@@ -190,6 +190,39 @@ This reduces the read workload on the primary DB and allows **horizontal read sc
 * **High Availability & Automatic Failover across AZs:** $\rightarrow$ **RDS Multi-AZ Deployment**
 
 
+<img width="841" height="274" alt="2020-01-21_05-42-25-d8c9d3cf71ef799dc5fffa57e7e2928d" src="https://github.com/user-attachments/assets/be4811f8-1f7c-420f-aae3-e08a435097de" />
+
+### 🎯 What is being tested?
+
+**Aurora endpoints for read scaling.**
+
+### ✅ Correct answer
+
+**Use the built-in Reader endpoint of the Aurora database.**
+
+### 🔑 Key concept
+
+Aurora has different endpoints:
+
+* **Cluster endpoint** → sends connections to the **primary/writer**.
+* **Reader endpoint** → automatically distributes **read traffic across Aurora Read Replicas**.
+
+Flow:
+
+**ECS/Fargate → Reader Endpoint → Replica 1 / Replica 2**
+
+### ❌ Others
+
+* **NLB** → unnecessary; Aurora already provides a Reader endpoint.
+* **Parallel Query** → speeds up certain queries; doesn't load balance replicas.
+* **Cluster endpoint** → intended for write operations.
+
+### 🔥 Exam shortcut
+
+**Aurora + Read Replicas + distribute read traffic → Reader Endpoint.**
+
+
+
 24-August-2026
 
 27-August-2026
@@ -205,3 +238,5 @@ This reduces the read workload on the primary DB and allows **horizontal read sc
 12-September-2026
 
 14-September-2026
+
+16-September-2026
