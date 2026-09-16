@@ -199,6 +199,89 @@ Exam ke scenario-based questions mein yeh specific features aksar trigger hote h
 * **Multi-Region Active-Active Replication:** $\rightarrow$ **DynamoDB Global Tables**
 * **Auto-expire temporary records:** $\rightarrow$ **TTL (Time to Live)**
 
+
+---
+---
+---
+
+<img width="804" height="778" alt="ddb_as_set_read_1" src="https://github.com/user-attachments/assets/d3e1473b-a0ea-4301-9d93-33cf43fcc4c2" />
+
+
+Aap ka concept **DAX** ke hawale se bilkul clear ho gaya hai! Ab aayein samajhte hain ke **API Gateway Caching** aur **DAX Caching** mein kya farq hai aur dono alag-alag level par kaise kaam karti hain.
+
+---
+
+### Architecture Mein Caching Kahan Hoti Hai?
+
+Sochein aap ki application ek multi-layer architecture hai:
+
+```
+[ Mobile Game / User ]
+         │
+         ▼
+ ┌─────────────────┐
+ │   API Gateway   │  ◄── 1. API Gateway Cache (Restricts hits to Lambda)
+ └────────┬────────┘
+          │
+          ▼
+ ┌─────────────────┐
+ │ AWS Lambda      │
+ └────────┬────────┘
+          │
+          ▼
+ ┌─────────────────┐
+ │  DynamoDB (DAX) │  ◄── 2. DAX Cache (Restricts hits to DynamoDB Disk)
+ └─────────────────┘
+
+```
+
+---
+
+### 1. API Gateway Caching (Frontend / API Layer Cache)
+
+**API Gateway Caching** poori **HTTP API response** ko cache karti hai.
+
+* **Kaise kaam karti hai?** Jab mobile game API Gateway ko koi request bhejta hai (e.g., `GET /leaderboard`), toh API Gateway response ko apne paas save kar leta hai.
+* **Fayda:** Agli baar jab koi user same request bhejega, toh API Gateway **Lambda function ko execute kiye bina** aur **DynamoDB ko touch kiye bina** direct response return kar dega.
+* **Main Benefit:**
+* **Cost Reduction:** Lambda function ke run execution charges bach jate hain.
+* **Response Speed:** Round-trip time bohot kam ho jata hai.
+
+
+
+---
+
+### 2. DynamoDB Accelerator - DAX (Database Layer Cache)
+
+**DAX** sirf aur sirf **DynamoDB database queries/reads** ko cache karta hai.
+
+* **Kaise kaam karti hai?** Jab Lambda function DynamoDB se data mangta hai (e.g., `GetItem` ya `Query`), toh request pehle DAX mein jati hai. Agar data DAX mein hai, toh mil jata hai; agar nahi hai, toh DAX DynamoDB se la kar save karta hai.
+* **Fayda:** Lambda function chalega aur code execute hoga, lekin DynamoDB database disk par load nahi padega.
+* **Main Benefit:**
+* **Microsecond Latency:** Query response time milliseconds se drop ho kar **microseconds** ho jata hai.
+* **Database RCU Saving:** DynamoDB ki Read Capacity Units (RCU) consume nahi hoti.
+
+
+
+---
+
+### Comparison Table (Quick Summary)
+
+| Feature | **API Gateway Caching** | **DynamoDB Accelerator (DAX)** |
+| --- | --- | --- |
+| **Kya Cache Hota Hai?** | Poora HTTP API Response. | Specific Database Items / Queries. |
+| **Kahan Hota Hai?** | System ke Frontend (API) level par. | System ke Database level par. |
+| **Lambda Run Hota Hai?** | ❌ Nahi (Lambda execution bypass ho jata hai). | ✅ Haan (Lambda run hota hai, par DB saved rehta hai). |
+| **Main Objective** | Traffic ko Lambda tak pohenchne se rokna. | DB Reads ko **microseconds** speed dena. |
+
+---
+
+### Exam Rule of Thumb:
+
+* Agar question bole: *"Cache API responses to reduce Lambda execution costs"* $\rightarrow$ **API Gateway Caching**
+* Agar question bole: *"In-memory cache for DynamoDB to get microsecond read latency"* $\rightarrow$ **DynamoDB Accelerator (DAX)**
+
+
 24-August-2026
 
 31-August-2026
@@ -206,3 +289,5 @@ Exam ke scenario-based questions mein yeh specific features aksar trigger hote h
 1-September-2026
 
 12-September-2026
+
+16-September-2026
