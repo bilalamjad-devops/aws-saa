@@ -27,7 +27,12 @@ Iska sab se bara fayda yeh hai ke aap ko **servers manage nahi karne padte (No E
 * **Setup:** `DynamoDB Streams / Aurora Native Triggers` $\rightarrow$ `AWS Lambda`
 
 
+
+
 Aap ko Lambda ka yeh broad ecosystem aur real-world use clear ho gaya?
+
+<img width="1920" height="649" alt="TD-AWS-Lambda-Ephemeral-Storage-03-17-2025 (1)" src="https://github.com/user-attachments/assets/f2727a20-2cd1-4e22-bb0b-e3f8a0ad6072" />
+
 
 AWS ke context mein **Ephemeral Storage** ka matlab **Temporary Hard Drive/SSD Disk Space** hota hai, **RAM (Random Access Memory) nahi**.
 
