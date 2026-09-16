@@ -254,6 +254,45 @@ Direct SAA-C03 Takeaway
 **Subnet = single AZ**
 **New subnet → main route table by default**
 
+---
+---
+---
+
+### 🎯 What is being tested?
+
+**VPC peering is non-transitive.**
+
+### ✅ Correct answer
+
+**Create a new VPC peering connection between PROD and DEV with the appropriate routes.**
+
+### 🔑 Key concept
+
+Current:
+
+**DEV ↔ UAT ↔ PROD**
+
+❌ DEV **cannot** communicate with PROD through UAT because **VPC peering does not support transitive routing**.
+
+You need:
+
+**DEV ↔ PROD** ✅
+
+Then add the appropriate routes to both VPC route tables.
+
+### ❌ Others
+
+* **Do nothing** → VPC peering is not transitive.
+* **Add PROD to DEV route table using UAT peering** → doesn't make peering transitive.
+* **Overlapping CIDRs** → VPC peering requires non-overlapping CIDRs.
+
+### 🔥 Exam shortcut
+
+**VPC Peering = non-transitive.**
+
+`A ↔ B ↔ C` ❌ **A cannot reach C**
+
+Need `A ↔ C` ✅
 
 
 24-August-2026
@@ -271,3 +310,5 @@ Direct SAA-C03 Takeaway
 10-September-2026
 
 14-September-2026
+
+16-September-2026
