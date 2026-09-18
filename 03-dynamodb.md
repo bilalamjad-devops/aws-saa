@@ -281,6 +281,454 @@ Sochein aap ki application ek multi-layer architecture hai:
 * Agar question bole: *"Cache API responses to reduce Lambda execution costs"* $\rightarrow$ **API Gateway Caching**
 * Agar question bole: *"In-memory cache for DynamoDB to get microsecond read latency"* $\rightarrow$ **DynamoDB Accelerator (DAX)**
 
+---
+---
+---
+
+
+Absolutely. For **AWS SAA**, DynamoDB questions usually revolve around these concepts. Since you want short revision, focus on these:
+
+## 🎯 DynamoDB — SAA Must-Know Concepts
+
+### 1. What is DynamoDB?
+
+**Fully managed NoSQL database** designed for very high performance and scalability.
+
+* Key-value + document database
+* Serverless
+* Millisecond latency
+* Automatically scales
+* NoSQL → **not SQL**
+
+**Exam clue:**
+`NoSQL + massive scale + low latency → DynamoDB`
+
+---
+
+### 2. Primary Key ⭐⭐⭐
+
+Two types:
+
+**Simple primary key**
+
+```text
+Partition Key
+```
+
+**Composite primary key**
+
+```text
+Partition Key + Sort Key
+```
+
+Example:
+
+```text
+UserID = 123        ← Partition Key
+OrderID = 456       ← Sort Key
+```
+
+**Shortcut:**
+Partition key decides **where data is stored**.
+Sort key organizes **related items**.
+
+---
+
+### 3. Query vs Scan ⭐⭐⭐
+
+**Query**
+
+* Searches using a specific partition key
+* Efficient
+* Preferred
+
+**Scan**
+
+* Examines the entire table
+* Expensive/slower
+* Avoid when possible
+
+**Shortcut:**
+`Known partition key → Query`
+`Need entire table → Scan`
+
+---
+
+### 4. Provisioned vs On-Demand Capacity ⭐⭐⭐
+
+**Provisioned**
+
+* You specify RCU/WCU
+* Can use **DynamoDB Auto Scaling**
+* Good for predictable workloads
+
+**On-Demand**
+
+* Pay per request
+* Automatically handles capacity
+* Good for unpredictable/spiky workloads
+
+**Shortcut:**
+`Provisioned + changing traffic → Auto Scaling`
+
+`Unpredictable traffic → On-Demand`
+
+---
+
+### 5. RCU and WCU ⭐⭐⭐
+
+**WCU = Write Capacity Unit**
+
+**RCU = Read Capacity Unit**
+
+Think:
+
+```text
+Write → WCU
+Read  → RCU
+```
+
+Don't confuse them with storage.
+
+---
+
+### 6. DynamoDB Auto Scaling ⭐⭐⭐
+
+Automatically adjusts **provisioned RCU/WCU** based on demand.
+
+Example:
+
+```text
+Normal traffic
+     ↓
+Low capacity
+
+Traffic spike
+     ↓
+Auto Scaling
+     ↓
+More RCU/WCU
+```
+
+**Exam clue:**
+`Provisioned DynamoDB + throttling during traffic peaks → Auto Scaling`
+
+---
+
+### 7. DynamoDB Accelerator (DAX) ⭐⭐⭐
+
+**DAX = in-memory cache for DynamoDB.**
+
+It reduces read latency from approximately:
+
+```text
+milliseconds → microseconds
+```
+
+Useful when the application repeatedly reads the same data.
+
+**Shortcut:**
+`DynamoDB + extremely low read latency → DAX`
+
+---
+
+### 8. DynamoDB Streams ⭐⭐⭐
+
+Captures changes made to a DynamoDB table.
+
+Example:
+
+```text
+DynamoDB
+   ↓
+DynamoDB Streams
+   ↓
+Lambda
+   ↓
+SNS / SQS / other processing
+```
+
+Can capture:
+
+* INSERT
+* MODIFY
+* REMOVE
+
+**Exam clue:**
+`When item changes → trigger something → DynamoDB Streams + Lambda`
+
+---
+
+### 9. Global Tables ⭐⭐⭐
+
+For **multi-Region DynamoDB**.
+
+Example:
+
+```text
+Region A DynamoDB
+       ↕
+Global Tables
+       ↕
+Region B DynamoDB
+```
+
+Provides:
+
+* Multi-Region replication
+* Low-latency access globally
+* Disaster recovery
+* Active-active architecture
+
+**Shortcut:**
+`DynamoDB + users globally distributed → Global Tables`
+
+---
+
+### 10. Local Secondary Index (LSI)
+
+Alternative sort key while keeping the **same partition key**.
+
+```text
+Same Partition Key
+Different Sort Key
+```
+
+Important:
+
+* Created when the table is created
+* Same partition key as base table
+
+**Shortcut:**
+`LSI = Same PK, different SK`
+
+---
+
+### 11. Global Secondary Index (GSI) ⭐⭐⭐
+
+Allows querying using a **different partition key**.
+
+```text
+Table:
+PK = UserID
+
+GSI:
+PK = Email
+```
+
+Important:
+
+* Different partition key allowed
+* Can have different sort key
+* Can be created/modified after table creation
+
+**Shortcut:**
+
+```text
+LSI → same PK
+GSI → different PK
+```
+
+This is a **very common SAA question**.
+
+---
+
+### 12. Eventually Consistent vs Strongly Consistent Reads
+
+**Eventually consistent**
+
+* Default
+* May briefly return older data
+* Lower read capacity cost
+
+**Strongly consistent**
+
+* Returns latest data
+* Higher RCU consumption
+
+**Shortcut:**
+`Need latest data immediately → Strongly Consistent Read`
+
+---
+
+### 13. DynamoDB Transactions
+
+Provides **ACID transactions** across multiple items/tables.
+
+Useful when several changes must either:
+
+```text
+ALL succeed
+OR
+ALL fail
+```
+
+**Exam clue:**
+`Multiple DynamoDB operations must be atomic → Transactions`
+
+---
+
+### 14. TTL — Time to Live
+
+Automatically deletes expired items.
+
+Example:
+
+```text
+Session expires
+     ↓
+TTL
+     ↓
+DynamoDB eventually removes it
+```
+
+Useful for:
+
+* Temporary data
+* Sessions
+* Expiring records
+* Old logs
+
+**Shortcut:**
+`Automatically remove expired DynamoDB items → TTL`
+
+---
+
+### 15. DynamoDB Backup ⭐⭐
+
+Two important options:
+
+**Point-in-Time Recovery (PITR)**
+
+* Continuous backups
+* Restore to a specific point in time
+
+**On-demand backup**
+
+* Manual backup
+* Long-term retention
+
+**Shortcut:**
+`Restore to any point in time → PITR`
+
+---
+
+### 16. DynamoDB Encryption
+
+DynamoDB encrypts data **at rest** by default.
+
+Can use:
+
+* AWS owned key
+* AWS managed KMS key
+* Customer managed KMS key
+
+**Exam clue:**
+`DynamoDB encryption at rest → KMS`
+
+---
+
+### 17. DynamoDB + Lambda ⭐⭐⭐
+
+Very common architecture:
+
+```text
+DynamoDB
+   ↓
+Streams
+   ↓
+Lambda
+   ↓
+Process change
+```
+
+Example:
+
+> When a new order is inserted, automatically send notification.
+
+→ **DynamoDB Streams + Lambda**
+
+---
+
+### 18. DynamoDB + API Gateway
+
+Common serverless architecture:
+
+```text
+Client
+  ↓
+API Gateway
+  ↓
+Lambda
+  ↓
+DynamoDB
+```
+
+No EC2 required.
+
+---
+
+### 19. DynamoDB + AppSync
+
+AWS AppSync is a managed service for building APIs, commonly with **GraphQL**.
+
+Example:
+
+```text
+Mobile/Web App
+      ↓
+   AppSync
+      ↓
+ DynamoDB
+```
+
+**Exam clue:**
+`GraphQL + DynamoDB → AppSync`
+
+---
+
+### 20. Hot Partition ⭐⭐
+
+If too many requests go to the same partition key, you can get a **hot partition**.
+
+Bad design:
+
+```text
+Partition Key = "USA"
+```
+
+Millions of requests all targeting `"USA"`.
+
+Better partition-key design distributes traffic.
+
+**Shortcut:**
+`Uneven traffic → hot partition`
+
+---
+
+# 🔥 Highest-Priority DynamoDB Topics
+
+If you're short on time, memorize these **10 first**:
+
+| Concept            | Exam shortcut            |
+| ------------------ | ------------------------ |
+| Primary Key        | PK + optional SK         |
+| Query              | Specific PK              |
+| Scan               | Entire table             |
+| Auto Scaling       | Provisioned capacity     |
+| DAX                | Microsecond cached reads |
+| Streams            | Changes → Lambda         |
+| Global Tables      | Multi-Region             |
+| GSI                | Different PK             |
+| LSI                | Same PK                  |
+| Strong Consistency | Latest data              |
+
+### 🧠 One-line DynamoDB memory map
+
+**DynamoDB = NoSQL → Query → RCU/WCU → Auto Scaling → DAX → Streams → Global Tables → GSI/LSI → Consistency → TTL/PITR.**
+
+These are the areas I'd expect you to see repeatedly in **SAA practice questions**.
+
 
 24-August-2026
 
@@ -291,3 +739,5 @@ Sochein aap ki application ek multi-layer architecture hai:
 12-September-2026
 
 16-September-2026
+
+18-September-2026
