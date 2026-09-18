@@ -380,6 +380,9 @@ You don't need to memorize all the technical details of gRPC right now. For your
 ---
 ---
 
+<img width="707" height="591" alt="ALB-06-01-23" src="https://github.com/user-attachments/assets/2b12a909-e0a8-4b2d-9438-0027a979347c" />
+
+
 Aayein isko simple aur daily life example ke sath samajhte hain:
 
 ---
