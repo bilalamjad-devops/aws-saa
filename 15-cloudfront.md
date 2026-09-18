@@ -97,7 +97,22 @@ OAC lagane se yeh setup banta hai:
 > **Note for SAA-C03 Exam:** OAC AWS ka naya aur recommended tarika hai. Is se pehle AWS **OAI (Origin Access Identity)** use karta tha, lekin ab AWS OAC ko prefer karta hai kyunke OAC S3 Server-Side Encryption (KMS) ko bhi support karta hai.
 
 ---
+---
+---
+
+
+
+## 5. Exam Decision Matrix (S3 Origin Protection Cheat Sheet)
+
+* **Secure S3 Bucket behind CloudFront (Modern Method):** $\rightarrow$ **Origin Access Control (OAC)**
+* **Secure S3 Bucket behind CloudFront (Legacy Method):** $\rightarrow$ **Origin Access Identity (OAI)** *(Deprecated / Not recommended for new setups)*
+* **Restrict Access to Specific Files via CloudFront:** $\rightarrow$ **CloudFront Signed URLs / Cookies**
+
+---
+
 
 30-August-2026
 
 16-September-2026
+
+18-September-2026
