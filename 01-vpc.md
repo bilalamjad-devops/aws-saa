@@ -295,6 +295,28 @@ Then add the appropriate routes to both VPC route tables.
 Need `A ↔ C` ✅
 
 
+---
+---
+---
+---
+
+
+### 🔥 The easiest way to remember
+
+**CloudHub = many ON-PREMISES sites via VPN**
+
+**DX Gateway = ON-PREMISES ↔ AWS via Direct Connect**
+
+**Transit Gateway = MANY AWS NETWORKS (VPCs) + VPN/DX → central hub**
+
+And for your Q20:
+
+> **Hundreds of VPCs + multiple accounts + 5 Regions + VPN + scalable networking**
+
+Think immediately:
+
+**TGW → one per Region → TGW peering between Regions.**
+
 24-August-2026
 
 27-August-2026
@@ -312,3 +334,5 @@ Need `A ↔ C` ✅
 14-September-2026
 
 16-September-2026
+
+19-September-2026
