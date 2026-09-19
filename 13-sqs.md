@@ -287,8 +287,14 @@ Sochein aap ke ghar ke bahar ek **Letter Box (SQS)** hai. Postman us mein letter
 Question 59 mein shart thi: **"The entire message processing should not exceed 24 hours."**
 SQS ki default retention (4 days) 24 hours se zyada hai, is liye SQS is requirement ko naturally fulfill karta hai bina kisi extra configuration ke!
 
+
+<img width="938" height="764" alt="2020-03-09_11-14-42-e24d31f607e373f989c2829e2805b01e" src="https://github.com/user-attachments/assets/9ad97da0-d79b-4139-a2da-668c3f7be9d9" />
+
+
 3-September-2026
 
 11-September-2026
 
 12-September-2026
+
+19-September-2026
