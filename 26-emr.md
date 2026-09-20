@@ -24,4 +24,19 @@ Simple lafzon mein: Agar aap ke paas 1 single EC2 instance par handle na hone wa
 * **Open-source Big Data frameworks (Spark, Hadoop, Hive):** $\rightarrow$ **Amazon EMR**
 * **Serverless Big Data ETL (Simple Python/Spark without cluster management):** $\rightarrow$ **AWS Glue**
 
+
+---
+---
+---
+
+
+### 5. Exam Decision Matrix (Log Storage & Processing Cheat Sheet)
+
+* **Big Data / Log Analytics at Scale (Hadoop/Spark):** $\rightarrow$ **Amazon EMR + Amazon S3**
+* **Serverless SQL Querying on S3 Logs:** $\rightarrow$ **Amazon Athena + Amazon S3**
+* **Real-time Log Ingestion & Streaming:** $\rightarrow$ **Amazon Kinesis Data Firehose + Amazon S3**
+
+
 11-September-2026
+
+20-September-2026
