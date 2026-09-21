@@ -25,6 +25,9 @@ Aayein inka difference simple terms mein samajhte hain:
 
 ---
 
+<img width="1050" height="887" alt="saa_personal_health_dashboard" src="https://github.com/user-attachments/assets/41d7d745-b5f0-498d-b804-71d4b05a0ab1" />
+
+
 ### 3. Exam Shortcut (SAA-C03)
 
 * **Question bole:** *"Meray specific EC2 instance ki maintenance ka advance notice chahiye"* $\rightarrow$ **Personal Health Dashboard**.
