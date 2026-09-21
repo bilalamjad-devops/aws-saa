@@ -2,7 +2,6 @@ Haan bilkul, **Amazon Comprehend** aur **Amazon Comprehend Medical** do alag-ala
 
 Aayein in dono ke darmiyan farq ko detail mein samajhte hain:
 
-<img width="1329" height="1014" alt="amazon-comprehend-medical" src="https://github.com/user-attachments/assets/6d294b8e-2627-439c-9e7b-e4d7c4e6315a" />
 
 
 ---
@@ -27,6 +26,9 @@ Yeh **General-Purpose Text Analysis** ke liye design ki gayi hai. Is ka ML model
 ---
 
 ### 2. Amazon Comprehend Medical
+
+<img width="1329" height="1014" alt="amazon-comprehend-medical" src="https://github.com/user-attachments/assets/6d294b8e-2627-439c-9e7b-e4d7c4e6315a" />
+
 
 Yeh specialized **Healthcare & Life Sciences** domain ke liye banayi gayi hai. Yeh ML engine doctor's clinical notes, electronic health records (EHR), medical prescriptions, aur lab reports par specially train hua hai.
 
