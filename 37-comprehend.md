@@ -2,6 +2,9 @@ Haan bilkul, **Amazon Comprehend** aur **Amazon Comprehend Medical** do alag-ala
 
 Aayein in dono ke darmiyan farq ko detail mein samajhte hain:
 
+<img width="1329" height="1014" alt="amazon-comprehend-medical" src="https://github.com/user-attachments/assets/6d294b8e-2627-439c-9e7b-e4d7c4e6315a" />
+
+
 ---
 
 ### 1. Amazon Comprehend (Standard / Simple)
