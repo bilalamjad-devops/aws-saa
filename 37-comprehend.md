@@ -7,6 +7,7 @@ Aayein in dono ke darmiyan farq ko detail mein samajhte hain:
 
 ---
 
+
 ### 1. Amazon Comprehend (Standard / Simple)
 
 Yeh **General-Purpose Text Analysis** ke liye design ki gayi hai. Is ka ML model general news, social media posts, customer reviews, support tickets, aur business documents ke data par train hua hota hai.
