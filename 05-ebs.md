@@ -254,6 +254,19 @@ HDD volumes bare files aur continuous throughput ke liye best hotay hain. **Impo
 3. Agar question **"Big Data / Log Analytics / Hadoop"** bole $\rightarrow$ **`st1`** select karein.
 4. Agar question **"Default / Balanced Cost"** bole $\rightarrow$ **`gp3`** select karein.
 
+
+### 4. Exam Decision Matrix (EBS Volume Types Cheat Sheet)
+
+| Volume Type | Technology | Key Feature / Use-Case |
+| --- | --- | --- |
+| **General Purpose (`gp2` / `gp3`)** | SSD | Cost-effective, system boot volumes, dev/test, balanced performance. |
+| **Provisioned IOPS (`io1` / `io2`)** | SSD | Sustained high IOPS, low latency, mission-critical DBs, Multi-Attach support. |
+| **Throughput Optimized (`st1`)** | HDD | Large sequential workloads, Big Data, Data Warehousing, Log processing. |
+| **Cold HDD (`sc1`)** | HDD | Lowest cost HDD, infrequently accessed data, large file storage. |
+| **Magnetic (Standard)** | HDD (Legacy) | Infrequently accessed workloads, lowest overall EBS cost per GB tier. |
+
+---
+
 31-August-2026
 
 24-August-2026
