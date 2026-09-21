@@ -254,6 +254,20 @@ The exam is basically shouting:
 
 And one small correction to keep your mental model clean: **EKS itself is an AWS managed service, but Kubernetes—the orchestration platform it provides—is open-source and portable.**
 
+---
+---
+---
+
+### 5. Exam Decision Matrix (EKS Auto Scaling Cheat Sheet)
+
+* **Automatic EKS Worker Node Scaling (Kubernetes Native):** $\rightarrow$ **Kubernetes Cluster Autoscaler / Karpenter**
+* **Automatic Pod Scaling based on CPU/Memory:** $\rightarrow$ **Horizontal Pod Autoscaler (HPA)**
+* **Automatic Pod Scaling based on Request Count / Events:** $\rightarrow$ **Kubernetes Event-driven Autoscaling (KEDA)**
+
+---
+
 30-August-2026
 
 12-September-2026
+
+21-September-2026
