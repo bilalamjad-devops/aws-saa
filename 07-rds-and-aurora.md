@@ -292,6 +292,57 @@ Aayein **Bank Money Transfer** ki example se samajhte hain:
 * Jab bhi koi database **hafte/mahine mein sirf 1-2 baar** use ho raha ho $\rightarrow$ **Snapshot le kar Database Delete/Terminate kar do**, aur zarurat parne par Snapshot se Restore karo. Is se sab se ziada paise bachtay hain!
 
 
+---
+---
+---
+
+
+<img width="1017" height="651" alt="td-babelfish-for-aurora-postgressql-01-06-25" src="https://github.com/user-attachments/assets/567ef356-f63d-417d-9724-f0788080a6f7" />
+
+
+Aayein is question ko bilkul simple aur practical example se samajhte hain:
+
+---
+
+### Question Ki Kahani (Real-World Context)
+
+Ek company apna purana database badalna chahti hai:
+
+1. **Purana Database:** Microsoft SQL Server (Yeh Microsoft ki zaban **T-SQL** bolta hai).
+2. **Naya Database:** Amazon Aurora PostgreSQL (Yeh PostgreSQL ki zaban bolta hai).
+3. **Problem (Masla):**
+Company ki Saari Applications (Software) purane SQL Server ke mutabiq likhi hui hain. Agar wo naye Aurora PostgreSQL par shift hongi, toh:
+* Data migrate karna parega.
+* Developers ko hazaron lines ka **code dobara likhna (rewrite)** parega kyunki dono databases ki zaban (syntax) alag hai.
+
+
+4. **Maqsad:**
+AWS ka aisa solution chahiye jis se **Application ka code kam se kam badalna (modify) pare** aur data bhi safe migrate ho jaye.
+
+---
+
+### Iska Sahi Hal Kya Hai? (Do Main Cheezein)
+
+#### 1. Babelfish for Aurora PostgreSQL (Zaban Translator)
+
+* **Babelfish kya hai?** Yeh Aurora PostgreSQL ka ek special feature hai jo ek **Translator (Tarjuma karne wale)** ki tarah kaam karta hai.
+* Yeh application ko PostgreSQL ke andar bhi Microsoft SQL Server wali zaban samjhne deta hai. Is se developers ko application code modify nahi karna padta.
+
+#### 2. AWS SCT + AWS DMS (Migration Tools)
+
+* **AWS Schema Conversion Tool (AWS SCT):** Database ki Structure/Schema (Tables, Views, Rules) ko Microsoft format se PostgreSQL format mein convert karta hai.
+* **AWS Database Migration Service (AWS DMS):** Actual Data (Rows, Numbers, Text) ko purane database se utha kar naye database mein shift karta hai.
+
+---
+
+### Exam Rule (Yaad Rakhne Ke Liye)
+
+* Jab bhi question bole: **"Migrate Microsoft SQL Server to Aurora PostgreSQL with MINIMAL code changes"** $\rightarrow$ Hamesha **Babelfish** + **AWS SCT / DMS** select karein!
+
+23-September-2026
+
+
+
 24-August-2026
 
 27-August-2026
@@ -313,3 +364,5 @@ Aayein **Bank Money Transfer** ki example se samajhte hain:
 21-September-2026
 
 22-September-2026
+
+23-September-2026
