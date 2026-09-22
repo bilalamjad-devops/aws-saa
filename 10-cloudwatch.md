@@ -177,6 +177,21 @@ If the page file is heavily utilized, it can indicate **memory pressure** and po
 **One sentence to memorize:**
 👉 **Swap = Linux; Page File = Windows; both are disk used as virtual memory.**
 
+
+---
+---
+---
+
+### 5. Exam Decision Matrix (Monitoring & Logging Agents Cheat Sheet)
+
+* **Collect OS Logs & Custom System Metrics (RAM, Disk Space):** $\rightarrow$ **Unified CloudWatch Agent**
+* **Manage/Patch EC2 Instances & Run Remote Commands:** $\rightarrow$ **AWS SSM Agent**
+* **Security & Vulnerability Assessment Scans:** $\rightarrow$ **Amazon Inspector Agent**
+* **Analyze Logs within CloudWatch:** $\rightarrow$ **CloudWatch Logs Insights**
+
+---
 27-August-2026
 
 28-August-2026
+
+22-September-2026
