@@ -87,6 +87,68 @@ Aayein pehle question aur is ke saare options ko bilkul aasan lafzon mein samajh
 * **Free Managed SSL Certificates in AWS:** $\rightarrow$ **AWS Certificate Manager (ACM)**
 
 ---
+---
+---
+
+
+
+<img width="1773" height="760" alt="api-custom-domain-07-05-23" src="https://github.com/user-attachments/assets/6c98b308-4d0a-4147-8bfd-7e1637818f23" />
+
+
+Bilkul tension mat lein! Yeh AWS ka ek fundamental concept hai jo pehli baar thoda confusing lagta hai. Aayein isay step-by-step aur real-life example se samajhte hain.
+
+---
+
+### 1. AWS Regions Kya Hain? (Simple Example)
+
+AWS ne poori dunya mein apne **Data Centers** khole hue hain. Un data centers ki locations ko AWS **Regions** kehta hai aur unhe naam deta hai:
+
+* **`us-east-1`** = N. Virginia, USA mein majood data center.
+* **`us-east-2`** = Ohio, USA mein majood data center.
+* **`ap-south-1`** = Mumbai, India mein majood data center.
+
+Jab aap AWS par koi bhi service (jaise EC2 instance, Database, ya API Gateway) banate hain, toh aap pehle select karte hain ke aap isay **kis region (data center)** mein chalana chahte hain.
+
+---
+
+### 2. AWS Certificate Manager (ACM) aur SSL Certificate
+
+Aap ne dekha hoga jab aap kisi bank ya secure website par jaate hain, toh browser ke URL ke sath ek **Green Lock Icon (🔒)** aur `https://` aata hai. Yeh lock **SSL/TLS Certificate** ki wajah se aata hai.
+
+AWS mein SSL Certificate **ACM (AWS Certificate Manager)** service ke zariye **mufat (free)** banta hai.
+
+---
+
+### 3. Region Ka Rule (Yeh Confusion Kyun Hui?)
+
+AWS mein bohot si services **Region-Specific** hoti hain. Iska matlab hai agar aap ne ek cheez **Ohio (`us-east-2`)** mein banayi hai, toh us se judi doosri cheezein bhi **Ohio (`us-east-2`)** mein hi honi chahiye.
+
+#### **Rule:**
+
+* Agar aap ki **API Gateway (API)** Ohio (`us-east-2`) ke data center mein chal rahi hai...
+* Toh us API ke liye jo **SSL Certificate (🔒)** banega, woh bhi aap ko **Ohio (`us-east-2`)** region mein ja kar hi create karna padega.
+
+Agar aap SSL Certificate N. Virginia (`us-east-1`) mein bana lenge, toh Ohio wali API us certificate ko **use nahi kar payegi** kyunki dono ka region alag hoga.
+
+---
+
+### 4. Summary (Pura Workflow Ek Nazar Mein)
+
+```
+[ Step 1 ]
+Aap ne Ohio (us-east-2) mein API Gateway banaya.
+
+[ Step 2 ]
+Aap ne Ohio (us-east-2) ke ACM mein ja kar "api.tutorialsdojo.com" ka SSL Certificate banaya.
+
+[ Step 3 ]
+Dono ko apas mein connect kiya taake website par HTTPS (🔒) chal sake.
+
+```
+
+Bas itni si baat thi! Aayein ab aage chalte hain jab aap ready hon.
 
 
 12-September-2026
+
+22-September-2026
