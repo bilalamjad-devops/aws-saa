@@ -304,6 +304,10 @@ Sochein aap ki application ek multi-layer architecture hai:
 ---
 ---
 
+<img width="1773" height="760" alt="api-custom-domain-07-05-23" src="https://github.com/user-attachments/assets/6c98b308-4d0a-4147-8bfd-7e1637818f23" />
+
+
+
 Bilkul tension mat lein! Yeh AWS ka ek fundamental concept hai jo pehli baar thoda confusing lagta hai. Aayein isay step-by-step aur real-life example se samajhte hain.
 
 ---
