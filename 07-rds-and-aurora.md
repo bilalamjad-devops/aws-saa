@@ -282,6 +282,15 @@ Aayein **Bank Money Transfer** ki example se samajhte hain:
 3. **High Availability / Backup Standby Chahiye:** $\rightarrow$ **Multi-AZ Deployment**
 
 ---
+---
+---
+
+<img width="668" height="380" alt="db-snapshot-06-20-23 (1)" src="https://github.com/user-attachments/assets/99805e6e-9c6c-4687-93af-ba206071217f" />
+
+### AWS SAA-C03 Exam Rule (Yaad Rakhne Ke Liye)
+
+* Jab bhi koi database **hafte/mahine mein sirf 1-2 baar** use ho raha ho $\rightarrow$ **Snapshot le kar Database Delete/Terminate kar do**, aur zarurat parne par Snapshot se Restore karo. Is se sab se ziada paise bachtay hain!
+
 
 24-August-2026
 
@@ -302,3 +311,5 @@ Aayein **Bank Money Transfer** ki example se samajhte hain:
 16-September-2026
 
 21-September-2026
+
+22-September-2026
