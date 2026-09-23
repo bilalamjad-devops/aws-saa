@@ -729,7 +729,17 @@ If you're short on time, memorize these **10 first**:
 
 These are the areas I'd expect you to see repeatedly in **SAA practice questions**.
 
+---
+---
+---
 
+### 5. Cheat Sheet for Database Event Triggers (SAA-C03)
+
+* **Detect new items / updates in DynamoDB & trigger Lambda:** $\rightarrow$ **DynamoDB Streams**
+* **Detect S3 object uploads & trigger Lambda:** $\rightarrow$ **S3 Event Notifications**
+* **Detect AWS API calls / Resource state changes:** $\rightarrow$ **Amazon EventBridge (CloudWatch Events)**
+
+---
 24-August-2026
 
 31-August-2026
@@ -741,3 +751,5 @@ These are the areas I'd expect you to see repeatedly in **SAA practice questions
 16-September-2026
 
 18-September-2026
+
+23-September-2026
