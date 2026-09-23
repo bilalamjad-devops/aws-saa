@@ -84,10 +84,67 @@ Is question mein AWS 2 main secrets/parameter storage services ko compare kar ra
 * **Key Feature:** Automatic DB password rotation (native integration with Aurora/RDS).
 * **Context Rule:** If automatic password rotation is **NOT explicitly requested**, SSM Parameter Store (`SecureString`) is always preferred over Secrets Manager due to lower cost.
 
+---
+---
+---
 
+
+S3 par data ko store karte waqt security ensure karne ke liye **Server-Side Encryption (SSE)** use hoti hai. Server-Side Encryption ka matlab hai ke jab data S3 ke paas puhancta hai, toh S3 usay disk par write karne se pehle **automatically encrypt** kar deta hai, aur jab aap access karte hain toh **decrypt** kar ke deta hai.
+
+AWS mein Server-Side Encryption ki **3 main types** hoti hain. Isay easily samajhte hain:
+
+---
+
+## 1. SSE-S3 (Server-Side Encryption with Amazon S3-Managed Keys)
+
+Yeh sub se simple, default, aur free encryption mode hai.
+
+* **Kaise Kaam Karta Hai?** Encryption aur decryption ke liye jo Master Key use hoti hai, woh **poori tarah Amazon S3 khud manage aur protect karta hai**.
+* **Key Rotation:** AWS isay periodic basis par background mein automatically rotate karta hai.
+* **Audit Trail:** Aap yeh track **NOHI** kar sakte ke kis user ne kab encryption key ko access ya call kiya.
+* **Cost:** Completely **FREE** (S3 storage charges ke alawa encryption ki koi extra fee nahi hai).
+* **Best Use Case:** Jab aap ko baseline security/compliance chahiye lekin key management aur individual key audit trails ka koi masla na ho.
+
+---
+
+## 2. SSE-KMS (Server-Side Encryption with AWS KMS Keys)
+
+Yeh sub se flexible aur secure enterprise option hai jo **AWS Key Management Service (AWS KMS)** ko use karta hai.
+
+* **Kaise Kaam Karta Hai?** Encryption **AWS KMS Keys (KMS CMKs)** ke zariye hoti hai. Is mein **Envelope Encryption** use hoti hai (jahan KMS ek Data Key generate karta hai jo data ko encrypt karti hai, aur Master KMS Key us Data Key ko encrypt karti hai).
+* **Key Control & Rotation:** Aap khud set kar sakte hain ke key **automatically rotate (har saal)** ho ya nahi. Aap IAM Policies aur KMS Key Policies ke zariye exact access control (RBAC) set kar sakte hain.
+* **Audit Trail (CloudTrail Integration):** Har baar jab S3 bucket kisi file ko encrypt ya decrypt karne ke liye KMS key use karegi, uski **puri detailed entry AWS CloudTrail logs mein record hoti hai** (Kis user ne, kis time, kis key se file access ki).
+* **Cost:** KMS Key hosting fee ($1/month per key) + KMS API Call charges lagte hain.
+* **Best Use Case:** Financial data, HIPAA compliance, aur strict security requirements jahan **Audit Logs** aur **Key Management Control** zaroori ho.
+
+---
+
+## 3. SSE-C (Server-Side Encryption with Customer-Provided Keys)
+
+Is mode mein aap AWS ko apni khud ki encryption keys dete hain.
+
+* **Kaise Kaam Karta Hai?** Aap har Upload/Download request ke sath **apni apni Encryption Key HTTP Header mein pass karte hain**. S3 us key ko memory mein use kar ke file ko encrypt/decrypt karta hai aur **foran memory se key ko delete kar deta hai**. AWS aap ki keys ko store **NAHI** karta.
+* **Key Control & Storage:** Keys ki security, rotation, aur safe storage ki **100% zimmadari AAP KI (Customer ki)** hoti hai. Agar aap apni key bhool gaye, toh S3 se data kabhi recovery nahi ho sakta!
+* **Audit Trail:** AWS keys ko host nahi karta, is liye KMS-style key audit logs nahi bante.
+* **Best Use Case:** Compliance rules jahan company policy AWS ko apni custom encryption keys store karne ki ijazat na deti ho.
+
+---
+
+## 📊 AWS SAA-C03 Quick Comparison Matrix
+
+| Feature | SSE-S3 | SSE-KMS | SSE-C |
+| --- | --- | --- | --- |
+| **Who manages keys?** | Amazon S3 | AWS KMS (User/AWS) | Customer (You) |
+| **Envelope Encryption?** | No | **Yes** | No |
+| **CloudTrail Key Audit Log?** | No | **Yes** | No |
+| **Custom Key Access Policy?** | No | **Yes** | No |
+| **Extra Cost?** | Free | Small KMS Fee | Free (S3 only) |
+| **Exam Trigger Keyword** | *"Built-in default, zero cost"* | *"Audit trail, key rotation, Envelope encryption"* | *"Strict compliance, manage own keys"* |
 
 5-September-2026
 
 8-September-2026
 
 12-September-2026
+
+23-September-2026
