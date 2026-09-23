@@ -339,7 +339,28 @@ AWS ka aisa solution chahiye jis se **Application ka code kam se kam badalna (mo
 
 * Jab bhi question bole: **"Migrate Microsoft SQL Server to Aurora PostgreSQL with MINIMAL code changes"** $\rightarrow$ Hamesha **Babelfish** + **AWS SCT / DMS** select karein!
 
-23-September-2026
+
+---
+---
+---
+
+### Iska Sahi Hal Kya Hai?
+
+#### 1. DynamoDB Global Tables (Cross-Region Database)
+
+* **DynamoDB Global Tables** aap ke database ko ek region se doosre region mein real-time (milliseconds mein) copy/replicate karti rehti hai.
+* *(Ghalti jo Option 1 mein thi: **Global Secondary Index (GSI)** sirf ek hi region ke andar chalta hai, doosre region mein data copy nahi karta!)*
+
+#### 2. Route 53 DNS Failover
+
+* Route 53 continuously primary region ko check karta rehta hai. Jaise hi primary region down hota hai, yeh users ki traffic ko seconds ke andar secondary region taraf mod (route) deta hai.
+
+#### 3. AWS Well-Architected Tool
+
+* Yeh official AWS tool hai jo aap ke architecture ko review karta hai aur batata hai ke aap AWS ki **Best Practices** (Security, Reliability, Performance, Cost, etc.) ko follow kar rahe hain ya nahi.
+
+---
+
 
 
 
@@ -366,3 +387,4 @@ AWS ka aisa solution chahiye jis se **Application ka code kam se kam badalna (mo
 22-September-2026
 
 23-September-2026
+
