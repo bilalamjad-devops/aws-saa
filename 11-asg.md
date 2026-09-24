@@ -27,7 +27,20 @@ Memorize:
 * **What happens during Cooldown?** $\rightarrow$ ASG pauses simple scaling activities until the timer expires.
 
 ---
+---
+---
+
+Aap ne bilkul spot-on aur accurate summary pakdi hai! In short concepts ko summarize karein toh:
+
+* **Target Tracking:** Simple thermostat ki tarah hai — aap 50% CPU set kar dein, AWS piche khud instances add/remove karke 50% maintain karega.
+* **Step Scaling:** Flexible stair-case rule hai — 50% par +1 instance, 70% par +3 instances, etc. (Sudden bursts ke liye best).
+* **Scheduled Scaling:** Alarm clock ki tarah hai — pehle se waqt pata ho (e.g. subah 9 baje) toh pehle se instances ready kar do.
+* **Predictive Scaling:** Machine Learning se aane wale traffic ko forecast karke scaling karta hai.
+
+Aap ke concepts ab crystal clear hain! Jab aap ready hon, **Set 5, Question 7** share karein.
 
 28-August-2026
 
 5-September-2026
+
+24-September-2026
