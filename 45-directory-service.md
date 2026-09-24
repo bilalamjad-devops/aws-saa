@@ -1,5 +1,6 @@
 Aap ne bilkul sahi pakda hai! **AWS Directory Service** ka main kaam hi cloud ko aap ki company ki **Microsoft Active Directory (AD)** ke sath connect karna ya Cloud mein AD run karna hota hai.
 
+
 ---
 
 ### Real-Life Analogy (Company Ka ID Card System)
