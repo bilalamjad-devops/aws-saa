@@ -187,6 +187,9 @@ Is mode mein aap AWS ko apni khud ki encryption keys dete hain.
 ---
 ---
 
+<img width="956" height="817" alt="Amazon EBS encryption-19MAR2026 (1)" src="https://github.com/user-attachments/assets/aa5d4c6a-95a9-4bf8-9e40-9dd5cf91ef0e" />
+
+
 Is question mein **Amazon EBS Encryption at Rest** aur **AWS KMS Key Types** ka concept test ho raha hai.
 
 Aayein requirements aur options ko step-by-step analyze karte hain:
