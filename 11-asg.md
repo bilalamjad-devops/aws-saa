@@ -1,3 +1,5 @@
+<img width="862" height="909" alt="autoscaling-instance-warmup-time (1)" src="https://github.com/user-attachments/assets/eeb88017-9f52-485f-9801-19d8398bda7f" />
+
 
 # 5. Your exam shortcut
 
