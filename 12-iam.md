@@ -280,10 +280,71 @@ You manage permissions **once at the group level**, rather than individually for
 
 **Many users + departments + same permissions → IAM Groups + policies.**
 
+---
+---
+---
 
+AWS ko yeh baat **IAM Evaluation Engine** ke zariye pata chalti hai.
+
+Jab bhi koi developer Console par click karta hai ya CLI/SDK se command chalata hai, AWS ka backend algorithm step-by-step is tarah check karta hai:
+
+---
+
+### Step-by-Step: AWS Kaise Decision Leta Hai?
+
+```
+[ Developer Execution Request ]
+               │
+               ▼
+   [ Step 1: Request Context ] ──► (Developer Identity, Action, Target EC2 ID)
+               │
+               ▼
+ [ Step 2: Target EC2 Tag Check ] ──► (Target EC2 Has 'Environment = Production')
+               │
+               ▼
+   [ Step 3: IAM Policy Check ] ──► (Condition: ResourceTag/Environment MUST equal 'UAT')
+               │
+               ▼
+       [ Step 4: Decision ] ──► ❌ Access Denied! (Tags Mismatch)
+
+```
+
+1. **Step 1: Request Target Identify Karna**
+Developer command chalata hai: `aws ec2 stop-instances --instance-ids i-123456789`
+AWS check karta hai ke **kaun sa user** (`Identity`), **kya action** (`ec2:StopInstances`), aur **kis target instance** (`i-123456789`) par command chala raha hai.
+2. **Step 2: Target Instance Ke Tags Read Karna**
+AWS target instance `i-123456789` par lage **Tags (Labels)** read karta hai. Pata chalta hai ke target instance par `Environment: Production` tag laga hua hai.
+3. **Step 3: IAM Policy Ki Condition Check Karna**
+AWS developer ki **IAM Policy** open karke uski `Condition` read karta hai:
+```json
+"Condition": {
+    "StringEquals": {
+        "aws:ResourceTag/Environment": "UAT"
+    }
+}
+
+```
+
+
+Policy keh Rahi hai: *"Sirf tab allow karo agar target resource ka `Environment` tag `UAT` ho."*
+4. **Step 4: Match / Mismatch Decision (Allow or Deny)**
+* Target Instance Tag: **Production**
+* Policy Condition Required: **UAT**
+
+
+Dono match **nahi** hue! AWS immediate command block kar deta hai aur developer ke terminal par error show hota hai:
+`ClientError: An error occurred (UnauthorizedOperation) when calling the StopInstances operation.`
+
+---
+
+> **Key Concept:** Command run hote hi AWS real-time mein **Target Resource Ke Tags** ko **User Policy Ki Condition** ke saath compare karta hai. Match ho jaye toh **ALLOW**, na match ho toh **DENY**.
+
+---
 
 31-August-2026
 
 1-September-2026
+
 14-September-2026
 
+24-September-2026
