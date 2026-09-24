@@ -231,16 +231,45 @@ Flow:
 ---
 ---
 
-12. Question
-Category: CSAA – Design High-Performing Architectures
-A Solutions Architect is working for a multinational telecommunications company. The IT Manager wants to consolidate their log streams including the access, application, and security logs in one single system. Once consolidated, the company will analyze these logs in real-time based on heuristics. There will be some time in the future where the company will need to validate heuristics, which requires going back to data samples extracted from the last 12 hours.
+Aayein pehle **Kinesis** ko ek aasan real-life example se hamesha ke liye pka kar lete hain, phir **Heuristics** ko samajhte hain:
 
-What is the best approach to meet this requirement?
+---
 
-First, send all the log events to Amazon SQS then set up an Auto Scaling group of EC2 servers to consume the logs and finally, apply the heuristics.
-First, configure Amazon Cloud Trail to receive custom logs and then use EMR to apply heuristics on the logs.
-First, set up an Auto Scaling group of EC2 servers then store the logs on Amazon S3 then finally, use EMR to apply heuristics on the logs.
-First, send all of the log events to Amazon Kinesis then afterwards, develop a client process to apply heuristics on the logs.
+### 1. Amazon Kinesis Ko Samajhne Ka Aasan Tareeka
+
+Aap ne Youtube Live ki bilkul sahi example di!
+
+Maan lein **Kinesis** ek **Behti Hui Nadi (Data River)** hai:
+
+```
+[ YouTube Live Comments / Logs Stream ]  ──►  [ KINESIS DATA STREAM ]  ──►  [ AI / Analysis App ]
+(Hazaaron log minute mein message kar rahe hain)    (Nadi / Data Retention Window)     (Real-time comments padhta hai)
+
+```
+
+* **Data Stream (Nadi):** Hazaaron devices, users, ya application logs ek sath continue behte rehte hain. Kinesis is poore flow ko ek jagah collect karta rehta hai.
+* **12-Hour Replay (Pania Ka Flow Retention):** Kinesis is behte hue data ko apne paas 24 ghante tak store rakhta hai. Iska matlab agar aap ne pichle 12 ghante ka data dobara dekhna ho, toh aap stream ko rewind (re-play) karke dekh sakte hain.
+
+> **Exam Shortcut:** Jab bhi question mein **"Real-time Stream"**, **"Live Logs Collection"**, ya **"Replay last X hours data"** aaye $\rightarrow$ Direct **Amazon Kinesis Data Streams** sochay.
+
+---
+
+### 2. Heuristics Kya Hota Hai? (Simple Meaning)
+
+**Heuristics** ka matlab hota hai **"Rule-based Smart Patterns / Rules Of Thumb"** (Andaaza ya Shortcut Rules lagana).
+
+Real-time analysis mein heuristics ka matlab hota hai data par fast rules chalana.
+
+#### Real-Life Example (Bank Credit Card Scam Detection):
+
+Maan lein aap ke bank logs live aa rahe hain. Bank ne yeh **Heuristic Rules (Patterns)** set kiye hue hain:
+
+1. **Rule 1:** Agar 1 minute mein 10 se ziada wrong passwords enter hon $\rightarrow$ *Alert! (Hacking try)*.
+2. **Rule 2:** Agar 5 minute pehle card Lahore mein use hua aur agle hi minute America mein use ho jaye $\rightarrow$ *Alert! (Fraud Transaction)*.
+
+In quick rules aur pattern-matching logic ko computer science aur analytics mein **Heuristics** bolte hain.
+
+---
 
 5-September-2026
 
