@@ -182,6 +182,124 @@ Is mode mein aap AWS ko apni khud ki encryption keys dete hain.
 * Agar question mein likha ho: **"Automatic key rotation with LEAST / ZERO operational overhead and lowest cost"** $\rightarrow$ Choose **`SSE-S3`**.
 * Agar question mein likha ho: **"Automatic key rotation + Audit Trail (CloudTrail) + Granular Key Access Control"** $\rightarrow$ Choose **`SSE-KMS`**.
 
+
+---
+---
+---
+
+Is question mein **Amazon EBS Encryption at Rest** aur **AWS KMS Key Types** ka concept test ho raha hai.
+
+Aayein requirements aur options ko step-by-step analyze karte hain:
+
+---
+
+### 1. Requirement Breakdown
+
+1. **Context:** Health records application EC2 + EBS volumes par host ho rahi hai. HIPAA compliance ke liye EBS volumes ko **Data at Rest** par encrypt karna zaroori hai.
+2. **Question:** Amazon EBS encryption at rest ke liye AWS background mein kin keys/services ka istemal karta hai? (**Select TWO**)
+
+---
+
+### 2. Technical Evaluation
+
+```
+[ EBS Volume ] ──► Encrypted Data at Rest 
+                       │
+                       ├─► AWS Managed KMS Key  (aws/ebs)
+                       └─► Customer Managed KMS Key (Custom KMS Key)
+
+```
+
+1. **How EBS Encryption Works:**
+* Amazon EBS encryption background mein **AWS Key Management Service (AWS KMS)** ko use karta hai.
+* Jab aap EBS encryption enable karte hain, toh aap do tarah ki KMS keys use kar sakte hain:
+1. **AWS-managed keys:** Yeh keys AWS aap ke behalf par KMS mein automatic create aur manage karta hai (e.g., `aws/ebs`).
+2. **Customer-managed keys (Your own keys):** Yeh keys aap KMS mein khud create, rotate, aur control karte hain (Custom KMS Key).
+
+
+
+
+2. **Data at Rest vs Data in Transit:**
+* SSL/TLS certificates (**AWS Certificate Manager - ACM**) data *in transit* (network over communication) ke liye hote hain, data *at rest* (disk encryption) ke liye nahi.
+
+
+3. **S3 vs EBS:**
+* S3 Server-Side / Client-Side encryption S3 buckets ke objects ke liye hoti hai, EBS block volumes ke liye nahi.
+
+
+
+---
+
+### 3. Correct Options Explanation
+
+#### ✅ **By using Amazon-managed keys in AWS Key Management Service (KMS).**
+
+* **Why it works:** AWS KMS ke andar default AWS-managed key (`aws/ebs`) EBS volumes ko automatically encrypt karne ke liye support hoti hai.
+
+#### ✅ **By using your own keys in AWS Key Management Service (KMS).**
+
+* **Why it works:** Fine-grained access control aur compliance requirements ke liye aap KMS mein apni **Customer Managed Keys (CMK)** create kar ke EBS volume encryption ke liye select kar sakte hain.
+
+---
+
+### 4. Incorrect Options Breakdown (Elimination Strategy)
+
+| Option | Why It Fails |
+| --- | --- |
+| **S3 Server-Side / Client-Side Encryption...** | Yeh features **Amazon S3** object storage ke hain, Amazon EBS block storage volumes ke liye nahi. |
+| **Password stored in AWS CloudHSM...** | EBS encryption direct KMS keys se integrate hoti hai; passwords se direct disk encryption nahi hoti. |
+| **SSL certificates provided by ACM...** | ACM certificates HTTPS/TLS **Data in Transit** encryption ke liye hote hain, disk **Data at Rest** ke liye nahi. |
+
+---
+
+### 5. Cheat Sheet for EBS Encryption (SAA-C03)
+
+* **EBS Encryption Mechanism:** $\rightarrow$ Uses **AWS KMS** (AES-256 algorithm).
+* **Key Options:** $\rightarrow$ **AWS Managed Keys** or **Customer Managed Keys (CMK)**.
+* **What Gets Encrypted?** $\rightarrow$ Volume data, I/O in-flight between EC2 and EBS, snapshots, and volumes created from those snapshots.
+
+---
+---
+---
+
+Aayein isko ek bilkul simple real-life example se samajhte hain taake KMS aur EBS ka rishta 100% clear ho jaye:
+
+---
+
+### Real-Life Analogy (Tijori Aur Chabi)
+
+Maan lein **EBS Volume** aap ki ek **Tijori (Locker)** hai jahan aap apna sensitive health data rakhte hain.
+
+* **EBS Volume (Tijori):** Yeh sirf data ko apne andar band karke rakhti hai. Iske paas apni koi chabi nahi hoti.
+* **AWS KMS (Chabi Banane Aur Sambhalne Wali Shop):** Yeh chabi (Encryption Key) create aur manage karti hai.
+
+Jab aap EBS volume ko lock/encrypt karte hain, toh EBS direct **KMS** ke paas jata hai aur bolta hai: *"Mujhe ek chabi do taake main is data ko lock kar sakoon."*
+
+---
+
+### EBS Ko KMS Ki Zaroorat Kyun Hai?
+
+EBS akela data ko encrypt nahi kar sakta; usko encryption ke liye **AES-256 Key** chahiye hoti hai. Is key ko handle karne ke 2 tareeke hote hain (jo Question 11 ke options mein the):
+
+1. **Amazon-Managed KMS Key (Default Chabi):**
+* AAP ko kuch mehnat nahi karni parhti.
+* AWS apne KMS mein automatic ek chabi bana deta hai jiska naam `aws/ebs` hota hai.
+* EBS yeh chabi KMS se leta hai aur volume ko lock kar deta hai.
+
+
+2. **Customer-Managed KMS Key (Aap Ki Apni Custom Chabi):**
+* AAP (Customer) KMS mein ja kar apni marzi ki chabi khud banate hain.
+* **Fayda:** Is chabi par aap ka full control hota hai — aap jab chahein is chabi ko disable kar sakte hain ya kisi specific user ki access rokh sakte hain (HIPAA compliance ke liye bohot zaroori hota hai).
+* EBS yeh aap ki banayi hui chabi KMS se mangwaye ga aur volume lock karega.
+
+
+
+---
+
+### Short Summary (Exam Point of View)
+
+> **EBS Encryption** data ko lock karne ka **kaam** karta hai, lekin lock karne wali **chabi (Key)** hamesha **AWS KMS** se hi aati hai — chahe woh AWS ki default key ho ya aap ki banayi hui custom key.
+
 5-September-2026
 
 8-September-2026
@@ -189,3 +307,5 @@ Is mode mein aap AWS ko apni khud ki encryption keys dete hain.
 12-September-2026
 
 23-September-2026
+
+24-September-2026
