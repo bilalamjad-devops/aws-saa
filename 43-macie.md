@@ -1,3 +1,8 @@
+<img width="1356" height="738" alt="amazon_eventbridge_macie_findings_17jul2023" src="https://github.com/user-attachments/assets/f0196a8b-5b75-4d2e-9040-7ba3349c57f9" />
+
+
+
+
 Aayein **Amazon Macie** ko ek bilkul simple real-life example se samajhte hain:
 
 ---
