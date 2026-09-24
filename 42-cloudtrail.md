@@ -64,5 +64,57 @@ Aayein requirements aur options ko step-by-step analyze karte hain:
 * **Log Integrity Validation:** CloudTrail log file integrity validation helps determine whether a log file was modified or deleted after delivery.
 
 ---
+---
+---
 
+
+CloudTrail ke **Management Events** aur **Data Events** ka difference simple aur clear hai.
+
+In dono ke beech ka difference **Control Plane** (Resource Setups) aur **Data Plane** (Resource Ke Andar Ka Data) ka hota hai:
+
+---
+
+### 1. Management Events (Control Plane Operations)
+
+Yeh events woh actions record karte hain jo aap ke **AWS resources ke structure, configuration, ya setup** ko change karte hain. Isko aap AWS ka "Administrative Log" keh sakte hain.
+
+* **S3 Bucket Level Example:**
+* `CreateBucket` (Nayi bucket banana)
+* `DeleteBucket` (Bucket ko delete karna)
+* `PutBucketPolicy` (Bucket ke permissions/policies badalna)
+
+
+* **EC2 Level Example:** `RunInstances` (Naya EC2 launch karna), `TerminateInstances` (EC2 ko khatam karna).
+* **Cost & Status:** AWS CloudTrail har trail mein **pehle Management Event log ko FREE** record karta hai.
+
+---
+
+### 2. Data Events (Data Plane / Object Operations)
+
+Yeh events woh actions record karte hain jo **resource ke andar paray huay actual data/files** par perform kiye jaate hain. Yeh high-volume operations hotay hain.
+
+* **S3 Object Level Example:**
+* `GetObject` (Kisi ne bucket ke andar se file/patient record download ya read kiya)
+* `PutObject` (Kisi ne new file upload ki)
+* `DeleteObject` (Kisi ne specific file delete ki)
+
+
+* **Lambda Example:** `Invoke` (Function ko call ya execute karna).
+* **Cost & Status:** Yeh **by default OFF** hote hain kyun ke inka volume lakhon/crores mein hota hai, aur is par extra charges lagte hain (Isay explicitly enable karna parta hai).
+
+---
+
+### 📊 Quick Comparison (Exam Cheat Sheet)
+
+| Event Type | Focus Area | Real Life Example | S3 Command Example | Default Setting |
+| --- | --- | --- | --- | --- |
+| **Management Events** | **AWS Setup & Config** | Bank ka Naya Account / Locker kholna ya band karna. | `CreateBucket` | **Enabled by default (Free 1st copy)** |
+| **Data Events** | **Actual Files & Objects** | Locker ke andar se paise/documents nikalna ya rakhna. | `GetObject`, `PutObject` | **Disabled by default (Paid)** |
+
+---
+
+### Direct Rule for Exam Questions:
+
+* Agar question kahe: *"Who created or deleted the S3 bucket?"* $\rightarrow$ **Management Events**.
+* Agar question kahe: *"Who read, downloaded, or uploaded a specific file/object inside the bucket?"* $\rightarrow$ **Data Events**.
 24-September-2026
