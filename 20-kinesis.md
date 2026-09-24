@@ -227,6 +227,20 @@ Flow:
 
 **Data Firehose → capture/transform/deliver streaming data**.
 
+---
+---
+---
+
+12. Question
+Category: CSAA – Design High-Performing Architectures
+A Solutions Architect is working for a multinational telecommunications company. The IT Manager wants to consolidate their log streams including the access, application, and security logs in one single system. Once consolidated, the company will analyze these logs in real-time based on heuristics. There will be some time in the future where the company will need to validate heuristics, which requires going back to data samples extracted from the last 12 hours.
+
+What is the best approach to meet this requirement?
+
+First, send all the log events to Amazon SQS then set up an Auto Scaling group of EC2 servers to consume the logs and finally, apply the heuristics.
+First, configure Amazon Cloud Trail to receive custom logs and then use EMR to apply heuristics on the logs.
+First, set up an Auto Scaling group of EC2 servers then store the logs on Amazon S3 then finally, use EMR to apply heuristics on the logs.
+First, send all of the log events to Amazon Kinesis then afterwards, develop a client process to apply heuristics on the logs.
 
 5-September-2026
 
@@ -235,3 +249,5 @@ Flow:
 12-September-2026
 
 16-September-2026
+
+24-September-2026
