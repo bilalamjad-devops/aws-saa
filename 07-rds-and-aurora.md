@@ -405,7 +405,20 @@ Read Replica ek **ACTIVE** database copy hoti hai:
 *(Note: System mein Amazon Aurora ek exception hai jahan Multi-AZ replicas reads serve kar sakti hain, lekin standard Amazon RDS mein Multi-AZ Standby instance locked hota hai).*
 
 ---
+---
+---
 
+<img width="646" height="715" alt="2019-01-13_07-04-06-a2157247b0fa129795001208504fcb51 (1)" src="https://github.com/user-attachments/assets/a6fb8cf5-b01d-4163-a804-113a2d99a715" />
+
+
+
+### Important Points for SAA-C03
+
+* **Token Issuer:** AWS IAM (STS ke zariye), **RDS khud token generate nahi karta**.
+* **Validity:** Exact **15 minutes** (baad mein auto-expire ho jata hai, password rotate karne ki zaroorat hi nahi hoti).
+* **Benefit:** Aap ko DB ke hardcoded passwords manage karne ki zaroorat nahi rehti, saari access control IAM policies se handle hoti hai.
+
+---
 
 24-August-2026
 
@@ -431,3 +444,4 @@ Read Replica ek **ACTIVE** database copy hoti hai:
 
 23-September-2026
 
+25-September-2026
