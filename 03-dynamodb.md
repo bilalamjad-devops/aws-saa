@@ -740,6 +740,38 @@ These are the areas I'd expect you to see repeatedly in **SAA practice questions
 * **Detect AWS API calls / Resource state changes:** $\rightarrow$ **Amazon EventBridge (CloudWatch Events)**
 
 ---
+---
+---
+
+
+Aap ka guess bilkul accurate hai! S3 aur DynamoDB ke liye **Gateway VPC Endpoints** use hotay hain jo **100% Free** hain.
+
+---
+
+### Correct Option
+
+#### ✅ **Remove the NAT Gateway and use a Gateway VPC endpoint to access the S3 bucket from the instance.**
+
+---
+
+### Quick Explanation
+
+1. **Cost Savings:** NAT Gateway par Hourly Charges aur Per-GB Data Processing Fees lagti hai. **Gateway VPC Endpoint for S3 and DynamoDB is completely FREE.**
+2. **Security & Performance:** Traffic AWS ke internal backbone network se ho kar jata hai (Internet par nahi jata), jis se latency kam aur speed ziada milti hai.
+
+---
+
+### Exam Rule (2 Gateway VPC Endpoints)
+
+AWS mein sirf **do (2) services** ke liye **Gateway Endpoint** hota hai:
+
+* **Amazon S3**
+* **Amazon DynamoDB**
+
+*(Baaki tamam AWS services ke liye **Interface VPC Endpoints / PrivateLink** use hotay hain jo paid hotay hain).*
+
+---
+
 24-August-2026
 
 31-August-2026
@@ -753,3 +785,5 @@ These are the areas I'd expect you to see repeatedly in **SAA practice questions
 18-September-2026
 
 23-September-2026
+
+25-September-2026
