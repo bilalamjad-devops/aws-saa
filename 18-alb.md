@@ -419,9 +419,25 @@ AWS Load Balancer (ALB) ke paas **Listeners** hote hain jo alag alag ports par i
 * Kyun ke traffic Port 80 par aa raha hai, is liye **Port 80 ke listener** par hi hum rule lagate hain ke: *"Yahan aane wale saare traffic ko Port 443 (HTTPS) par bhej do (redirect kar do)."*
 
 ---
+---
+---
+
+<img width="615" height="475" alt="AWS-ELB-HealthCheck" src="https://github.com/user-attachments/assets/61d731ab-c5bc-4945-947a-ca10c29052bf" />
+
+
+### 4. Cheat Sheet for ALB Troubleshooting (SAA-C03)
+
+* **Target 'Out of Service' + Security Group OK:** $\rightarrow$ Check **Health Check Path / Port / Response Code**.
+* **Target 'Out of Service' + Connection Timeout:** $\rightarrow$ Check **EC2 Security Group / Network ACLs** (Port 80/443 inbound missing).
+* **HTTP 502 Bad Gateway:** $\rightarrow$ Application server on EC2 crashed / not listening on the target port.
+* **HTTP 504 Gateway Timeout:** $\rightarrow$ Application response timeout / Database connection issue behind EC2.
+
+---
 
 1-Semtember-2026
 
 8-September-2026
 
 18-September-2026
+
+25-September-2026
