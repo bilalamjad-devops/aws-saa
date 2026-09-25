@@ -771,6 +771,17 @@ AWS mein sirf **do (2) services** ke liye **Gateway Endpoint** hota hai:
 *(Baaki tamam AWS services ke liye **Interface VPC Endpoints / PrivateLink** use hotay hain jo paid hotay hain).*
 
 ---
+---
+---
+
+### Exam Cheat Sheet: S3 Endpoints
+
+| Endpoint Type | Supported Services | Cost | Best Use Case |
+| --- | --- | --- | --- |
+| **Gateway VPC Endpoint** | **S3 & DynamoDB** only | **FREE** | Most cost-effective VPC-to-S3 private traffic. |
+| **Interface VPC Endpoint** | Almost ALL AWS Services (including S3) | Hourly Fee + Data Transfer Fee | On-premises networks (via Direct Connect/VPN) accessing S3 privately. |
+
+---
 
 24-August-2026
 
