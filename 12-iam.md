@@ -340,6 +340,21 @@ Dono match **nahi** hue! AWS immediate command block kar deta hai aur developer 
 > **Key Concept:** Command run hote hi AWS real-time mein **Target Resource Ke Tags** ko **User Policy Ki Condition** ke saath compare karta hai. Match ho jaye toh **ALLOW**, na match ho toh **DENY**.
 
 ---
+---
+---
+
+### 2. IAM Evaluation Rule (The Golden Rule)
+
+> **Explicit Deny Always Overrides Allow!**
+> Agar ek policy mein kisi action ko `Allow` kiya gaya ho aur doosri jagah us par `Deny` ki condition lagayi jaye, toh **Deny hamesha jeet ta hai**.
+
+```
+Request Source IP = 187.5.104.11  ──► Matches Deny Condition ──► ❌ DENIED (Blocked)
+Request Source IP = Any other IP  ──► Skips Deny Condition  ──► ✅ ALLOWED (by Statement 1)
+
+```
+
+---
 
 31-August-2026
 
