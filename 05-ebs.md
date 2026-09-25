@@ -266,6 +266,11 @@ HDD volumes bare files aur continuous throughput ke liye best hotay hain. **Impo
 | **Magnetic (Standard)** | HDD (Legacy) | Infrequently accessed workloads, lowest overall EBS cost per GB tier. |
 
 ---
+---
+---
+
+- `All data moving between the volume and the instance are encrypted.`
+- `Snapshots are automatically encrypted.`
 
 31-August-2026
 
@@ -280,3 +285,5 @@ HDD volumes bare files aur continuous throughput ke liye best hotay hain. **Impo
 12-September-2026
 
 21-September-2026
+
+25-September-2026
