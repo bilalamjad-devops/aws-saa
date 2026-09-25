@@ -290,6 +290,27 @@ SQS ki default retention (4 days) 24 hours se zyada hai, is liye SQS is requirem
 
 <img width="938" height="764" alt="2020-03-09_11-14-42-e24d31f607e373f989c2829e2805b01e" src="https://github.com/user-attachments/assets/9ad97da0-d79b-4139-a2da-668c3f7be9d9" />
 
+---
+---
+---
+
+
+
+### 3. Correct Option Explanation
+
+#### ✅ **Amazon SQS has automatically deleted the messages that have been in a queue for more than the maximum message retention period.**
+
+* **Why it works:** Default 4 days ki retention period ki wajah se weekly batch job ke aane se pehle purane messages delete ho jaate hain. Isay fix karne ke liye SQS Queue Retention Period ko barha kar **14 days (maximum limit)** set karna padega.
+
+---
+
+### 4. Cheat Sheet for SQS Timing Rules (SAA-C03)
+
+* **Default Message Retention:** 4 days.
+* **Maximum Message Retention:** 14 days.
+* **Minimum Message Retention:** 60 seconds.
+* **Default Visibility Timeout:** 30 seconds (Maximum: 12 hours).
+* **Maximum Long Polling Wait Time:** 20 seconds (`ReceiveMessageWaitTimeSeconds`).
 
 3-September-2026
 
@@ -298,3 +319,5 @@ SQS ki default retention (4 days) 24 hours se zyada hai, is liye SQS is requirem
 12-September-2026
 
 19-September-2026
+
+25-September-2026
