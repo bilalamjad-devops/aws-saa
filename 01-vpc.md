@@ -368,6 +368,46 @@ $\rightarrow$ `enableDnsHostnames` setting **`false`** hai, isko **`true`** karn
 $\rightarrow$ `enableDnsSupport` ka **`true`** hona laroori hai.
 
 
+---
+---
+---
+
+Is question ka correct answer **Change the web architecture to access the financial data through a Gateway VPC Endpoint.** hai.
+
+Aayein scenario breakdown aur options ko step-by-step analyze karte hain:
+
+---
+
+### 1. Key Scenario Breakdown
+
+* **Current Setup:** Application EC2 par private subnet mein running hai aur Amazon S3 se data access kar rahi hai over the Internet (Public S3 Endpoints).
+* **Security Requirement:** S3 access karne ke liye internet connectivity ko eliminate karna hai taake financial data securely private network ke andar rahe.
+* **Constraint:** Solution **most cost-effective** (sab se sasta/kifayati) hona chahiye.
+
+---
+
+### 2. Correct Option Explanation
+
+#### ✅ **Change the web architecture to access the financial data through a Gateway VPC Endpoint.**
+
+* **Why it works:**
+1. **Private Access:** Gateway VPC Endpoint aap ke VPC (Private Subnet) ko Amazon S3 ke sath direct, private AWS network ke zariye connect kar deta hai. Is se public internet ka requirement bilkul khatam ho jata hai.
+2. **Most Cost-Effective:** Gateway VPC Endpoints Amazon S3 aur DynamoDB ke liye **100% FREE** hote hain (koi hourly charge ya data transfer fee nahi hoti).
+
+
+
+---
+
+
+### Exam Cheat Sheet: S3 Endpoints
+
+| Endpoint Type | Supported Services | Cost | Best Use Case |
+| --- | --- | --- | --- |
+| **Gateway VPC Endpoint** | **S3 & DynamoDB** only | **FREE** | Most cost-effective VPC-to-S3 private traffic. |
+| **Interface VPC Endpoint** | Almost ALL AWS Services (including S3) | Hourly Fee + Data Transfer Fee | On-premises networks (via Direct Connect/VPN) accessing S3 privately. |
+
+---
+
 24-August-2026
 
 27-August-2026
@@ -389,3 +429,5 @@ $\rightarrow$ `enableDnsSupport` ka **`true`** hona laroori hai.
 19-September-2026
 
 24-September-2026
+
+25-September-2026
