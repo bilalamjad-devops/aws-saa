@@ -94,6 +94,20 @@ AWS aap ke office mein ek **Physical Black Box (Dedicated Physical Server)** cou
 | **Hardware Appliance** | AWS se aaya hua physical box jab aap ke paas VMware na ho. | Dedicated Plug-and-Play Device |
 
 ---
+---
+---
+
+Bilkul **100% Correct** samjhe aap! Aap ki dono points ki summary bilkul accurate hai.
+
+Bas terminalogy mein ek chota sa point clear kar lein:
+
+1. **Naming Update:** Pehle S3 waali service ko sirf *File Gateway* bola jata tha, ab AWS ne iska naam official **Amazon S3 File Gateway** rakh diya hai (taake FSx File Gateway se confusion na ho).
+2. **Virtualization Active:** Agar Virtualization (VMware ESXi / Hyper-V) hai $\rightarrow$ **Gateway VM Appliance** (Software image download karke chalayein).
+3. **No Virtualization:** Agar Virtualization nahi hai $\rightarrow$ **AWS Storage Gateway Hardware Appliance** (AWS se Physical Box order karke lagayein).
+
+Aap ka concept ab bilkul crystal clear hai!
+
+---
 
 
 24-September-2026
