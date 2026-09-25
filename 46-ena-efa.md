@@ -1,3 +1,37 @@
+
+
+
+Is question ka correct option **Enable Enhanced Networking with Elastic Network Adapter (ENA) on the Windows EC2 Instances** hai.
+
+Aayein is ki sab se aham wajah aur trick ko samajhte hain jo aap se pehle miss ho gayi thi:
+
+---
+
+### Key Catch: `t3a.medium` Instance Type
+
+Question ko dhyan se dekhein: instances **`t3a.medium`** hain.
+
+1. **EFA (Elastic Fabric Adapter) ki limitation:**
+EFA har instance type par support nahi hota. EFA sirf high-end, compute-intensive/HPC instance types par chalta hai (jaise `c5n`, `p3dn`, `i3en`, `h1`, `m5n` wagerah). **`t3a.medium` par EFA support hi nahi hota.**
+2. **ENA (Elastic Network Adapter):**
+`t3a.medium` instance par Enhanced Networking ke liye **ENA** support hota hai jo higher bandwidth aur higher Packets Per Second (PPS) provide karta hai.
+
+---
+
+### Option Elimination Summary
+
+* ❌ **EFA Option:** Technical requirement ke hisab se HPC/CFD ke liye EFA best hota hai, lekin **`t3a.medium` instances EFA ko support nahi karte**, is liye yeh option practical nahi hai.
+* ❌ **Intel 82599 VF Interface:** Yeh older legacy driver hai.
+* ❌ **AWS ParallelCluster:** Yeh cluster management tool hai, network adapter/hardware interface nahi.
+* ✅ **Enhanced Networking with ENA:** Is scenario mein `t3a.medium` instances par higher bandwidth aur PPS dene wala yahi sab se suitable aur cost-effective option hai.
+
+---
+
+
+---
+---
+---
+
 Aayein is question ko bilkul simple real-life example aur direct analogy se samajhte hain:
 
 ---
