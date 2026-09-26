@@ -44,6 +44,9 @@ Aap ke concepts ab crystal clear hain! Jab aap ready hon, **Set 5, Question 7** 
 ---
 ---
 ---
+<img width="1894" height="872" alt="Amazon EventBridge Rules-25MAR2026" src="https://github.com/user-attachments/assets/dfa39977-4e36-4509-8cd7-90f73040e177" />
+
+
 
 
 Aap ne **99% bilkul sahi samjha hai!** Bas choti si detail add kar lein:
