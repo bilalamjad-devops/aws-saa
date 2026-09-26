@@ -366,6 +366,50 @@ Aayein Amazon SQS ke is crucial feature aur is ke workflow ko samajhte hain:
 ---
 ---
 
+
+
+<img width="1672" height="478" alt="AWS-SQS-AgeOfOldestMessage" src="https://github.com/user-attachments/assets/a7949736-4eff-4cb7-ab9a-d6e3d26b4fae" />
+
+
+
+Aap ne bilkul spot-on example di hai! McDonalds wali example is concept ko 100% fit karti hai.
+
+Aayein aap ki example se isay mapped karke dekhte hain:
+
+* **Order Screen (SQS Queue):** Jab customer order deta hai, token generate hota hai aur kitchen screen par order queue mein lag jata hai.
+* **SLA Target:** McDonalds ka promise hai ke **"5 minute ke andar burger ready hona chahiye."**
+* **Problem (High Load):** Jab bohot ziada orders aa jayein, toh kitchen staff (EC2 instances) kam pad jata hai. Orders screen par latak jate hain aur customer wait karta rehta hai (SLA breach!).
+
+---
+
+### Scale Kis Buniyaad Par Karna Chahiye?
+
+Manager kitchen mein khada hai aur usay naye workers (EC2 instances) shift par bulane hain:
+
+1. **`ApproximateAgeOfOldestMessage` (SLA Metric - Best Option):**
+* Manager kitchen screen par sab se purana order dekhta hai.
+* Agar pehla order pichle **4.5 minutes** se wahan ruka hua hai (5-minute limit poori hone wali hai), toh Manager fauran samajh jayega ke staff kam hai aur SLA tootne wala hai.
+* **Action:** Manager fauran **naya worker kitchen mein bhej dega (Scale Out)**.
+
+
+2. **CPU Utilization (Kyun Fail Hota Hai?):**
+* Agar Manager sirf yeh dekhe ke *"Kitchen staff kitni tezi se haath chala raha hai?"*
+* Staff shaayad fry machine ke oil garam hone ka wait kar raha ho (I/O Wait), haath fast na chal rahe hon, lekin bahar 10 minute se order pading ho! Staff ki "activity/CPU" dekh kar faisla karna yahan ghalat ho jayega.
+
+
+
+---
+
+### Result
+
+Aap ki **`ApproximateAgeOfOldestMessage`** wali logic bilkul accurate hai: **Jaise hi sab se purana order (burger) SLA time ke kareeb pohnche, fauran capacity scale ho jani chahiye.**
+
+---
+---
+---
+
+
+
 3-September-2026
 
 11-September-2026
