@@ -309,6 +309,60 @@ EKS autoscaling ke context mein Karpenter aur Horizontal Pod Autoscaler (HPA) ka
 Aap ka doubt bilkul valid tha. Pod level par **HPA** aur Node/Infrastructure level par **Karpenter** ka combo hi modern EKS scaling ka best practice setup hai!
 
 ---
+---
+---
+
+Bilkul sahi samjhe aap! Yeh wahi standard **Kubernetes ConfigMap (`yaml`) file** hi hai, bas iska naam AWS ne fix rakha hua hai: **`aws-auth`**.
+
+Aayein dekhte hain ke yeh parde ke piche kaise kaam karta hai:
+
+---
+
+### Standard ConfigMap vs `aws-auth` ConfigMap
+
+* **Normal ConfigMap:** Aap apni application ke variables (jaise `DATABASE_URL`, `PORT`, `ENV`) store karne ke liye `configmap.yaml` banate hain.
+* **`aws-auth` ConfigMap:** Yeh EKS cluster ke **`kube-system`** namespace ke andar majood ek special ConfigMap hota hai. Iska aik hi kaam hai: **AWS IAM ko Kubernetes RBAC (Role-Based Access Control) ke sath jodna**.
+
+---
+
+### Is file ke andar kya hota hai?
+
+Is YAML file mein do main sections hotay hain: **`mapRoles`** aur **`mapUsers`**.
+
+Jab aap EKS cluster par koi AWS IAM Role ya IAM User apply karte hain, toh file kuch aisi dikhti hai:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::123456789012:role/DevOpsAdminRole
+      username: devops-admin
+      groups:
+        - system:masters   # Is IAM Role ko Kubernetes ka Master Admin bana do
+  mapUsers: |
+    - userarn: arn:aws:iam::123456789012:user/Bilal
+      username: bilal
+      groups:
+        - system:readers   # Is User ko sirf Read-Only access do
+
+```
+
+---
+
+### Workflow Kaise Hota Hai?
+
+1. Aap apne laptop/terminal se command chalate hain: `kubectl get pods`.
+2. Kubernetes Control Plane aap ke **AWS IAM Credentials** check karta hai.
+3. Control Plane `kube-system` namespace mein paray **`aws-auth` ConfigMap** ko dekhta hai.
+4. Agar aapka IAM User/Role is ConfigMap mein likha hua hai, toh Kubernetes aap ko us hisab se permissions (Admin, Developer, ya Read-Only) de deta hai.
+
+> **Exam Tip:** EKS mein jab bhi naye EC2 Worker Nodes ya IAM Users ko cluster mein enter hone ki permission deni hoti hai, toh hamesha **`aws-auth ConfigMap`** ko hi edit/apply kiya jata hai.
+
+---
 
 
 30-August-2026
