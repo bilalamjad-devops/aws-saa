@@ -407,6 +407,50 @@ Aayein scenario breakdown aur options ko step-by-step analyze karte hain:
 | **Interface VPC Endpoint** | Almost ALL AWS Services (including S3) | Hourly Fee + Data Transfer Fee | On-premises networks (via Direct Connect/VPN) accessing S3 privately. |
 
 ---
+---
+---
+
+Is question ke **TWO correct answers** hain:
+
+1. **Set up a VPC peering connection between the VPCs.**
+2. **Re-configure the route table’s target and destination of the instances’ subnet.**
+
+Aayein point-to-point concept aur options ko detail se samajhte hain:
+
+---
+
+### Key Scenario Breakdown
+
+* **Infrastructure:** EC2 instances do custom VPCs mein chal rahe hain jo alag-alag Regions mein hain (**Ohio** - `us-east-2` aur **N. Virginia** - `us-east-1`).
+* **Requirement:** In dono VPCs ke EC2 instances ke beech data transfer karna hai **without traversing the public internet** (purely private AWS network over Inter-Region VPC Peering).
+* **Goal:** Aise **2 steps** choose karne hain jo is Inter-Region private communication ko enable karein.
+
+---
+
+### Correct Options Explanation
+
+#### ✅ **1. Set up a VPC peering connection between the VPCs.**
+
+* **Why it works:** **Inter-Region VPC Peering** do alag regions ke VPCs ko AWS ke backbone private network par securely connect karta hai. Traffic kabhi bhi public internet par nahi jata aur data Encrypted AWS network par flow karta hai.
+
+#### ✅ **2. Re-configure the route table’s target and destination of the instances’ subnet.**
+
+* **Why it works:** Peering connection create karne ke baad, dono VPCs ke Subnet Route Tables ko update karna zaroori hota hai. Route Table mein remote VPC ka IP CIDR block (destination) aur VPC Peering ID (`pcx-xxxxxx`) ko target ke taur par add kiya jata hai taake traffic route ho sake.
+
+---
+
+
+
+### Exam Rule for SAA-C03
+
+> **Inter-VPC Private Communication Rule:**
+> 1. Establish **VPC Peering Connection** (Same Region ya Cross-Region).
+> 2. Update **Subnet Route Tables** on BOTH VPCs pointing to the Peering Connection (`pcx-xxx`).
+> 3. Update **Security Groups** to allow traffic from the peer VPC CIDR/Security Group.
+> 
+> 
+
+---
 
 24-August-2026
 
@@ -431,3 +475,5 @@ Aayein scenario breakdown aur options ko step-by-step analyze karte hain:
 24-September-2026
 
 25-September-2026
+
+26-September-2026
