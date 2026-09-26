@@ -265,9 +265,56 @@ And one small correction to keep your mental model clean: **EKS itself is an AWS
 * **Automatic Pod Scaling based on Request Count / Events:** $\rightarrow$ **Kubernetes Event-driven Autoscaling (KEDA)**
 
 ---
+---
+---
+
+
+
+<img width="1410" height="522" alt="horizontal-pad-autoscaler-072623-0703PM" src="https://github.com/user-attachments/assets/13d94d35-d2f7-4357-b3f8-1ddbaeed4e7d" />
+
+
+
+
+Aap bilkul sahi keh rahe hain! Tutorials Dojo ne wahan **Karpenter** aur **HPA** wali options ko hi mark kiya hai.
+
+EKS autoscaling ke context mein Karpenter aur Horizontal Pod Autoscaler (HPA) ka combination samjhna exam ke liye bohot zaroori hai:
+
+---
+
+### Correct Pair Breakdown
+
+1. **Horizontal Pod Autoscaler (HPA) + Metrics Server:**
+* **Pod Layer Scaling:** Traffic aane par CPU/Memory spike hota hai. Metrics Server isay read karta hai aur HPA application ke **Pods** ko horizontally scale-out (multiply) kar deta hai.
+
+
+2. **Karpenter (Modern EKS Autoscaler):**
+* **Node Layer Infrastructure:** Jab HPA bohot saare naye Pods create karta hai aur current worker nodes par CPU/RAM space nahi rehti (pods `Pending` state mein aate hain), toh **Karpenter** AWS API se direct call karke seconds mein **just-in-time EC2 Worker Nodes** launch kar deta hai.
+* **Why Karpenter > Cluster Autoscaler:** AWS EKS ke modern architecture mein Karpenter ko Cluster Autoscaler se ziada fast, open-source, aur low operational overhead wala tool mana jata hai kyunki yeh bina Auto Scaling Groups (ASG) ke directly right-sized EC2 instances spin up kar leta hai.
+
+
+
+---
+
+### Core Formula for EKS Autoscaling
+
+```
+[ Surge Traffic ] ──► [ HPA (via Metrics Server) ] ──► Scales up Pods
+                                                             │
+                                              (If Nodes run out of capacity)
+                                                             ▼
+                                                    [ Karpenter ] ──► Launches EC2 Nodes
+
+```
+
+Aap ka doubt bilkul valid tha. Pod level par **HPA** aur Node/Infrastructure level par **Karpenter** ka combo hi modern EKS scaling ka best practice setup hai!
+
+---
+
 
 30-August-2026
 
 12-September-2026
 
 21-September-2026
+
+26-September-2026
