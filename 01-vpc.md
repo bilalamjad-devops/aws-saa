@@ -447,10 +447,38 @@ Aayein point-to-point concept aur options ko detail se samajhte hain:
 > 1. Establish **VPC Peering Connection** (Same Region ya Cross-Region).
 > 2. Update **Subnet Route Tables** on BOTH VPCs pointing to the Peering Connection (`pcx-xxx`).
 > 3. Update **Security Groups** to allow traffic from the peer VPC CIDR/Security Group.
-> 
-> 
+
 
 ---
+---
+---
+
+Yeh ek bohot hi important **AWS Exam Distinction** hai. SAA-C03 exam mein dono options distinct scenarios ke liye use hote hain:
+
+---
+
+### Key Comparison Matrix
+
+| Feature | AWS Direct Connect (DX) | Direct Connect + Site-to-Site VPN |
+| --- | --- | --- |
+| **Primary Goal** | High Bandwidth & Dedicated Private Link | **IPsec Encryption** + High Bandwidth |
+| **Encryption in Transit** | **Unencrypted** by default (at IP/Layer 3) | **Encrypted** (IPsec Tunnel over DX) |
+| **Public Internet Used?** | No (Purely Private Fiber Link) | No (VPN runs *over* the DX Private VIF) |
+| **Latency & Speed** | Consistent, Ultra-Low Latency | Consistent, Low Latency (slight overhead due to IPsec) |
+
+
+
+### Summary Cheat Sheet
+
+* **Private + High Bandwidth:** $\rightarrow$ **AWS Direct Connect**
+* **Private + High Bandwidth + IPsec Encrypted:** $\rightarrow$ **Direct Connect + Site-to-Site VPN**
+* **Cheap + Fast Setup + Encrypted over Internet:** $\rightarrow$ **AWS Site-to-Site VPN**
+
+---
+---
+---
+
+
 
 24-August-2026
 
