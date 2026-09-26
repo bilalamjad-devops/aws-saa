@@ -268,6 +268,10 @@ HDD volumes bare files aur continuous throughput ke liye best hotay hain. **Impo
 ---
 ---
 ---
+<img width="1122" height="881" alt="CreateSnapshots" src="https://github.com/user-attachments/assets/ce8c3a12-fd1e-4dae-824e-45b2a51f6c9b" />
+
+#### ✅ **The EBS volume can be used while the snapshot is in progress.**
+
 
 - `All data moving between the volume and the instance are encrypted.`
 - `Snapshots are automatically encrypted.`
@@ -287,3 +291,5 @@ HDD volumes bare files aur continuous throughput ke liye best hotay hain. **Impo
 21-September-2026
 
 25-September-2026
+
+26-September-2026
