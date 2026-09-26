@@ -1,10 +1,10 @@
 - `Enable access logs on the Application Load Balancer. Integrate the ECS cluster with Amazon CloudWatch Application Insights to analyze traffic patterns and simplify troubleshooting.`
 
 
-<img width="1792" height="982" alt="amazon-cloudwatch-application-insights" src="https://github.com/user-attachments/assets/69db006f-6618-44b7-9068-a9deddb88bee" />
 
 <img width="1498" height="982" alt="td-elb-access-logs" src="https://github.com/user-attachments/assets/39556c63-88f7-4cef-b804-fb0b7a27cc9f" />
 
+<img width="1792" height="982" alt="amazon-cloudwatch-application-insights" src="https://github.com/user-attachments/assets/69db006f-6618-44b7-9068-a9deddb88bee" />
 
 
 
