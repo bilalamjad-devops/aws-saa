@@ -478,7 +478,11 @@ Yeh ek bohot hi important **AWS Exam Distinction** hai. SAA-C03 exam mein dono o
 ---
 ---
 
+### Exam Rule for SAA-C03
 
+> **Private Access to AWS Services Keywords:**
+> * **Private access to Amazon S3 or DynamoDB:** $\rightarrow$ **VPC Gateway Endpoint** (Free & No NAT required)
+> * **Private access to other AWS services (SQS, SNS, Kinesis, etc.):** $\rightarrow$ **Interface VPC Endpoint (AWS PrivateLink)**
 
 24-August-2026
 
