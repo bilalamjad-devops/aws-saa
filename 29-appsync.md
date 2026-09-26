@@ -114,7 +114,60 @@ AWS mein backend APIs dene ke liye do primary options hain:
 | **Real-time Capabilities** | Requires custom WebSocket API management. | **Built-in GraphQL Subscriptions** (Real-time). |
 | **Ideal For** | Standard REST Microservices / Lambda backends. | Mobile / Web Apps requiring flexible querying & real-time updates. |
 
+---
+---
+---
 
+
+Aayein isay ek bilkul simple code aur practical structure se samajhte hain taake confuse hue bina baat samajh aa jaye!
+
+---
+
+### AppSync Resolver Kya Hota Hai?
+
+AppSync (GraphQL) jab koi query sunta hai (maslan: *"Mujhe Patient ID #101 ka data do"*), toh usay nahi pata hota ke yeh data kahan pada hai.
+
+**Resolver** woh **PUL / CONNECTOR (Bridge)** hai jo AppSync query ko piche paray **DynamoDB Table** ke sath jodta hai.
+
+```
+[ Frontend Query ] ──► [ AWS AppSync ] ──► [ RESOLVER ] ──► [ DynamoDB Table ]
+
+```
+
+---
+
+### Normal Resolver vs Pipeline Resolver
+
+#### 1. Unit Resolver (Aik Hi Kaam)
+
+Yeh sirf **ek** DynamoDB table se data la sakta hai.
+
+* *Example:* Query aayi $\rightarrow$ Resolver ne Table A se Patient Name uthaya $\rightarrow$ Answer wapas bhej diya.
+
+#### 2. Pipeline Resolver (Aik Ke Baad Doosra Kaam)
+
+Yeh ek hi API request mein **multiple steps (functions)** sequential tareeqay se run karta hai.
+
+Sochein Healthcare App par ek doctor request bhejta hai:
+
+```
+Pipeline Resolver
+   ├── Step 1 (Function 1): DynamoDB Table "Patients" se profile check karo.
+   ├── Step 2 (Function 2): DynamoDB Table "MedicalHistory" se reports fetch karo.
+   └── Step 3 (Function 3): DynamoDB Table "AuditLogs" mein doctor ki visit entry save karo.
+
+```
+
+Yeh teenon kaam **AppSync ke andar hi** aik ke baad aik ho jate hain. Aap ko beech mein custom Python/Node.js **AWS Lambda function** likhne ki zaroorat nahi padti.
+
+---
+
+### Iska Fayda Kya Hai? (Exam Point of View)
+
+* **No Lambda Code Needed:** AppSync direct DynamoDB se baat kar sakta hai.
+* **Operational Efficiency:** Managed service hone ki waja se infrastructure, scaling, ya server code ka koi overhead nahi hota.
+
+---
 12-September-2026
 
 26-September-2026
