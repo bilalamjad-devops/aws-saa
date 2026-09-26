@@ -361,7 +361,26 @@ Bilkul! Aayein isay daily-life ki **simple analogies** ke sath aur easy bana kar
 | **Multi-Value** | **Multiple Healthy IPs (Up to 8)** |
 
 ---
+---
+---
 
+- `Create an A record aliased to the load balancer DNS name.`
+
+Doni mein farq bilkul direct aur simple hai:
+
+| Feature | Normal A Record | Alias A Record (Route 53) |
+| --- | --- | --- |
+| **Value (Target)** | **Static IP Address** (e.g., `192.0.2.1`) | **AWS Resource DNS Name** (e.g., `my-alb-1234.elb.amazonaws.com`) |
+| **Zone Apex (Without `www`)** | ✅ Allowed (Agar static IP ho) | ✅ **Allowed** (Special AWS feature) |
+| **Dynamic IP Handling** | ❌ IP change ho jaye toh DNS toot jata hai | ✅ AWS internally IPs update kar leta hai |
+| **Cost** | Standard DNS Query Charge | **FREE** (No charges for AWS targets) |
+
+---
+
+### Key Takeaway
+
+* **Normal A Record:** IP address likhne ke liye use hota hai (`example.com` $\rightarrow$ `192.0.2.1`).
+* **Alias A Record:** AWS ALB / CloudFront ke DNS Name ko **Without `www` (Zone Apex)** wali domain par point karne ke liye use hota hai (`example.com` $\rightarrow$ `my-alb-1234.elb.amazonaws.com`).
 
 
 1-September-2026
