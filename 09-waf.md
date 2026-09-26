@@ -175,6 +175,20 @@ Haan, bilkul sahi pakda aap ne! **AWS WAF** aur **Amazon CloudFront** dono ke pa
 | **Rule Complexity** | Basic (Allow/Block countries) | Advanced (Combine with SQLi, Rate-limiting, Paths) |
 | **Primary Exam Use-Case** | Direct CDN Edge blocking | **ALB Direct Web Protection** / Complex rules |
 
+---
+---
+---
+
+### Exam Cheat Sheet for Traffic Inspection
+
+> * **Deep Packet Inspection / Active Firewall for VPC:** **AWS Network Firewall**
+> * **Web Application Layer 7 Attack Protection (SQLi, XSS):** **AWS WAF** (ALB, CloudFront, API Gateway par lagta hai, NLB par nahi)
+> * **Packet Copy / Auditing:** **VPC Traffic Mirroring** (ENIs par lagta hai)
+> 
+> 
+
+---
+
 27-August-2026
 
 28-August-2026
@@ -182,3 +196,5 @@ Haan, bilkul sahi pakda aap ne! **AWS WAF** aur **Amazon CloudFront** dono ke pa
 29-August-2026
 
 24-September-2026
+
+26-September-2026
