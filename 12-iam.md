@@ -355,6 +355,64 @@ Request Source IP = Any other IP  ──► Skips Deny Condition  ──► ✅ 
 ```
 
 ---
+---
+---
+
+**IAM Cross-Account Access** ka matlab hai ke **ek AWS Account ka user doosre AWS Account ke resources ko secure tareeqe se access kar sake**, bina naye username/password ya access keys banaye.
+
+---
+
+### Real-World Example Se Samajhein 🏢
+
+Farz karein aap ki company ke do AWS accounts hain:
+
+1. **Account A (Main / Central Corporate IT Account)**
+2. **Account B (Finance / Division Account)**
+
+Aap (IT Admin) **Account A** mein hain, aur aap ko **Account B** ke andar ja kar inspection ya kaam karna hai.
+
+* **Glat Tarika (High Risk):** Account B mein aap ke liye alag se naya IAM User aur Access Keys banaye jayein. Is se passwords aur keys jagah-jagah bikhar jate hain.
+* **Sahi Tarika (IAM Cross-Account Access):**
+1. Account B ek **IAM Role** banata hai (e.g., `FinanceAdminRole`) aur ijazat deta hai ke **Account A** is role ko use kar sakta hai.
+2. Account A ka user **`AssumeRole`** API call (ya AWS Console mein "Switch Role") karke temporarily Account B mein enter ho jata hai.
+
+
+
+---
+
+### Yeh Kaise Kaam Karta Hai? (Mechanism)
+
+```
+┌──────────────────────────┐                  ┌──────────────────────────┐
+│        ACCOUNT A         │                  │        ACCOUNT B         │
+│     (Parent / Central)   │                  │     (Child / Division)   │
+│                          │                  │                          │
+│     ┌──────────────┐     │   AssumeRole     │     ┌──────────────┐     │
+│     │   IAM User   │ ───┼──────────────────┼───► │   IAM Role   │     │
+│     └──────────────┘     │  (Temp Tokens)   │     └──────────────┘     │
+└──────────────────────────┘                  └──────────┬───────────────┘
+                                                         │
+                                                         ▼
+                                               ┌──────────────────┐
+                                               │ AWS Resources    │
+                                               │ (DynamoDB, S3)   │
+                                               └──────────────────┘
+
+```
+
+1. **No Permanent Credentials:** Naye passwords ya Permanent Access Keys ki zaroorat nahi hoti.
+2. **Temporary Security Tokens:** AWS Security Token Service (STS) aap ko thori der ke liye (e.g., 1 hour) temporary credentials deta hai. Time khatam hone par access khud hi khatam ho jata hai.
+3. **Trust Policy:** Account B ke Role ke sath ek **Trust Policy** lagi hoti hai jo yeh tay karti hai ke sirf Account A (ya specific users) hi yeh role le sakte hain.
+
+---
+
+### SAA-C03 Exam Point of View 💡
+
+| Scenario | Solution |
+| --- | --- |
+| **Do accounts ke darmiyan secure access bina access keys ke?** | IAM Cross-Account Access using **`sts:AssumeRole`**. |
+| **Central Admin ko multiple child accounts manage karne hain?** | Cross-Account IAM Roles + AWS Organizations. |
+| **Third-party vendor ko apne account ka access dena hai?** | Cross-Account Role with **External ID** (security check ke liye). |
 
 31-August-2026
 
@@ -363,3 +421,5 @@ Request Source IP = Any other IP  ──► Skips Deny Condition  ──► ✅ 
 14-September-2026
 
 24-September-2026
+
+27-September-2026
