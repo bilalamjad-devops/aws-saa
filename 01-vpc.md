@@ -529,6 +529,28 @@ AWS ne is ke liye **Transit Gateway** aur **ECMR (Equal Cost Multipath Routing)*
 * **Option 1 (Multiple VGWs):** Ek VPC ke sath **sirf 1 Virtual Private Gateway (VGW)** lag sakta hai, ziada nahi. Isliye yeh galat hai.
 * **Option 3 & 4 (Only changing CGW or adding tunnels without TGW):** Standard VGW ECMR support nahi karta, isliye Transit Gateway ke bagair speed multiply nahi ho sakti.
 
+---
+---
+---
+
+
+
+<img width="732" height="361" alt="2018-01-29_10-12-42-b725ca3ed0b358d7a00e8b0fd1c1bc51" src="https://github.com/user-attachments/assets/f972f182-8ab6-488b-b45a-a4902e854724" />
+
+
+### Correct Option Explanation
+
+#### ✅ **Add 0.0.0.0/0 $\rightarrow$ Internet Gateway (IGW)**
+
+* **Public Subnet Definition:** Subnet tab hi "Public Subnet" banta hai jab uski Route Table mein **Default Route (`0.0.0.0/0`)** Internet Gateway (`igw-xxxxxx`) ki taraf pointed ho.
+* **Outbound/Inbound Internet Routing:** `0.0.0.0/0` (CIDR block representing all IPv4 addresses) add karne se EC2 instance Internet se traffic send aur receive kar sakta hai.
+
+---
+---
+---
+
+
+
 27-September-2026
 
 24-August-2026
@@ -556,3 +578,5 @@ AWS ne is ke liye **Transit Gateway** aur **ECMR (Equal Cost Multipath Routing)*
 25-September-2026
 
 26-September-2026
+
+27-September-2026
