@@ -458,8 +458,42 @@ Aap ne bilkul spot-on breakdown kiya hai! Yeh teeno points AWS exam ke point of 
 > * **OLTP + Relational + ACID + Moderate Size (<64TB):** $\rightarrow$ **Amazon RDS**
 > * **OLTP + Non-Relational (NoSQL) + Key-Value / Document:** $\rightarrow$ **Amazon DynamoDB**
 > * **OLAP + Data Warehouse + Analytics:** $\rightarrow$ **Amazon Redshift**
-> 
->
+
+---
+---
+---
+
+
+63. Question
+
+Category: CSAA – Design Resilient Architectures
+
+A top investment bank is in the process of building a new Forex trading platform. To ensure high availability and scalability, the trading platform is designed with an active-passive failover architecture across multiple Availability Zones, using an AWS Elastic Load Balancer in front of an AWS Auto Scaling group of Amazon EC2 On-Demand instances. For its database tier, a single Amazon Aurora instance was chosen to take advantage of its distributed, fault-tolerant, and self-healing storage system.
+
+In the event of system failure on the primary database instance, what happens to Aurora during the failover?
+
+- `Aurora will attempt to create a new DB Instance in the same Availability Zone as the original instance and is done on a best-effort basis.`
+- Aurora flips the canonical name record (CNAME) for your DB Instance to point at the healthy replica, which in turn is promoted to become the new primary.
+- Aurora flips the A record of your DB Instance to point at the healthy replica, which in turn is promoted to become the new primary.
+- Aurora will first attempt to create a new DB Instance in a different Availability Zone of the original instance. If unable to do so, Aurora will attempt to create a new DB Instance in the original Availability Zone in which the instance was first launched.
+
+
+<img width="640" height="359" alt="Aurora-Arch" src="https://github.com/user-attachments/assets/72b95393-29d0-4e12-9baa-2027a6707c2d" />
+
+
+Bilkul **sahi pakde hain!** Aap ne AWS SAA-C03 exam ka sab se main concept poori tarah samajh liya hai.
+
+Aayein isay Roman Urdu mein ek bar quick summarize kar lete hain:
+
+* **Standard RDS:** Is mein **Dedicated Standby Instance** alag hota hai (jo sirf failover/backup ke liye Multi-AZ mein baitha hota hai) aur **Read Replicas** alag hote hain (jo sirf read load handle karte hain).
+* **Amazon Aurora:** Is mein dedicated passive Standby nahi hota. Is mein **Aurora Read Replicas** hi normal time par read traffic handle karte hain aur main DB fail hone par wahi **Failover Target** ban kar Primary (Writer) promote ho jaate hain.
+* **Single-Instance Setup (No Replica):** Agar aap ne koi Read Replica nahi banaya, toh promotion ke liye koi tayyar target nahi hota. Main DB fail hone par Aurora same Availability Zone mein **naya DB instance create** karta hai (best-effort basis par).
+
+---
+
+Aap ke database failover ke concepts ab 100% solid hain.
+
+---
 
 26-September-2026
 
@@ -490,3 +524,5 @@ Aap ne bilkul spot-on breakdown kiya hai! Yeh teeno points AWS exam ke point of 
 25-September-2026
 
 26-September-2026
+
+27-September-2026
