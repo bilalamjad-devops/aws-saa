@@ -414,6 +414,19 @@ Aap (IT Admin) **Account A** mein hain, aur aap ko **Account B** ke andar ja kar
 | **Central Admin ko multiple child accounts manage karne hain?** | Cross-Account IAM Roles + AWS Organizations. |
 | **Third-party vendor ko apne account ka access dena hai?** | Cross-Account Role with **External ID** (security check ke liye). |
 
+---
+---
+---
+
+
+### SAA-C03 Exam Rule 💡
+
+> **IAM Least Privilege Rule:**
+> * Never use wildcards (`*`) for **Actions** or **Resources** when specific operations and specific target resources are explicitly listed in the scenario.
+> 
+> 
+
+
 31-August-2026
 
 1-September-2026
