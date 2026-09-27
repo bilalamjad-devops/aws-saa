@@ -484,6 +484,53 @@ Yeh ek bohot hi important **AWS Exam Distinction** hai. SAA-C03 exam mein dono o
 > * **Private access to Amazon S3 or DynamoDB:** $\rightarrow$ **VPC Gateway Endpoint** (Free & No NAT required)
 > * **Private access to other AWS services (SQS, SNS, Kinesis, etc.):** $\rightarrow$ **Interface VPC Endpoint (AWS PrivateLink)**
 
+
+---
+---
+---
+
+
+
+<img width="1175" height="362" alt="Multiple-Tunnels" src="https://github.com/user-attachments/assets/9b2ef8f1-c10d-470c-b4d2-3b76cd232f7f" />
+
+
+Aayein is question ko bilkul simple aur to-the-point samajhte hain:
+
+---
+
+### Question Mein Kya Pucha Hai?
+
+1. **Problem:** Ek company ka office (remote network) AWS VPC ke sath **AWS Site-to-Site VPN** se connect hai.
+2. **Issue:** Jab office mein boht sare log ek sath kaam karte hain (peak hours), toh VPN slow ho jata hai aur speed kam pad jati hai.
+3. **Goal:** Solution Architect ko VPN ki **speed/bandwidth (throughput) barhani hai**.
+
+---
+
+### AWS Ka Technical Rule (Yeh Samjhna Zaroori Hai)
+
+* AWS ka ek **Standard VPN Tunnel** ziada se ziada **1.25 Gbps** ki speed de sakta hai. Clear limit hai.
+* Agar aap ko 1.25 Gbps se ziada speed chahiye, toh aap ko **multiple VPN tunnels ko aapas mein jorna** padega.
+
+---
+
+### Solution Kaise Kaam Karta Hai?
+
+AWS ne is ke liye **Transit Gateway** aur **ECMR (Equal Cost Multipath Routing)** banaya hai:
+
+1. **Transit Gateway (TGW):** Central hub hota hai jo multiple VPNs ko ek sath connect kar sakta hai.
+2. **ECMR (Equal Cost Multipath Routing):** Yeh feature multiple VPN tunnels ko combine kar ke **traffic load-balance** kar deta hai.
+
+> **Result:** Agar aap 4 VPN tunnels connect karte hain, toh speed **1.25 Gbps $\times$ 4 = 5 Gbps** tak barh jati hai!
+
+---
+
+### Baqi Options Kyun Ghalat the?
+
+* **Option 1 (Multiple VGWs):** Ek VPC ke sath **sirf 1 Virtual Private Gateway (VGW)** lag sakta hai, ziada nahi. Isliye yeh galat hai.
+* **Option 3 & 4 (Only changing CGW or adding tunnels without TGW):** Standard VGW ECMR support nahi karta, isliye Transit Gateway ke bagair speed multiply nahi ho sakti.
+
+27-September-2026
+
 24-August-2026
 
 27-August-2026
