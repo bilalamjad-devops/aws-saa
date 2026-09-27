@@ -62,6 +62,21 @@ Aayein dono ke fark ko simple points mein samajhte hain:
 | **Use Case** | Code run karne aur runtime data hold karne ke liye. | Heavy files download, extract, ya temporary process karne ke liye. |
 | **AWS Lambda Limits** | 128 MB se 10 GB | 512 MB se 10 GB |
 
+---
+---
+---
+
+### SAA-C03 Real-Time Architecture Rule 💡
+
+> * **Streaming Ingestion:** Kinesis Data Streams
+> * **Processing:** AWS Lambda
+> * **Millisecond Storage:** Amazon DynamoDB (NoSQL)
+> * **Analytics Storage (Seconds/Minutes):** Amazon Redshift (OLAP)
+> 
+> 
+
 24-August-2026
 
 16-September-2026
+
+27-September-2026
