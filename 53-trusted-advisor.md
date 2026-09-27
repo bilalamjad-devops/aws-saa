@@ -1,6 +1,25 @@
+**Haan, bilkul 100% sahi!**
 
+Is question ke **TWO correct answers** yahi dono hain:
 
+1. ✅ **Write an AWS Lambda function that refreshes the AWS Trusted Advisor Service Limits checks and set it to run every 24 hours.**
+2. ✅ **Capture the events using Amazon EventBridge (Amazon CloudWatch Events) and use an Amazon Simple Notification Service (Amazon SNS) topic as the target for notifications.**
 
+---
+
+### In Dono Ka Mil Kar Architecture Kaise Kaam Karta Hai?
+
+* **Lambda Function:** Har 24 ghante baad Trusted Advisor ki Service Limits checks ko **refresh** karta hai taake latest quota data fetch ho sakay.
+* **EventBridge:** Jab Trusted Advisor dekhta hai ke koi resource service limit ke kareeb (e.g., 80% ya 90%) pahunch chuki hai, toh EventBridge us event ko detect kar leta hai.
+* **SNS Topic:** EventBridge us event ko SNS topic par bhejta hai jo team ko alert/notification send kar deta hai.
+
+Dono mil kar ek complete **Automated Quota Monitoring Solution** banate hain!
+
+---
+
+---
+---
+---
 
 
 **AWS Trusted Advisor** ek automated tool hai jo aap ke poore AWS account ko continuously scan karta hai aur aap ko **AWS Best Practices** ke mutabiq recommendations aur warnings deta hai.
