@@ -549,7 +549,17 @@ AWS ne is ke liye **Transit Gateway** aur **ECMR (Equal Cost Multipath Routing)*
 ---
 ---
 
+### SAA-C03 Networking & Security Rule 💡
 
+> **Multi-VPC Security & Routing Rule:**
+> * Centralized Multi-VPC / Multi-Region Connectivity $\rightarrow$ **AWS Transit Gateway**
+> * Statefull/Stateless Active Traffic Flow Inspection & IPS Protection $\rightarrow$ **AWS Network Firewall**
+
+
+---
+---
+---
+---
 
 27-September-2026
 
