@@ -109,6 +109,25 @@ OAC lagane se yeh setup banta hai:
 * **Restrict Access to Specific Files via CloudFront:** $\rightarrow$ **CloudFront Signed URLs / Cookies**
 
 ---
+---
+---
+
+
+#### Yeh Kaise Kaam Karta Hai?
+
+* Normal routing hamesha **Primary Origin** par jati hai.
+* Agar Primary Origin down ho jaye, connection timeout ho jaye, ya **500, 502, 503, 504** error de, toh CloudFront user ko error dikhane ke bajaye **automatically Secondary Origin** se data fetch karke de deta hai.
+
+---
+
+### Summary 💡
+
+> * **Origin:** Jahan asal data pada hai (S3, EC2, ALB, On-Premises).
+> * **Origin Group:** 2 Origins ka pair (Primary + Backup) jo High Availability aur Automatic Failover ke liye use hota hai.
+> 
+> 
+
+---
 
 
 30-August-2026
@@ -116,3 +135,5 @@ OAC lagane se yeh setup banta hai:
 16-September-2026
 
 18-September-2026
+
+27-September-2026
