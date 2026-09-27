@@ -433,6 +433,50 @@ AWS Load Balancer (ALB) ke paas **Listeners** hote hain jo alag alag ports par i
 * **HTTP 504 Gateway Timeout:** $\rightarrow$ Application response timeout / Database connection issue behind EC2.
 
 ---
+---
+---
+
+
+Is question ka correct answer **Cross-zone load balancing** hai.
+
+---
+
+### Key Scenario Breakdown
+
+* **Goal:** High Availability aur Scalability movie streaming application ke liye.
+* **Architecture:** Multi-AZ Auto Scaling Group hai, jis mein EC2 instances multiple Availability Zones (AZs) mein phailay hue hain.
+* **Requirement:** Load balancer ko saari incoming requests **tamam Availability Zones ke EC2 instances mein barabar (evenly) distribute** karni hain.
+
+---
+
+### Correct Option Explanation
+
+#### ✅ **Cross-zone load balancing**
+
+* By default, jab Cross-zone load balancing **disabled** hoti hai, toh Elastic Load Balancer (ELB) traffic ko pehle AZs ke darmiyan barabar (50/50) baant'ta hai—chahe ek AZ mein 2 instances hoon aur doosre mein 8. Is se kuch instances par load zyada aur kuch par kam ho jata hai.
+* Jab aap **Cross-zone load balancing enable** karte hain, toh ELB AZ ki boundary ko nazar-andaz karke **tamam registered target instances par 100% EVENLY traffic distribute** karta hai (e.g., agar 10 instances hain toh har ek ko 10% traffic milega).
+
+---
+
+### Incorrect Options Breakdown (Elimination)
+
+* ❌ **Path-based Routing:** Yeh URL paths (e.g., `/movies` vs `/images`) ke mutabiq traffic alag-alag target groups ko bhejne ke liye hota hai. Uniform load distribution se iska koi taalluq nahi.
+* ❌ **Amazon VPC IP Address Manager (IPAM):** Yeh VPCs ke IP address planning, tracking, aur management ke liye use hota hai.
+* ❌ **AWS Direct Connect SiteLink:** Yeh on-premises sites ya VPCs ko Direct Connect locations ke zariye aapas mein connect karne ke liye hota hai.
+
+---
+
+### Exam Rule for SAA-C03
+
+> **Traffic Distribution Rule:**
+> * **ALB (Application Load Balancer):** Cross-zone load balancing **by default ENABLED** hoti hai.
+> * **NLB (Network Load Balancer):** Cross-zone load balancing **by default DISABLED** hoti hai (isay manually enable karna parta hai evenly load distribute karne ke liye).
+> 
+> 
+
+---
+---
+---
 
 1-Semtember-2026
 
@@ -441,3 +485,5 @@ AWS Load Balancer (ALB) ke paas **Listeners** hote hain jo alag alag ports par i
 18-September-2026
 
 25-September-2026
+
+27-September-2026
