@@ -528,6 +528,16 @@ Is question ka correct answer **Use path conditions to define rules that forward
 > 
 
 ---
+---
+---
+
+### SAA-C03 Load Balancer Selection Rule 💡
+
+> * **Layer 4 (TCP/UDP) + Ultra-low Latency + Millions of Requests/sec:** $\rightarrow$ **Network Load Balancer (NLB)**
+> * **Layer 7 (HTTP/HTTPS) + Path/Host Routing:** $\rightarrow$ **Application Load Balancer (ALB)**
+> 
+> 
+
 
 
 1-Semtember-2026
