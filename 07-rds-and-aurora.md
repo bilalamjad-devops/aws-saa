@@ -867,6 +867,47 @@ Is question ke correct **TWO** options hain:
 > 
 
 ---
+---
+---
+
+Is question ka correct answer **Create Amazon Aurora Replicas.** hai.
+
+---
+
+### Scenario Breakdown & Key Requirements
+
+1. **Architecture:** Application ek On-Demand EC2 instance par aur **single Amazon Aurora database** par chal rahi hai.
+2. **Goal:** Aurora database ki **availability** ko improve karna hai taake online portal down na ho (prevent unnecessary downtime).
+
+---
+
+### Correct Option Explanation
+
+#### ✅ **Create Amazon Aurora Replicas**
+
+* **High Availability & Failover:** Amazon Aurora Replicas Same Region ke different Availability Zones (AZs) mein deploy ki jati hain.
+* **Automatic Failover:** Agar Primary Aurora DB instance fail hota hai ya down hota hai, toh Amazon Aurora automatically **aurora replica ko Primary DB mein promote** kar deta hai bina kisi data loss ke.
+* Is se **High Availability (HA)** achieve hoti hai aur application downtime se bach jati hai. (Sath hi, yeh replicas read traffic scale out karne ke liye bhi use hoti hain).
+
+---
+
+### Incorrect Options Breakdown (Elimination)
+
+* ❌ **Option 1 (Deploy Aurora to Auto-Scaling groups with ELB):** Auto Scaling Groups aur Elastic Load Balancers (ELB) **EC2 application instances** ko scale/balance karne ke liye hote hain, Aurora database engine ko scaling/failover ke liye nahi.
+* ❌ **Option 2 (Asynchronous Key Prefetch):** Yeh query performance optimization feature hai, High Availability ya Failover mechanism nahi.
+* ❌ **Option 4 (Enable Hash Joins):** Hash joins query execution speed (performance) ko optimize karti hain. Is ka database failure recovery ya availability se koi talaluq nahi.
+
+---
+
+### SAA-C03 Amazon Aurora Availability Cheat Sheet 💡
+
+> * **Aurora High Availability (HA):** Add **Aurora Replicas** across multiple AZs (up to 15 Read Replicas supported).
+> * **Aurora Storage Durability:** Automatically replicates 6 copies of data across 3 Availability Zones (AZs).
+> * **Aurora Multi-Region DR:** Use **Aurora Global Database**.
+> 
+> 
+
+---
 
 
 
