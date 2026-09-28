@@ -386,7 +386,48 @@ snapshot may be ennrypted or unencypted.
 > * **Provisioned Throughput:** When application needs high throughput regardless of storage volume size.
 > 
 > 
+---
+---
+---
 
+Simple words mein **Throughput** ka matlab hota hai **Data Transfer Speed** (yaani ek second mein kitna data read ya write ho raha hai, maslan **MB/s** ya **GB/s**).
+
+---
+
+### Aasan Misaal (Water Pipe):
+
+* **Storage Size (Capacity):** Water tank ki kitni capacity hai (e.g., 100 Liters ya 10 TB).
+* **Throughput (Speed):** Pipe mein se kitna paani ek second mein nikal raha hai (e.g., 5 Liters/sec ya 500 MB/s).
+
+---
+
+### Bursting vs Provisioned Throughput (Amazon EFS)
+
+Amazon EFS mein Throughput ke 2 main tareeqay hotay hain:
+
+#### 1. Bursting Throughput (Default / Dynamic)
+
+* **Rule:** Is mein aap ki data speed (throughput) is baat par depend karti hai ke aap ki **EFS bucket mein kitna data save (Storage Size)** hai.
+* **Problem:** Agar aap ka data kam hai (maslan 10 GB), toh AWS aap ko boht kam speed (e.g., 0.5 MB/s) dega. Haan, jab zaroorat paray toh temporary speed barh sakti hai (Burst credits use karke), lekin jaise hi credits khatam hongay, speed wapis slow ho jaye gi.
+* **Best For:** Normal web applications jahan beech-beech mein traffic spikes aatay hain.
+
+#### 2. Provisioned Throughput (Locked / Guaranteed)
+
+* **Rule:** Is mein aap AWS ko kehte hain ke *"Chahay mera storage size kam ho ya ziada, mujhe fixed High Speed (e.g., 1024 MB/s) hamesha guaranteed chahiye!"*
+* **Advantage:** SpeedStorage Size se aazad (decoupled) hoti hai. Heavy HPC workloads ya databases ke liye zaroori hai jahan high speed continuous chahiye hoti hai.
+* **Best For:** High-Performance Computing (HPC), Big Data, aur heavy parallel ECS/Docker tasks.
+
+---
+
+### Summary Table 💡
+
+| Feature | Bursting Throughput | Provisioned Throughput |
+| --- | --- | --- |
+| **Speed Basis** | Storage size ke hisab se scale hoti hai. | Aap khud fixed speed (MB/s) set/buy karte hain. |
+| **Cost** | Storage ke sath included hoti hai. | High baseline speed ke extra charges hotay hain. |
+| **Ideal Workload** | General web applications, logs. | High Performance Computing (HPC), heavy reads/writes. |
+
+---
 
 31-August-2026
 
