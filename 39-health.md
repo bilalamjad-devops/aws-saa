@@ -33,4 +33,48 @@ Aayein inka difference simple terms mein samajhte hain:
 * **Question bole:** *"Meray specific EC2 instance ki maintenance ka advance notice chahiye"* $\rightarrow$ **Personal Health Dashboard**.
 * **Question bole:** *"Check karna hai ke poore AWS Region mein S3 down hai ya chal raha hai"* $\rightarrow$ **Service Health Dashboard**.
 
-* 21-September-2026
+
+
+---
+---
+---
+
+
+
+- `Create an Amazon EventBridge (Amazon CloudWatch Events) rule that will check AWS Health or ACM expiration events related to ACM certificates. Send an alert notification to an Amazon Simple Notification Service (Amazon SNS) topic when a certificate is going to expire in 30 days.`
+
+- `Create an Amazon EventBridge (Amazon CloudWatch Events) rule and schedule it to run every day to identify the expiring ACM certificates. Configure to rule to check the DaysToExpiry metric of all ACM certificates in Amazon CloudWatch. Send an alert notification to an Amazon Simple Notification Service (Amazon SNS) topic when a certificate is going to expire in 30 days.`
+
+
+<img width="1017" height="655" alt="td-example-eventbridge-rule-for-acm-01-08-25" src="https://github.com/user-attachments/assets/580bdff6-c57b-4cbf-b198-620398ae37c7" />
+
+<img width="1017" height="411" alt="td-daystoexpiry-metric-01-08-25" src="https://github.com/user-attachments/assets/062bd1ce-237b-410a-8294-421eeaffefe9" />
+
+
+### Correct Options Explanation
+
+#### ✅ **Option 2 (AWS Health / ACM Events + EventBridge + SNS)**
+
+* **AWS Health / ACM Expiration Events:** AWS ACM aur AWS Health Service naturally `ACM Certificate Expiration` events generate karte hain (by default 45 days, 30 days, 15 days, etc. pehle).
+* **EventBridge + SNS:** Amazon EventBridge in expiration events ko capture karta hai aur ek Amazon SNS Topic ke zariye security team ko email/SMS alert bhej deta hai.
+
+#### ✅ **Option 4 (CloudWatch DaysToExpiry Metric + EventBridge + SNS)**
+
+* **CloudWatch Metric:** ACM automatic taur par har certificate ke liye CloudWatch mein **`DaysToExpiry`** metric publish karta hai.
+* **Scheduled EventBridge Rule:** Ek daily Scheduled EventBridge rule is metric ko evaluate kar sakta hai. Jab `DaysToExpiry <= 30` ho, toh EventBridge SNS topic trigger karke notification send kar deta hai.
+
+---
+
+
+### SAA-C03 ACM Expiry Monitoring Rule 💡
+
+> * **Method 1:** ACM / AWS Health Event $\rightarrow$ Amazon EventBridge $\rightarrow$ Amazon SNS.
+> * **Method 2:** CloudWatch `DaysToExpiry` Metric / Alarm $\rightarrow$ Amazon SNS.
+> 
+> 
+
+
+
+21-September-2026
+
+28-September-2026
