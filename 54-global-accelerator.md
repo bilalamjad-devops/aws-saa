@@ -35,6 +35,8 @@ Agar aap ka application server (e.g., Application Load Balancer ya EC2) ek AWS R
 ---
 ---
 
+<img width="1326" height="695" alt="aws-global-accelerator-endpoint-group" src="https://github.com/user-attachments/assets/1402666c-20f5-4249-a55b-52dbcbfd712b" />
+
 
 Aayein **Question 44** aur is ke correct answer ko ek bar phir bilkul clear, step-by-step Roman Urdu mein samajhte hain:
 
