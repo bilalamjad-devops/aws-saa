@@ -40,5 +40,36 @@ AWS Exam mein yeh 3 services aksar confuse karti hain, inka difference yaad rakh
 | **Amazon Inspector** | EC2 Instances aur Container Images mein **Software Vulnerabilities / Bugs** scan karna. | *Code & OS Inspector* |
 
 ---
+---
+---
+
+- `Create an S3 bucket policy that grants access from the sandbox accounts. Use Amazon Macie to discover personally identifiable information (PII) or financial data.`
+
+
+<img width="844" height="471" alt="amazon-s3-bucket-policy-for-cross-account-access" src="https://github.com/user-attachments/assets/8a5689ca-a845-49e7-988a-78a74a696f15" />
+
+
+
+### Correct Option Explanation
+
+#### ✅ **Bucket Policy + Amazon Macie**
+
+* **Amazon Macie:** AWS ki fully-managed data security aur data privacy service hai jo Machine Learning (ML) aur pattern matching use karke S3 buckets mein sensitive data jaise **PII** (names, addresses, SSNs) aur financial data (credit card numbers) ko automatically discover aur classify karti hai.
+* **S3 Bucket Policy:** Cross-account access allow karne ke liye source S3 bucket par ek simple **Bucket Policy** attach karna sab se least effort aur direct tareeqa hai (bina cross-account replication ya pre-signed URLs ke complex setups ke).
+
+---
+
+
+
+### SAA-C03 AWS Security Services Cheat Sheet 💡
+
+> * **PII / Sensitive Data in S3 Discovery:** $\rightarrow$ **Amazon Macie**
+> * **Security Log Analysis & Root Cause Investigation:** $\rightarrow$ **Amazon Detective**
+> * **Compliance Assessment & Audits:** $\rightarrow$ **AWS Audit Manager**
+> * **Threat Detection (Malware, Anomalies):** $\rightarrow$ **Amazon GuardDuty**
+> 
+> 
 
 24-September-2026
+
+28-September-2026
