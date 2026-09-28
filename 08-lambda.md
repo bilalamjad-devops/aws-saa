@@ -72,6 +72,34 @@ Aayein dono ke fark ko simple points mein samajhte hain:
 > * **Processing:** AWS Lambda
 > * **Millisecond Storage:** Amazon DynamoDB (NoSQL)
 > * **Analytics Storage (Seconds/Minutes):** Amazon Redshift (OLAP)
+
+
+---
+---
+---
+
+---
+---
+---
+
+- `Generate a Lambda Function URL and use it as the webhook for the third-party analytics service.`
+
+<img width="1024" height="321" alt="lambda-function-url-06-19-23" src="https://github.com/user-attachments/assets/81cec5f3-c05e-453c-b7a1-4f99405a4080" />
+
+### Answer Mein Kya Kaha Ja Raha Hai?
+
+#### ✅ **Lambda Function URL**
+
+* **Lambda Function URL Kya Hai?** AWS Lambda ka ek feature hai jo aap ke Lambda function ko direct ek dedicated **HTTPS endpoint (URL)** de deta hai.
+* **Operational Efficiency:** Aap ko beech mein **API Gateway**, **EC2 proxy**, ya koi extra service configure karne ki bilkul zaroorat nahi hoti. Sirf ek click se Lambda URL generate hota hai aur aap use third-party service ko webhook ke taur par de dete hain.
+* Is se operational cost aur architecture complexity zero ho jati hai.
+
+---
+
+### SAA-C03 Decision Rule 💡
+
+> * **Direct HTTPS Webhook to Lambda (Simple / Low Overhead):** $\rightarrow$ **Lambda Function URL**
+> * **Advanced API Features (Rate Limiting, API Keys, Request Validation, Transformation):** $\rightarrow$ **Amazon API Gateway**
 > 
 > 
 
@@ -80,3 +108,5 @@ Aayein dono ke fark ko simple points mein samajhte hain:
 16-September-2026
 
 27-September-2026
+
+28-September-2026
