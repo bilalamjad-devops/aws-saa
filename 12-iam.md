@@ -423,6 +423,41 @@ Aap (IT Admin) **Account A** mein hain, aur aap ko **Account B** ke andar ja kar
 
 > **IAM Least Privilege Rule:**
 > * Never use wildcards (`*`) for **Actions** or **Resources** when specific operations and specific target resources are explicitly listed in the scenario.
+
+---
+---
+---
+
+1. **New IAM User Creation via CLI:** AWS CLI ke zariye ek naya IAM user **default settings** ke sath create kiya gaya hai.
+
+
+
+#### ✅ **Access Keys + IAM Permissions**
+
+* **Access Key ID & Secret Access Key:** AWS CLI ya SDK se API calls karne ke liye IAM user ko authenticate karne ke liye **Access Keys** ki zaroorat hoti hai (Passwords sirf AWS Management Console login ke liye hotay hain).
+* **Permissions (IAM Policy):** AWS mein security model **"Implicit Deny"** par kaam karta hai. Naye IAM user ke paas by default **Zero Permissions** (No access) hoti hain. Jab tak aap us par required **IAM Policy** attach nahi karenge, woh koi API call nahi kar sakega.
+* Is liye dono cheezein (Access Keys for authentication + IAM Policy for authorization) zaroori hain.
+
+---
+
+
+
+---
+
+### Incorrect Options Breakdown (Elimination)
+
+* ❌ **Option 1 (Do nothing):** Default IAM user ke paas zero permissions hoti hain aur bina Access Keys ke woh CLI/API se authenticate nahi ho sakta.
+* ❌ **Option 2 (Assign Policy only):** Sirf IAM policy dene se authorization toh mil jaye gi, lekin user CLI/API se authenticate hone ke liye **Access Keys** ke bina requests send hi nahi kar paayega.
+* ❌ **Option 3 (Enable MFA):** MFA security increase karta hai, lekin yeh CLI API access enable karne ka basic requirement nahi hai, na hi is se API permissions milti hain.
+
+---
+
+### SAA-C03 IAM Default Rules Cheat Sheet 💡
+
+> * **Default Permissions for New IAM User:** Zero Access / Full Deny.
+> * **Console Access:** Requires Username + Password.
+> * **Programmatic Access (CLI, SDK, API):** Requires **Access Key ID** + **Secret Access Key**.
+> * **Permissions Enabler:** **IAM Policy** (Attached directly, via IAM Group, or Role).
 > 
 > 
 
@@ -436,3 +471,5 @@ Aap (IT Admin) **Account A** mein hain, aur aap ko **Account B** ke andar ja kar
 24-September-2026
 
 27-September-2026
+
+28-September-2026
