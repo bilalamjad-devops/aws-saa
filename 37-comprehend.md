@@ -64,5 +64,19 @@ Yeh specialized **Healthcare & Life Sciences** domain ke liye banayi gayi hai. Y
 2. Jab question mein **Customer Reviews**, **Support Emails**, **General Sentiment**, ya **Standard PII** ka zikr ho $\rightarrow$ **Amazon Comprehend (Standard)** select karein.
 
 ---
+---
+---
+
+### SAA-C03 AI/ML Services Cheat Sheet 💡
+
+> * **Conversational Chatbot (Voice & Text):** $\rightarrow$ **Amazon Lex**
+> * **Text-to-Speech (Read out text as speech):** $\rightarrow$ **Amazon Polly**
+> * **Speech-to-Text (Transcribe audio to text):** $\rightarrow$ **Amazon Transcribe**
+> * **Text Analysis / Sentiment Detection:** $\rightarrow$ **Amazon Comprehend**
+> * **Image & Video Analysis:** $\rightarrow$ **Amazon Rekognition**
+> 
+> 
 
 21-September-2026
+
+28-September-2026
