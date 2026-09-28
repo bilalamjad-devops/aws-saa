@@ -128,6 +128,15 @@ OAC lagane se yeh setup banta hai:
 > 
 
 ---
+---
+---
+
+### Summary Cheat Sheet 💡
+
+* **CloudFront Edge Caching:** Tabhi hoti hai jab origin se allow ho.
+* **`Cache-Control: max-age=0`:** Caching ko completely bypass/disabled kar deta hai $\rightarrow$ Har request direct origin server par jati hai.
+
+---
 
 
 30-August-2026
