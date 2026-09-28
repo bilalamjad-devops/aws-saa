@@ -62,5 +62,71 @@ Maan lijiye aap ki application par ek sath 10,000 log aaye. Application 10,000 a
 | **RDS Proxy** | Intermediate URL jo DB connections manage aur reuse karta hai. | Security Guard jo hall ke andar ek waqt mein limited logon ko baari-baari bhejta hai. |
 
 ---
+---
+---
+
+
+- `Authenticate the users using Redis AUTH by creating a new Redis Cluster with both the --transit-encryption-enabled and --auth-token parameters enabled.`
+
+
+<img width="1284" height="816" alt="ElastiCache-Redis-Secure-Compliant-26March2026" src="https://github.com/user-attachments/assets/cf102f85-b97f-4909-9192-963f4b6d334d" />
+
+
+
+
+### Correct Option Explanation
+
+#### ✅ **Redis AUTH + Transit Encryption (--auth-token & --transit-encryption-enabled)**
+
+* **Redis AUTH:** Amazon ElastiCache for Redis mein password-based authentication feature ko **Redis AUTH** kehte hain. Is ke zariye commands execute karne se pehle authentication token (password) require hota hai.
+* **Transit Encryption Prerequisite:** ElastiCache Redis mein Redis AUTH (password protection) tabhi enable ho sakta hai jab **In-Transit Encryption (TLS/SSL)** bhi enabled ho (`--transit-encryption-enabled`).
+* Is liye password set karne ke liye `--auth-token` (password string) aur `--transit-encryption-enabled` dono flags ko new cluster create karte waqt enable karna hota hai.
+
+---
+
+
+### SAA-C03 ElastiCache Redis Security Cheat Sheet 💡
+
+> * **Password Authentication (Redis AUTH):** Requires **In-Transit Encryption** + `--auth-token`.
+> * **Role-Based Access Control (RBAC):** Users and user groups can be created using Redis 6.x+.
+> * **Data Protection at Rest:** Enabled via **KMS Customer Managed / AWS Managed Keys**.
+> 
+> 
+
+---
+---
+---
+
+Bilkul! AWS mein Redis ke liye do major fully-managed services hain:
+
+---
+
+### 1. Amazon ElastiCache for Redis (Sab Se Popular)
+
+Yeh AWS ki sab se primary aur standard managed caching service hai jo Redis engine ko support karti hai.
+
+* **Use Cases:** Fast microsecond latency caching, session management, leaderboards, aur real-time data streaming ke liye.
+* **Features:** Multi-AZ replication, automatic failover, in-transit & at-rest encryption, aur **Redis AUTH** (password protection) support karta hai.
+
+---
+
+### 2. Amazon MemoryDB for Redis
+
+Yeh ek bilkul dedicated, ultra-fast, aur durable database service hai jo poori tarah Redis-compatible hai.
+
+* **ElastiCache Se Farq:** ElastiCache basically primary database ke aage **caching layer** (temporary store) ke taur par use hota hai. Jabke **MemoryDB** ko aap apni application ka **Primary Database** bana sakte hain kyunke is mein Transaction Logs multiple AZs mein save hotay hain, jis se data crash hone par bhi lose nahi hota.
+
+---
+
+### Summary 💡
+
+> * **Temporary Caching / Speed Boost:** $\rightarrow$ **Amazon ElastiCache for Redis**
+> * **Primary Ultra-Fast Durable Database:** $\rightarrow$ **Amazon MemoryDB for Redis**
+> 
+> 
+
+---
 
 27-September-2026
+
+28-September-2026
