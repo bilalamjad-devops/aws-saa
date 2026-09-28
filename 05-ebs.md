@@ -334,6 +334,59 @@ snapshot may be ennrypted or unencypted.
 > **Bottom Line:** Encrypted snapshot se banne waala volume *hamesha* Encrypted hota hai. Lekin unencrypted snapshot se banne waala volume sirf tabhi Encrypted banega jab **Region-level Default Encryption ON** ho!
 
 ---
+---
+---
+
+
+--- 
+--- 
+---
+
+- `Authenticate the users using Redis AUTH by creating a new Redis Cluster with both the --transit-encryption-enabled and --auth-token parameters enabled.`
+
+
+<img width="1284" height="816" alt="ElastiCache-Redis-Secure-Compliant-26March2026" src="https://github.com/user-attachments/assets/cf102f85-b97f-4909-9192-963f4b6d334d" />
+
+
+
+
+### Correct Option Explanation
+
+#### ✅ **Redis AUTH + Transit Encryption (--auth-token & --transit-encryption-enabled)**
+
+* **Redis AUTH:** Amazon ElastiCache for Redis mein password-based authentication feature ko **Redis AUTH** kehte hain. Is ke zariye commands execute karne se pehle authentication token (password) require hota hai.
+* **Transit Encryption Prerequisite:** ElastiCache Redis mein Redis AUTH (password protection) tabhi enable ho sakta hai jab **In-Transit Encryption (TLS/SSL)** bhi enabled ho (`--transit-encryption-enabled`).
+* Is liye password set karne ke liye `--auth-token` (password string) aur `--transit-encryption-enabled` dono flags ko new cluster create karte waqt enable karna hota hai.
+
+---
+
+
+### SAA-C03 ElastiCache Redis Security Cheat Sheet 💡
+
+> * **Password Authentication (Redis AUTH):** Requires **In-Transit Encryption** + `--auth-token`.
+> * **Role-Based Access Control (RBAC):** Users and user groups can be created using Redis 6.x+.
+> * **Data Protection at Rest:** Enabled via **KMS Customer Managed / AWS Managed Keys**.
+
+
+---
+---
+---
+
+- `Launch an Amazon Elastic File System (Amazon EFS) with Provisioned Throughput mode and set the performance mode to Max I/O. Configure the EFS file system as the container mount point in the ECS task definition of the ECS cluster.`
+
+
+<img width="1432" height="1135" alt="Amazon+EFS+-+Performance+and+Throughput+mode+-+SAA-C02 (1)" src="https://github.com/user-attachments/assets/d2cf95b1-382b-4abf-9415-1d20f8ed05c3" />
+
+
+
+### SAA-C03 EFS Performance Modes Cheat Sheet 💡
+
+> * **General Purpose Mode:** Default mode for web servers, CMS, and general dev environments (low latency per I/O).
+> * **Max I/O Mode:** High-Performance Computing (HPC), Big Data, and massive parallel container workloads (higher I/O throughput across hundreds of clients).
+> * **Provisioned Throughput:** When application needs high throughput regardless of storage volume size.
+> 
+> 
+
 
 31-August-2026
 
@@ -354,3 +407,5 @@ snapshot may be ennrypted or unencypted.
 26-September-2026
 
 27-September-2026
+
+28-September-2026
