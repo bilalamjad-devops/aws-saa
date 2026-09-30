@@ -1,3 +1,8 @@
+
+<img width="565" height="467" alt="CreateAmazonFSxForNetAppONTAP" src="https://github.com/user-attachments/assets/780ef02c-34da-41cd-ac3d-0c14684a8b89" />
+
+
+
 Nahi, **Amazon FSx** EBS ke andar nahi aati! Yeh dono AWS ki alag-alag **Storage Services** hain.
 
 Aayein inka fark simple alfaz mein samajhte hain:
