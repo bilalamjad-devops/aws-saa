@@ -65,5 +65,40 @@ Sochein **FSx for ONTAP** ek high-tech Hard Drive hai, aur **SnapMirror** uska e
 
 Isi wajah se AWS exam mein jab bhi **FSx for ONTAP + Cross-Region DR/Replication** ka zikr ho, hamesha **SnapMirror** hi right answer hota hai!
 
+---
+---
+---
+---
+
+Aap bilkul 100% sahi direction mein ja rahe hain!
+
+Inki full forms aur unka matlab dekhein:
+
+* **EBS:** **E**lastic **B**lock **S**tore (Virtual Hard Drive / Block Storage)
+* **EFS:** **E**lastic **F**ile **S**ystem (Managed Linux Network File Storage)
+* **FSx:** **F**ile **S**ystem **x** (Third-party / Specialty File Systems)
+
+---
+
+### **FSx mein "x" ka kya matlab hai?**
+
+FSx mein **"x"** basically represent karta hai **"Multiple / Specialty File Systems"** (jaise Windows, NetApp ONTAP, Lustre, OpenZFS).
+
+AWS ne dekha ke boht si companies traditional storage vendors (jaise NetApp ya Microsoft Windows Server) ke file systems use karti hain. Un sab ko ek hi umbrella ke neeche lane ke liye AWS ne iska naam **FSx** rakha, jahan **x = Feature/Engine Type**:
+
+1. **FSx for NetApp ONTAP** (Enterprise NetApp File System)
+2. **FSx for Windows File Server** (Microsoft Windows SMB File System)
+3. **FSx for Lustre** (High-Performance Computing File System)
+4. **FSx for OpenZFS** (ZFS File System)
+
+---
+
+### Short Memory Trick 🎯
+
+* **EBS:** **Block** (Single Instance Mount — Hard Disk)
+* **EFS:** **Simple File** (Linux NFS Only)
+* **FSx:** **Specialty File** (Windows, NetApp, High-Performance Lustre)
+
+Ab teeno AWS Storage types ka fark bilkul crystal clear hai! Ready hain **Set 7 Question 3** par chalne ke liye?
 
 30-September-2026
