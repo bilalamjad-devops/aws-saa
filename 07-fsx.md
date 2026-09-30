@@ -106,4 +106,37 @@ AWS ne dekha ke boht si companies traditional storage vendors (jaise NetApp ya M
 
 Ab teeno AWS Storage types ka fark bilkul crystal clear hai! Ready hain **Set 7 Question 3** par chalne ke liye?
 
+
+---
+---
+---
+
+
+<img width="420" height="305" alt="Placement Groups" src="https://github.com/user-attachments/assets/1c708874-860b-4d04-87f9-4047fa8d177f" />
+
+
+Is question ka step-by-step breakdown Roman Urdu mein yeh hai:
+
+---
+
+### Question Ka Summary:
+
+On-premises NAS system par chalne waale **latency-sensitive High-Performance Computing (HPC)** workloads ko AWS par migrate karna hai.
+
+**Do main requirements hain:**
+
+1. **Multi-protocol support:** Storage ko **NFS, SMB (CIFS), aur iSCSI** teeno protocols ek sath support karne chahiye.
+2. **Lowest latency:** Performance maximum ho aur latency kam se kam ho.
+
+Aapko **DO (2)** options select karne hain.
+
+---
+
+### Options Ka Breakdown:
+
+1. **Option A (Partition placement group):**
+* **Galat:** Partition placement groups large distributed / replicated workloads (jaise HDFS, HBase, Cassandra) ke liye hotay hain taake hardware failure se data loss na ho. Sub-millisecond compute-to-compute communication latency ke liye yeh use nahi hota.
+
+
+
 30-September-2026
