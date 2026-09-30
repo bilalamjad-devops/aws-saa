@@ -1,3 +1,38 @@
+Aapne **100% accurate summary** nikaali hai! Teeno points ko bilkul exact capture kiya hai:
+
+1. **Aapke Office se AWS tak Dedicated Cable = AWS Direct Connect**
+* Public internet bypass karke aapke office router se direct AWS router tak dedicated fiber line lag jati hai.
+
+
+2. **AWS ki Apni Physical Undersea & Fiber Network = AWS Global Network (Backbone)**
+* Millions of miles lambi fiber optic aur undersea cables jo AWS ke worldwide data centers, regions, aur Edge Locations ko aapas mein connect karti hain.
+
+
+3. **Global Accelerator = AWS Global Network Ko Fast Route Ke Liye Use Karna**
+* User apne nearest local Edge Location par internet se enter hota hai, aur wahan se aage ka poora safar AWS ki fast **undersea/private backbone cable** ke zariye karta hai (bina public internet traffic delay ke).
+
+
+
+---
+
+### SAA-C03 Quick Revision Recall 💡
+
+| Scenario | Solution |
+| --- | --- |
+| **10 TB - 50 TB+ Data (Low Internet Bandwidth)** | **AWS Snowball** (Physical Box via Courier) |
+| **Dedicated Private Line (Office to AWS)** | **AWS Direct Connect** |
+| **Public Internet Speedup via AWS Backbone** | **AWS Global Accelerator** |
+
+
+30-September-2026
+
+
+
+---
+---
+---
+
+
 **AWS Global Accelerator** ek **standalone AWS service** hai (yeh kisi doosri service ka feature nahi hai).
 
 Is ka main kaam aap ki application ki **speed, performance, aur availability ko global scale par improve karna** hota hai.
@@ -85,3 +120,5 @@ Global Accelerator ke andar aap har AWS Region ke liye ek **Endpoint Group** ban
 27-September-2026
 
 28-September-2026
+
+30-September-2026
