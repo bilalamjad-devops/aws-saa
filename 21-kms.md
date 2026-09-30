@@ -303,6 +303,36 @@ EBS akela data ko encrypt nahi kar sakta; usko encryption ke liye **AES-256 Key*
 
 > **EBS Encryption** data ko lock karne ka **kaam** karta hai, lekin lock karne wali **chabi (Key)** hamesha **AWS KMS** se hi aati hai — chahe woh AWS ki default key ho ya aap ki banayi hui custom key.
 
+---
+---
+---
+
+Aap bilkul sahi table yaad rakh rahe hain! KMS aur S3 encryption options mein confusing baat yeh hai ke **S3 Server-Side Encryption (SSE)** aur **AWS KMS Key Types** alag-alag concepts hain.
+
+Is question mein sirf **AWS KMS Keys** ki baat ho rahi hai. KMS mein totat **3 types ki keys** hoti hain:
+
+---
+
+### AWS KMS Key Types (Question ke context mein)
+
+| Key Type | Rotation Par Aapka Control? | Operational Overhead | Is Question Par Fit Kyun Nahi? |
+| --- | --- | --- | --- |
+| **1. AWS Managed Key** | ❌ **Nahi** (AWS auto-rotate karta hai, aap setting change ya force nahi kar sakte) | Zero | Question ne poocha hai ke *rotation control* aap ke paas ho. |
+| **2. Customer Managed Key (CMK)** | ✅ **Haan** (Aap 1-click toggle se yearly auto-rotation enable kar sakte hain) | Minimal (1-click) | **Sahi Jawab!** Full control + Least effort. |
+| **3. AWS Owned Key** | ❌ **Nahi** (AWS internal service use ke liye hoti hai) | Zero | Aap isey EBS encryption ke liye direct choose hi nahi kar sakte. |
+
+*(Note: External/Imported Key Material wali key CMK ki hi ek subtype hoti hai, lekin usme rotation manual karni padti hai, toh overhead high hota hai).*
+
+---
+
+### AAPKI TABLE AUR IS QUESTION MEIN DIFFERENCE:
+
+Aapne jo table likhi hai woh **Amazon S3 Server-Side Encryption Types** ki hai (SSE-S3, SSE-KMS, SSE-C).
+
+Lekin is question mein **Amazon EBS Volume Encryption** poocha gaya hai. EBS volumes sirf **AWS KMS Keys** use karte hain (SSE-S3 ya SSE-C EBS par apply nahi hotay).
+
+Isi wajah se EBS encryption mein jab rotation ka control bhi chahiye ho aur mehnat bhi kam se kam, toh hamesha **Customer Managed Key (CMK)** hi sahi option hota hai!
+
 5-September-2026
 
 8-September-2026
@@ -312,3 +342,5 @@ EBS akela data ko encrypt nahi kar sakta; usko encryption ke liye **AES-256 Key*
 23-September-2026
 
 24-September-2026
+
+30-September-2026
