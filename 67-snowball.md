@@ -1,3 +1,29 @@
+Nahi, bilkul iska ulta hai!
+
+* **Device / Product Ka Name:** **AWS Snowball** (yeh actual physical appliance/device ka official naam hai jo AWS aapke pas bhejta hai).
+* **Process / Category Ka Name:** **Data Transfer Terminal** (ya Offline Data Transfer/Import-Export) — yeh us *kām/process* ka aam (generic) naam hai.
+
+---
+
+### Easy Example Se Samjhein 💡
+
+* **Device Name:** **AWS Snowball** (jaise *Toyota Corolla* car ka naam hai).
+* **Process Name:** **Data Transfer / Transport** (jaise *Traveling / Driving* process ka naam hai).
+
+Jab aap AWS Console par order karte hain, toh aap **AWS Snowball** device mangwate hain taake aap offline **Data Transfer** ka process complete kar sakein.
+
+
+
+
+
+
+
+
+----
+----
+----
+----
+
 Nahi, **AWS Snowball** aur **AWS Data Transfer** do alag terms hain, lekin ek doosre se related hain.
 
 Dono ka fark samajhne ka aasan tarika yeh hai:
