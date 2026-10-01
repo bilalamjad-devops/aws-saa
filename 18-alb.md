@@ -537,6 +537,21 @@ Is question ka correct answer **Use path conditions to define rules that forward
 > * **Layer 7 (HTTP/HTTPS) + Path/Host Routing:** $\rightarrow$ **Application Load Balancer (ALB)**
 > 
 > 
+----
+----
+----
+
+<img width="1920" height="1003" alt="NLB-Health-Check-19-06-2023" src="https://github.com/user-attachments/assets/e09c145a-b2f2-4de1-b18f-092e2af009be" />
+
+
+### Correct Answer Option (Tutorials Dojo Verified):
+
+* **Configure the NLB to perform HTTP health checks on the critical paths of the application.**
+
+> **Exam Takeaway:**
+> * **NLB Health Check Protocols:** TCP, HTTP, HTTPS, UDP, aur TLS.
+> * **NLB + HTTP Health Checks:** Network Load Balancer Layer 4 traffic distribute karte huye bhi backend targets ki Application-level (HTTP status code) health testing kar sakta hai!
+
 
 
 
@@ -549,3 +564,5 @@ Is question ka correct answer **Use path conditions to define rules that forward
 25-September-2026
 
 27-September-2026
+
+01-October-2026
