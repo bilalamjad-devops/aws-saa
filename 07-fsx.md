@@ -137,6 +137,21 @@ Aapko **DO (2)** options select karne hain.
 1. **Option A (Partition placement group):**
 * **Galat:** Partition placement groups large distributed / replicated workloads (jaise HDFS, HBase, Cassandra) ke liye hotay hain taake hardware failure se data loss na ho. Sub-millisecond compute-to-compute communication latency ke liye yeh use nahi hota.
 
+----
+----
+----
 
+
+### Sahi Jawab:
+
+**Option 2:** **Amazon FSx for Lustre with Persistent file system**
+
+> **Exam Tip (FSx for Lustre Deployment Types):**
+> * **HPC + Temporary / Short-term / Non-replicated (Cost Savings)** = **FSx for Lustre Scratch**
+> * **HPC / Video Rendering + Long-term / Highly Available / Sustained Throughput** = **FSx for Lustre Persistent**
+> 
+>
 
 30-September-2026
+
+01-October-2026
