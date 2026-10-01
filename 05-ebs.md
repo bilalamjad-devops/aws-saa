@@ -470,6 +470,18 @@ Is question ka correct answer **Amazon FSx for Lustre** hai.
 > 
 
 ---
+---
+---
+
+### Sahi Jawab:
+
+**Option 2:** **The EC2 instance was using instance store volumes, which are ephemeral and only live for the life of the instance.**
+
+> **Exam Tip (Instance Store vs EBS Storage):**
+> * **Instance Store (Ephemeral):** Ultra-high IOPS / Low latency temporary storage. Instance **STOP / TERMINATE** par data **PURA DELETE** ho jata hai. (Reboot par data rehta hai).
+> * **EBS (Persistent):** Network-attached storage. Instance **STOP / START** karne par bhi data **SAFE / PERSISTENT** rehta hai.
+> 
+>
 
 31-August-2026
 
@@ -492,3 +504,5 @@ Is question ka correct answer **Amazon FSx for Lustre** hai.
 27-September-2026
 
 28-September-2026
+
+01-October-2026
