@@ -441,6 +441,23 @@ Is question ka correct answer **Use Route 53 to distribute the load to the multi
 > * **Zone Apex Domain (`example.com`) to ALB Routing:** Standard CNAME ke bajaye hamesha **Alias Records** use hote hain.
 > * **IPv4 Traffic** = **Alias "A" Record**
 > * **IPv6 Traffic** = **Alias "AAAA" Record**
+
+
+---
+---
+---
+
+<img width="1051" height="590" alt="geo-restriction-08-02-23-1842" src="https://github.com/user-attachments/assets/baa0ddea-2c10-4705-a6e9-0d9e0f744aa0" />
+
+
+
+### Sahi Jawab:
+
+**Option 4:** **Configure CloudFront to return a custom error response to the viewer and apply geographic restrictions using an Allow list.**
+
+> **Exam Tip:**
+> * **Country-level Access Control in CloudFront** = **CloudFront Geo Restriction (Allow List / Block List)**
+> * **Custom User Error Messaging** = **CloudFront Custom Error Responses (HTTP 403 / 404 handling)**
 > 
 >
 
