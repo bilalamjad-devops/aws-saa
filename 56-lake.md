@@ -39,6 +39,9 @@ Lekin **AWS Lake Formation** aap ko **Fine-Grained Security** deti hai:
 ---
 ---
 
+<img width="1401" height="699" alt="trail-sample" src="https://github.com/user-attachments/assets/d75b7f80-2025-409d-be90-ab03947e134c" />
+
+
 Nahi, **Data Lake (AWS Data Lake / AWS Lake Formation)** aur **CloudTrail Lake** dono alag cheezein hain.
 
 Inke beech ka fark simple alfaz mein yeh hai:
