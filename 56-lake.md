@@ -76,6 +76,24 @@ Inke beech ka fark simple alfaz mein yeh hai:
 
 > **Summary:** **AWS Lake Formation** poori company ke kisi bhi tarah ke data ke liye hota hai, jabki **CloudTrail Lake** sirf CloudTrail security aur API logs ko query karne ke liye tayyar shuda system hai.
 
+---
+---
+---
+
+### Correct Answer Option:
+
+**Implement Lake Formation tag-based access control to enable authorization and cross-account permissions for the needed datasets to engineering team accounts. Integrate with AWS Security Hub to enhance security monitoring and compliance oversight.**
+
+---
+
+> **Exam Tip:**
+> * **Multi-account Data Lake + Scalable Access Control** = **Lake Formation Tag-Based Access Control (LF-TBAC)**
+> * **Individual Table / Column Level Access (Small Scale)** = **Lake Formation Named Resource Access (Grant Command)**
+> 
+>
+
+
+
 27-September-2026
 
 01-October-2026
