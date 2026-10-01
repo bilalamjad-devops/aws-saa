@@ -117,4 +117,26 @@ Yeh events woh actions record karte hain jo **resource ke andar paray huay actua
 
 * Agar question kahe: *"Who created or deleted the S3 bucket?"* $\rightarrow$ **Management Events**.
 * Agar question kahe: *"Who read, downloaded, or uploaded a specific file/object inside the bucket?"* $\rightarrow$ **Data Events**.
+
+
+----
+----
+----
+
+<img width="1110" height="947" alt="aws-cloudtrail-log-file-validation" src="https://github.com/user-attachments/assets/99d9ffc7-1629-4e75-8144-55fb949349b5" />
+
+
+
+### Sahi Jawab:
+
+**Option 1:** **Enable the CloudTrail Log File Validation feature on all trails.**
+
+> **Exam Tip:**
+> * **Verify CloudTrail Log Integrity / Tampering Detection** = **CloudTrail Log File Validation** (Uses SHA-256 hashes & RSA signatures).
+> * **Detect Unusual API Call Spikes / Anomalies** = **CloudTrail Insights**.
+> 
+>
+
 24-September-2026
+
+01-October-2026
