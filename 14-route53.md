@@ -426,6 +426,23 @@ Is question ka correct answer **Use Route 53 to distribute the load to the multi
 > 
 
 ---
+---
+---
+
+<img width="521" height="678" alt="2019-08-30_17-37-24-0de42a388340542c43e306b5844130d2" src="https://github.com/user-attachments/assets/e9d608cf-15f4-4c31-ad78-57000d452e13" />
+
+
+### Sahi Jawab (Select TWO):
+
+* **Option 1:** **Alias with a type "AAAA" record set** (For IPv6 traffic routing to ALB)
+* **Option 3:** **Alias with a type "A" record set** (For IPv4 traffic routing to ALB)
+
+> **Exam Tip:**
+> * **Zone Apex Domain (`example.com`) to ALB Routing:** Standard CNAME ke bajaye hamesha **Alias Records** use hote hain.
+> * **IPv4 Traffic** = **Alias "A" Record**
+> * **IPv6 Traffic** = **Alias "AAAA" Record**
+> 
+>
 
 1-September-2026
 
@@ -438,3 +455,5 @@ Is question ka correct answer **Use Route 53 to distribute the load to the multi
 26-September-2026
 
 28-September-2026
+
+01-October-2026
