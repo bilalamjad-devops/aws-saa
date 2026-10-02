@@ -107,6 +107,23 @@ Sochein ek Stadium mein Cricket Match chal raha hai:
 * **Data collect / stream karna hai in exact order?** $\rightarrow$ **Kinesis Data Streams**
 * **Big Data, Hadoop, Apache Spark, ML Training process karna hai?** $\rightarrow$ **Amazon EMR**
 
+---
+---
+---
+
+
+<img width="999" height="412" alt="amazon_emr_instance_configurations-tutorialsdojo-saa-c03" src="https://github.com/user-attachments/assets/f1ffcf66-f091-41be-a4ab-afafbeaebbdb" />
+
+**Question Kya Kehta Hai?**
+Company ko rozana 10 ghante ki data processing job ke liye sab se cheap (cost-effective) Amazon EMR setup chahiye jo zero data loss ensure kare aur Lake Formation / Apache Ranger ke sath secure fine-grained access provide kare.
+
+**Correct Answer Kya Kehta Hai?**
+**Option 3:** **Implement a transient EMR cluster with the primary and core nodes on On-Demand Instances, and task nodes on Spot Instances.**
+
+* **Reason:** Job khatam hotay hi cluster terminate karne wala (**Transient**) setup billing bachata hai, **Primary & Core nodes ko On-Demand** par rakhne se data loss nahi hota, aur **Task nodes ko Spot** par chalane se maximum cost saving milti hai.
+
+
+
 11-September-2026
 
 20-September-2026
