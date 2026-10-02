@@ -105,6 +105,30 @@ Aayein in dono ke farq ko bilkul simple alfaz mein samajhte hain:
 * **Redshift:** High performance, frequent querying on structured data loaded inside the cluster.
 * **Redshift Spectrum:** Querying **exceedingly huge data (Petabytes)** directly on **S3** without loading it into Redshift.
 
+---
+---
+---
+
+**Question Kya Kehta Hai?**
+Hotel booking company ke paas terabytes mein customer data aara ha hai. Architect ko massive data sets par fast, near real-time analytics aur flexible queries run karni hain taake corporate meeting ke liye insights nikal sake.
+
+**Correct Answer Kya Kehta Hai?**
+**Amazon Redshift**
+
+* **Reason:** Amazon Redshift ek petabyte-scale data warehouse service hai jo massive structured/semi-structured datasets par complex SQL queries aur fast analytics perform karne ke liye hi design ki gayi hai.
+
+---
+
+> **Quick Cheat-Sheet:**
+> * **Amazon Redshift:** Data Warehousing & Fast Analytics on Massive Data (Terabytes/Petabytes).
+> * **Amazon ElastiCache:** In-memory caching (Redis/Memcached) for low-latency speed.
+> * **Amazon DynamoDB:** NoSQL Key-Value database (OLTP).
+> * **Amazon RDS:** Relational database (OLTP) for standard transactional workloads.
+> 
+>
+
 23-September-2026
 
 25-September-2026
+
+02-October-2026
