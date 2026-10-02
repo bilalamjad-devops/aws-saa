@@ -1,3 +1,26 @@
+
+
+
+**Amazon EMR (Elastic MapReduce) Kya Hai?**
+Amazon EMR ek AWS service hai jo boht bade data (Big Data) ko quickly aur manage tareeqe se process karne ke liye use hoti hai. Yeh **Apache Spark, Hadoop, Hive, aur Presto** jaise open-source tools ko cloud par aasan banati hai.
+
+**Kya Yeh EC2 Use Karta Hai?**
+**Haan, bilkul!** EMR background mein **Amazon EC2 instances** hi use karta hai:
+
+* **Primary (Master) Node:** EC2 instance jo poore cluster ko control karta hai.
+* **Core Nodes:** EC2 instances jo data store bhi karte hain (HDFS storage) aur processing bhi karte hain.
+* **Task Nodes:** EC2 instances jo sirf extra calculation/processing power dete hain (un par data store nahi hota).
+
+> **Aasan Misaal:**
+> Agar aap manual 10 EC2 instances banayein aur un par Hadoop/Spark install karein, toh boht time lagta hai. **EMR** aap ke liye automatic EC2 instances launch karke un par Big Data software configure kar deta hai.
+
+
+
+---
+---
+---
+
+
 **AWS EMR (Elastic MapReduce)** ek **Big Data Processing Service** hai jo bohot bade data (Terabytes/Petabytes) ko process aur analyze karne ke liye use hoti hai.
 
 Simple lafzon mein: Agar aap ke paas 1 single EC2 instance par handle na hone wala heavy data hai, toh EMR 10, 50 ya 100 EC2 instances ka ek **Cluster (Group)** bana deta hai aur open-source Big Data tools ke zariye data ko aapas mein divide karke parallel process karta hai.
@@ -89,3 +112,5 @@ Sochein ek Stadium mein Cricket Match chal raha hai:
 20-September-2026
 
 23-September-2026
+
+02-October-2026
