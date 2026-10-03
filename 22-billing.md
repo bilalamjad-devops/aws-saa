@@ -86,3 +86,25 @@ AWS mein by default billing per service hoti hai (EC2, S3, RDS). Agar aap ko **b
 * **Detailed hourly/daily raw CSV billing dump to S3:** $\rightarrow$ **AWS Cost and Usage Report (CUR)**
 
 ---
+---
+---
+
+**Question Kya Kah Raha Hai?**
+Company ke infrastructure (EC2, RDS, S3) par **unusual spending patterns (ajeeb o ghareeb kharche/spikes)** nazar aaye hain. Unhe ek aisa system chahiye jo billing/costs ko continuous monitor kare aur jab bhi unexpected spike ya abnormal expenditure ho, toh relevant teams ko **automatic alert** bhej de.
+
+---
+
+**Correct Answer:**
+**In the AWS Billing and Cost Management console, create a cost monitor using AWS Cost Anomaly Detection.**
+
+---
+
+**Key Concepts & Exam Elimination Rules:**
+
+1. **Unusual Spending / Anomalies = AWS Cost Anomaly Detection:** Jab bhi AWS exam mein **"unusual spending"**, **"cost spikes"**, ya **"anomalies"** ka zikr ho, toh **AWS Cost Anomaly Detection** (jo Machine Learning use karke abnormal cost patterns pakadta hai) primary service hoti hai.
+2. **AWS Budgets (Zero Spend) Kyun Galat Hai?** Zero spend budget tab use hota hai jab aap $0.00 se upar pehli baar koi spend hone par alert chahte hon (Free Tier usage monitor karne ke liye). Active production environment ke unusual spikes ke liye yeh suit nahi karta.
+3. **CloudWatch Kyun Galat Hai?** CloudWatch standard resource metrics (CPU, RAM, Network) monitor karta hai. Continuous cost anomaly ML monitoring AWS Billing & Cost Management tools mein hoti hai.
+4. **Cost Explorer Granularity Kyun Galat Hai?** Cost Explorer reports aur trends dekhne ke liye hota hai, real-time automated anomaly alerts ke liye nahi.
+
+
+03-October-2026
