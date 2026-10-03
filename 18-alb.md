@@ -556,6 +556,9 @@ Is question ka correct answer **Use path conditions to define rules that forward
 ---
 ---
 
+<img width="1079" height="558" alt="aws_load_balancer_controller_steps (1)" src="https://github.com/user-attachments/assets/51b8e48e-96a5-419b-853b-4ed35925a028" />
+
+
 **Question Kya Kah Raha Hai?**
 Company **Amazon EKS (Kubernetes)** par apne microservices chala rahi hai. Unhe incoming website requests ko **URL path ke mutabiq** (e.g., `/orders`, `/products`) alag-alag microservices par route karna hai, aur setup mein **LEAST amount of effort/overhead** hona chahiye.
 
