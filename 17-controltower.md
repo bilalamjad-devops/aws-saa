@@ -126,7 +126,25 @@ The developers can still have IAM permissions, but the **SCP sets the maximum pe
 
 So when the question says **“developers must be unable to modify/delete a service”**, think **SCP**.
 
+---
+---
+---
 
+Is question ka simple matlab yeh hai:
+
+Ek company ne apne AWS accounts ko **AWS Organizations** ke under **Organizational Units (OUs)** mein group karke rakha hua hai taaki alag-alag teams/departments ke workloads ko isolate rakha ja sake.
+
+Ab woh chahte hain ki:
+
+1. Jab bhi is **OU hierarchy/structure mein koi badlaav (change ya drift)** ho, toh system use **monitor (track)** kare.
+2. Relevant stakeholders ko **automatic alerts/notifications** mil jayein.
+3. Is pure setup ko karne mein **kam se kam administrative mehnat (LEAST administrative overhead)** lagni chahiye.
+
+---
+
+### Iska Solution **AWS Control Tower** kyun hai?
+
+AWS Control Tower inherently AWS Organizations ko govern karta hai. Isme **Account Drift Detection** ka built-in feature hota hai—jaise hi koi OU structure ya governance rules ko chedta hai, Control Tower bina kisi custom script ya extra monitoring rule ke automated alert generate kar deta hai.
 
 
 31-August-2026
@@ -134,3 +152,5 @@ So when the question says **“developers must be unable to modify/delete a serv
 1-September-2026
 
 12-September-2026
+
+03-October-2026
