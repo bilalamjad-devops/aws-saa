@@ -990,6 +990,29 @@ Company apna **on-premises MySQL database** AWS par migrate karna chahti hai. Ap
 4. **Provisioned RDS / Aurora Instance Kyun Galat Hai?** Fixed instance classes fluctuating/zero traffic par auto-scaling serverless capacity demand poori nahi kar sakte aur zero activity par bhi fixed cost charge karte rehte hain.
 
 
+
+---
+---
+---
+
+Bilkul sahi samjhe aap! Yeh AWS exam ka ek bohot bara **differentiating concept** hai.
+
+---
+
+### Comparison Breakdown
+
+| Feature | RDS Event Subscriptions | Aurora Native Functions (`aws_lambda_arn`) |
+| --- | --- | --- |
+| **Scope / Level** | **Instance / Cluster Level** | **Data / Row Level** |
+| **Triggers On** | DB Reboot, Failover, Storage Full, Backup Creation, Parameter Group Changes | SQL Queries: `INSERT`, `UPDATE`, `DELETE`, Triggers, Stored Procedures |
+| **Use Case** | Monitoring DB health, alerting ops team when DB goes down or fails over | Business logic automation (e.g., deleted row data SQS/Lambda ko bhejna) |
+
+---
+
+### Core Difference (Exam Rule 💡)
+
+* **RDS Event Subscription:** DB ke **bahar** kya ho raha hai (infrastructure/lifecycle status) us par react karta hai.
+* **Aurora Native Function:** DB ke **andar** data ke saath kya ho raha hai (SQL queries/data changes) us par react karta hai.
 28-September-2026
 
 27-September-2026
@@ -1033,3 +1056,5 @@ Company apna **on-premises MySQL database** AWS par migrate karna chahti hai. Ap
 01-October-2026
 
 03-October-2026
+
+05-October-2026
