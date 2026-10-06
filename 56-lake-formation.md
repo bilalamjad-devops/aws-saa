@@ -133,6 +133,40 @@ Maan lijiye aapke paas ek table hai jisme `Name`, `Email`, `Phone`, aur `CreditC
 * QuickSight AWS ka **Business Intelligence (BI) aur Data Visualization tool** hai (jaise PowerBI ya Tableau).
 * Yeh S3 Data Lake, Aurora DB, ya Athena se data connect karke dashboards aur graphs banane ke kaam aata hai.
 
+---
+---
+---
+
+
+<img width="1698" height="737" alt="TD-AWSLakeFormationGlueCrawler-11June2025 (1)" src="https://github.com/user-attachments/assets/9d59c836-f259-4fb5-b291-b4fdfee03cf1" />
+
+
+### Keywords Scan 🔍
+
+1. **"query data that resides in multiple AWS accounts from a central data lake"** & **"Access to the data lake must be granted based on user roles"**
+* **Trigger:** **AWS Lake Formation** allows cross-account data sharing and centralized fine-grained access control (role-based/LF-tags) over data lakes without physically copying or moving data.
+
+
+2. **"minimize overhead and costs"**
+* **Trigger:** Direct cross-account querying via Lake Formation avoids costly data duplication, custom Lambda pipelines, or extra streaming resources.
+
+
+
+---
+
+### Correct Answer
+
+**Use AWS Lake Formation to consolidate data from multiple accounts into a single account.**
+
+---
+
+### Elimination Rules ❌
+
+* **AWS Control Tower:** Account governance/landing zone management tool hai, data lake permissions/querying tool nahi.
+* **Amazon Data Firehose:** Streaming ingestion tool hai—data ko duplicate karke storage/transfer cost increase karega.
+* **Scheduled Lambda + EventBridge:** Custom code maintenance overhead create karta hai aur duplicate storage costs generate karta hai.
+
+---
 
 
 27-September-2026
@@ -140,3 +174,5 @@ Maan lijiye aapke paas ek table hai jisme `Name`, `Email`, `Phone`, aur `CreditC
 01-October-2026
 
 02-October-2026
+
+06-October-2026
