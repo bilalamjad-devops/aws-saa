@@ -1013,6 +1013,49 @@ Bilkul sahi samjhe aap! Yeh AWS exam ka ek bohot bara **differentiating concept*
 
 * **RDS Event Subscription:** DB ke **bahar** kya ho raha hai (infrastructure/lifecycle status) us par react karta hai.
 * **Aurora Native Function:** DB ke **andar** data ke saath kya ho raha hai (SQL queries/data changes) us par react karta hai.
+
+---
+---
+---
+
+Aan, chalen bilkul simple Roman Urdu mein samajhte hain! Is question mein exam hum se specific timing aur requirements maang raha hai.
+
+---
+
+### Question Ka Simple Matlab
+
+Ek company ko aisa **Relational Database (SQL)** chahiye jo:
+
+1. **Multi-Region Disaster Recovery (DR):** Agar poora ek AWS Region (jaise US-East-1) down bhi ho jaye, tab bhi doosre region se database chal sake.
+2. **RPO = 1 Second:** (Recovery Point Objective) Yani agar primary region fail ho, toh 1 second se zyada ka data loss **nahi** hona chahiye.
+3. **RTO < 1 Minute:** (Recovery Time Objective) Yani doosre region ko main database ban-ne mein 1 minute se kam time lagna chahiye.
+
+---
+
+### Aurora Global Database Hi Sahi Jawab Kyun Hai?
+
+* **Storage-Level Replication:** Aurora data ko application layer par nahi, balki internal dedicated storage layer par copy karta hai. Is wajah se latency bohot kam ($<1\text{ second}$) hoti hai.
+* **Fast Failover:** Agar primary region baith jaye, toh secondary region 1 minute se bhi kam time mein naya Primary DB ban jata hai.
+
+---
+
+### Baki Options Galat Kyun Hain?
+
+1. **Amazon DynamoDB Global Tables:**
+* Yeh 1 second RPO aur Fast DR toh deta hai, lekin yeh **NoSQL** database hai. Question ne saaf bola hai ke **Relational** database chahiye.
+
+
+2. **RDS PostgreSQL Cross-Region Read Replicas:**
+* Yeh Relational toh hai, lekin iski cross-region replication slow hoti hai. Isko manual promote karke Naya Main DB banane mein 1 minute se zyada time (RTO) lag jata hai.
+
+
+3. **Amazon Timestream:**
+* Yeh sirf IoT aur Time-Series data (jaise sensor logs) ke liye hota hai, general relational data ke liye nahi.
+
+
+
+---
+
 28-September-2026
 
 27-September-2026
