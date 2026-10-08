@@ -333,6 +333,25 @@ Lekin is question mein **Amazon EBS Volume Encryption** poocha gaya hai. EBS vol
 
 Isi wajah se EBS encryption mein jab rotation ka control bhi chahiye ho aur mehnat bhi kam se kam, toh hamesha **Customer Managed Key (CMK)** hi sahi option hota hai!
 
+---
+---
+---
+
+Nahi, **SSE-C** mein **C** ka matlab **Customer-Provided Keys** hota hai (**Server-Side Encryption with Customer-Provided Keys**).
+
+Teeno SSE variants ka breakdown:
+
+* **SSE-S3:** Server-Side Encryption with Amazon S3 Managed Keys.
+* **SSE-KMS:** Server-Side Encryption with AWS Key Management Service Keys.
+* **SSE-C:** Server-Side Encryption with **Customer-Provided Keys**.
+
+---
+
+### Key Difference (SSE-C vs Client-Side Encryption)
+
+* **SSE-C (Server-Side):** Key aapki apni hoti hai, lekin aap data **aur** key dono S3 ko bhejte hain. Encryption S3 ke servers par hoti hai.
+* **Client-Side Encryption:** Key aur encryption dono aapke apne local application/server par hoti hain. Unencrypted data ya key kabhi AWS par nahi jaati.
+
 5-September-2026
 
 8-September-2026
@@ -344,3 +363,5 @@ Isi wajah se EBS encryption mein jab rotation ka control bhi chahiye ho aur mehn
 24-September-2026
 
 30-September-2026
+
+08-October-2026
