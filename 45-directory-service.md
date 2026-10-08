@@ -34,4 +34,45 @@ Aap AWS Cloud ke andar hi poori ek nayi Active Directory chalana chahte hain jis
 ---
 ---
 
+Teeno components ka clear connection aur difference:
+
+### 1. Active Directory (AD)
+
+* **Kia hai:** Microsoft ka central database jo aapki company ke saare users, passwords, computers, aur groups ko manage karta hai (On-Premises data center mein).
+* **Role:** Yeh main "source of truth" hai jahan aapke real credentials save hotay hain.
+
+---
+
+### 2. AWS Directory Service
+
+* **Kia hai:** AWS ki umbrella service (main category) jo cloud mein directory services provide karti hai.
+* **Iske under 3 main flavors aatay hain:**
+1. **AWS Managed Microsoft AD:** Cloud mein apna poora Microsoft AD banana.
+2. **Simple AD:** Small/basic directory (Samba-based), jismein Microsoft AD ke advanced features nahi hotay.
+3. **AD Connector:** Direct bridge/proxy.
+
+
+
+---
+
+### 3. AD Connector
+
+* **Kia hai:** Ek **gateway / redirector** jo AWS Cloud ko aapke On-Premises Active Directory se connect karta hai.
+* **Kaise kaam karta hai:**
+* Cloud mein koi user password save **nahi** hota.
+* Jab developer AWS Console par login karta hai, **AD Connector** us request ko redirect karke On-Premises Active Directory ke paas bhejta hai verification ke liye.
+* Verification successful hone par user ko **IAM Role** assign ho jata hai.
+
+
+
+---
+
+### Quick Summary
+
+> **Active Directory** = Jahan users/passwords hain (On-Prem).
+> **AWS Directory Service** = AWS ki Directory Management service.
+> **AD Connector** = Bridge jo AWS Directory Service ko aapke On-Prem Active Directory se jodta hai.
+
 24-September-2026
+
+08-October-2026
