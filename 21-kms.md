@@ -352,6 +352,38 @@ Teeno SSE variants ka breakdown:
 * **SSE-C (Server-Side):** Key aapki apni hoti hai, lekin aap data **aur** key dono S3 ko bhejte hain. Encryption S3 ke servers par hoti hai.
 * **Client-Side Encryption:** Key aur encryption dono aapke apne local application/server par hoti hain. Unencrypted data ya key kabhi AWS par nahi jaati.
 
+---
+---
+---
+
+### Key Types Breakdown 🔑
+
+1. **SSE-S3 (AWS Managed S3 Key):**
+* Key AWS poori tarah khud handle aur manage karta hai.
+* Key par aapka koi control nahi hota, na hi aap key ko delete ya remove kar sakte ho.
+
+
+2. **AWS Managed KMS Key (`aws/s3`):**
+* Automatic AWS aapke account mein banata hai.
+* View kar sakte ho, lekin key material ko **remove/delete nahi kar sakte**.
+
+
+3. **Customer Managed Key (CMK) - CloudHSM / Custom Key Store (Sawal wala Case):**
+* Yeh aapki **apni banayi hui KMS key** hoti hai jiska key material AWS-managed KMS ke bajaye aapke **CloudHSM** hardware mein pada hota hai.
+* Is par aapka 100% control hota hai: jab chahein hardware se key material **immediately wipe/delete** kar dein aur iski auditing CloudTrail ke alag CloudHSM log mein hoti hai.
+
+
+
+---
+
+### Quick Cheat Sheet 💡
+
+* **SSE-S3:** Zero control (AWS Managed).
+* **KMS AWS Managed:** View access, zero deletion control.
+* **Customer Managed Key (Custom Key Store / CloudHSM):** Full control + instant removal capability.
+
+
+
 5-September-2026
 
 8-September-2026
