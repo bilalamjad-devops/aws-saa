@@ -1054,7 +1054,45 @@ Ek company ko aisa **Relational Database (SQL)** chahiye jo:
 
 
 
+
 ---
+---
+---
+
+### Keywords Scan 🔍
+
+1. **"increasing read traffic ... performance bottlenecks during peak periods"**
+* **Trigger:** Fluctuation / spikes in read workload.
+
+
+2. **"resolve the issue with the MOST COST-EFFECTIVE solution"**
+* **Trigger:** **Aurora Auto Scaling** (traffic peak aane par dynamically Read Replicas add karti hai aur off-peak hours mein scale down karke cost save karti hai).
+
+
+
+---
+
+### Correct Answer
+
+**Use automatic scaling for the Aurora read replica using Aurora Auto Scaling.**
+
+---
+
+### Roman Urdu Explanation 💡
+
+* **Aurora Auto Scaling:**
+* Aurora Auto Scaling CPU utilization ya active connections ke metric ki buniyad par dynamically **Aurora Read Replicas** add ya remove karti hai.
+* **Cost-Effectiveness:** 24/7 bada instance size chalane ke bajaye, yeh mechanism sirf peak traffic hours ke waqt naye replicas spin up karta hai aur peak khatam hone par unhe terminate kar deta hai, jis se overhead aur overall billing dono minimize ho jate hain.
+
+
+
+---
+
+### Elimination Rules ❌
+
+* **Cross-Region Read Replica:** Cross-region replicas disaster recovery (DR) aur inter-region cross-latency ke liye hote hain. Single-region traffic bottlenecks ke liye yeh extra data transfer costs barha dete hain.
+* **Increase the size of the Aurora DB cluster:** Cluster ki DB instance class ko upgrade karna (Vertical Scaling) sabhi waqt ke liye cost barha deta hai, chahe peak hours hon ya off-peak hours.
+* **Aurora Global Database:** Cross-region disaster recovery aur global low-latency reads ke liye specialized heavy feature hai, local regional peak load handling ke liye cost-effective nahi hai.
 
 28-September-2026
 
