@@ -1,0 +1,34 @@
+Bilkul! Is confusion ko bilkul door kar letay hain. Yeh sawal aksar exam mein ata hai ke **Amazon DLM** aur **AWS Backup** mein kya farq hai aur kahan kisko use karna chahiye.
+
+---
+
+### 1. Amazon DLM (Data Lifecycle Manager) Kya Hai? 🕒
+
+Socho aap ke paas EC2 instances hain aur unke andar **EBS Hard Disks** lagi hain. Aap chahte hain ke rozana raat ko in disks ka backup (snapshot) khud ba khud ban jaye aur purane backups 7 din baad delete ho jayein.
+
+* **DLM kya karta hai:** Yeh ek **automatic alarm/scheduler** ki tarah hai. Aap isko sirf ek baar bata dete hain: *"Har 24 ghante baad EBS disk ka snapshot le lena."*
+* Iske liye aap ko koi coding, AWS CLI script, ya cron job likhne ki zaroorat nahi padti. Yeh **bilkul free** aur sirf EBS ke liye bani sab se aasan service hai.
+
+---
+
+### 2. Phir AWS Backup kahan use hota hai? 🤔
+
+* **AWS Backup:** Ek **Centralized Dashboard** hai. Jab aap ko sirf EBS nahi, balki sath mein **RDS (Database), DynamoDB, EFS, aur S3** sab ka backup ek hi jaga ek sath manage karna ho, aur cross-account backup bhi chahiye ho, tab AWS Backup use hota hai.
+* Lekin jab question mein sirf **EBS Volumes** ka backup maanga jaye aur sab se **fast, cost-effective, aur simple** tareeqa pucha jaye, toh sab se pehla naam **Amazon DLM** ka ata hai.
+
+---
+
+### Short Summary Farq ⚡
+
+| Feature | Amazon DLM | AWS Backup |
+| --- | --- | --- |
+| **Kaam kiske liye?** | Sirf **EBS Volumes & AMIs** ke liye | Multi-service (**EBS, RDS, DynamoDB, EFS**, etc.) |
+| **Complexity** | Boht hi simple (Sirf ek lifecycle policy banani parti hai) | Thora bara centralized setup hota hai |
+| **Best For** | Sirf EBS snapshots ki daily automation ke liye | Poori company ka multi-service disaster recovery plan |
+
+Question mein sirf **EBS volumes** ka automated backup manga tha, isliye **Amazon DLM** sab se behtareen aur fast choice hai!
+
+---
+
+
+11-October-2026
