@@ -45,6 +45,49 @@ Inka difference simple Urdu/Hindi mein samajhte hain:
 * **Cost-effective / Simple Configs / General Passwords** = **SSM Parameter Store**
 * **Database Credentials + Automatic Rotation Needed** = **AWS Secrets Manager**
 
+---
+---
+---
+
+### Keywords Scan 🔍
+
+1. **"database credentials, API keys, and other secrets"**
+* **Trigger:** AWS mein secrets, API keys, aur database credentials store karna.
+
+
+2. **"encrypted and rotated on a regular basis ... latest version"**
+* **Trigger:** Built-in/automated credential rotation.
+
+
+
+---
+
+### Correct Answer
+
+**Use AWS Secrets Manager to store and encrypt the database credentials, API keys, and other secrets. Enable automatic rotation for all of the credentials.**
+
+---
+
+### Roman Urdu Explanation 💡
+
+* **AWS Secrets Manager:**
+* Secrets Manager specifically sensitive credentials (database passwords, API keys) ko securely store aur encrypt karne ke liye design kiya gaya hai.
+* Iska sab se bada feature **Automatic Rotation** hai (jo built-in AWS Lambda integration ke zariye RDS passwords wagerah ko bina application downtime ke automatically rotate/update karta rehta hai).
+* Application hamesha AWS SDK ke zariye latest version retrieve kar sakti hai.
+
+
+
+---
+
+### Baqi Options Ghalt Kyun Hain? ❌
+
+* **Systems Manager Parameter Store (SecureString):** Parameter Store secrets store kar sakta hai, lekin isme **automatic credential rotation default mein nahi hoti** (is ke liye custom rotation custom logic se banani padti hai).
+* **AWS KMS:** KMS encryption keys (CMKs) manage karne ke liye hota hai, direct secrets/passwords ko database credentials ki tarah manage aur rotate karne ke liye nahi.
+* **AWS ACM (Certificate Manager):** ACM SSL/TLS certificates (HTTPS) issuing aur management ke liye use hota hai, database passwords store karne ke liye nahi.
+
+---
 
 
 30-September-2026
+
+12-October-2026
