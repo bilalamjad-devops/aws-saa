@@ -137,7 +137,46 @@ OAC lagane se yeh setup banta hai:
 * **`Cache-Control: max-age=0`:** Caching ko completely bypass/disabled kar deta hai $\rightarrow$ Har request direct origin server par jati hai.
 
 ---
+---
+---
 
+Aayein, is question aur answer dono ko boht simple aur real-life example se samajhte hain! 🖼️⚡
+
+---
+
+### 1. Question Kya Keh Raha Hai? (Problem Statement) ❓
+
+* **Scenario:** Ek media company hai jo **Amazon CloudFront** (CDN) ke zariye users ko images (tasveerein) deliver karti hai.
+* **Do Main Requirements Hain:**
+1. **Smart Image Format:** Agar user ka browser modern hai (jo fast WebP format support karta hai), toh usay **WebP** image bhejo. Aur agar browser purana hai (jo WebP support nahi karta), toh usay regular **JPEG** image bhejo.
+2. **Custom Header & Low Overhead:** Tracking ke liye har response ke sath ek **custom header** add karna hai, aur yeh saara kaam kam se kam mehnat/management (**low operational overhead**) ke sath hona chahiye.
+
+
+
+---
+
+### 2. Answer Kya Keh Raha Hai? (Solution) 💡
+
+> **Configure CloudFront behaviors to handle different image formats based on the User-Agent header. Use Lambda@Edge functions to modify the response headers and serve the appropriate format.**
+
+* **CloudFront Behaviors & User-Agent:** CloudFront requests ke `User-Agent` header (browser ka name/version) ko read karke decide karta hai ke user WebP chahta hai ya JPEG.
+* **Lambda@Edge:** Yeh ek chhota sa code function hota hai jo **CloudFront ke Edge Locations (duniya bhar ke servers)** par run hota hai.
+* Jab user image mangta hai, toh Lambda@Edge dekhta hai ke user ka browser konsa hai.
+* Phir wo sahi image format serve karta hai aur response ke andar tracking ke liye **custom header** bhi attach kar deta hai.
+
+
+
+---
+
+### Key Summary Table ⚡
+
+| Requirement | Solution |
+| --- | --- |
+| **Check Browser & Serve Format** | CloudFront behavior with `User-Agent` header inspection. |
+| **Custom Response Header & Dynamic Logic** | **Lambda@Edge** (runs right at the CloudFront Edge location). |
+| **Operational Overhead** | Serverless (no EC2 servers to manage/maintain). |
+
+---
 
 30-August-2026
 
@@ -146,3 +185,5 @@ OAC lagane se yeh setup banta hai:
 18-September-2026
 
 27-September-2026
+
+13-October-2026
