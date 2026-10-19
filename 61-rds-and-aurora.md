@@ -1094,6 +1094,45 @@ Ek company ko aisa **Relational Database (SQL)** chahiye jo:
 * **Increase the size of the Aurora DB cluster:** Cluster ki DB instance class ko upgrade karna (Vertical Scaling) sabhi waqt ke liye cost barha deta hai, chahe peak hours hon ya off-peak hours.
 * **Aurora Global Database:** Cross-region disaster recovery aur global low-latency reads ke liye specialized heavy feature hai, local regional peak load handling ke liye cost-effective nahi hai.
 
+---
+---
+---
+
+
+Is question mein yeh poocha gaya hai ke agar hum **Multi-AZ** ke bajaye **Read Replica** use karein, toh uske **2 sab se bare faide (benefits)** kya hain?
+
+Aayein isko bilkul asaan alfaz mein samajhte hain:
+
+---
+
+### Question Kya Keh Raha Hai? ❓
+
+* Reporting application par queries ka boht barha load hai jis ki wajah se database slow ho gaya hai.
+* Solutions Architect client ko convince kar rahi hai ke wo Multi-AZ ke bajaye **Read Replicas** lagayein.
+* 2 aisi konsi khubiyan (benefits) hain jo Read Replicas provide karte hain lekin Multi-AZ nahi karta?
+
+---
+
+### Correct Answers (Select TWO) Aur Unki Wajah 💡
+
+1. **It elastically scales out beyond the capacity constraints of a single DB instance for read-heavy database workloads.**
+* *Wajah:* Multi-AZ sirf High Availability (failover) ke liye hota hai aur usme standby database par aap direct queries nahi chala sakte. Lekin Read Replicas laga kar aap read traffic ko alag-alag instances par distribute kar sakte hain (**Scale Out** kar sakte hain).
+
+
+2. **Provides asynchronous replication and improves the performance of the primary database by taking read-heavy database workloads from it.**
+* *Wajah:* Read Replicas **asynchronous replication** use karte hain aur primary database ka sara read-heavy load apne upar le lete hain, jis se primary database ki performance mazeed behtar ho jati hai.
+
+
+
+---
+
+### Chota sa Farq (Multi-AZ vs Read Replica):
+
+* **Multi-AZ:** Sirf backup aur safety ke liye hota hai (agar main database kharab ho jaye toh foran dusra chal pare). Is par read traffic nahi daal sakte.
+* **Read Replica:** Performance barhane aur read queries ko handle karne ke liye hota hai.
+
+---
+
 28-September-2026
 
 27-September-2026
@@ -1139,3 +1178,5 @@ Ek company ko aisa **Relational Database (SQL)** chahiye jo:
 03-October-2026
 
 05-October-2026
+
+19-October-2026
