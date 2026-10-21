@@ -14,7 +14,24 @@
 
 ---
 
+---
+---
+---
+---
 
+
+**Haan, yeh bilkul aik hi cheez hain!** (Ya aap keh sakte hain ke purana "CloudWatch Logs agent" ab upgrade ho kar **Unified CloudWatch Agent** ban chuka hai).
+
+Isko mazeed asaan tarike se samajhte hain:
+
+### Farq Kya Hai? 🔍
+
+* **Purana Zamana:** Pehle AWS ke do alag agents hote thay—aik agent sirf **metrics** (jaise CPU aur memory usage) collect karta tha, aur dusra agent sirf **logs** collect karta tha. Is se management mushkil ho jati thi.
+* **Naya System (Unified):** Ab AWS ne **Unified CloudWatch Agent** diya hai. Iska naam "Unified" isliye hai kyunki yeh **aik hi waqt mein metrics aur logs dono** collect karke CloudWatch ko bhej sakta hai. Chahe aap Linux use kar rahe hon ya Windows, aap ko sirf yehi aik agent install karna parta hai.
+
+Isi wajah se exams mein (aur real-world mein) jab bhi EC2 instances se logs aur performance metrics ikathay karne ki baat ho, toh hamesha **Unified CloudWatch Agent** ka hi naam aata hai.
+
+---
 
 ---
 ---
