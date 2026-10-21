@@ -1,4 +1,26 @@
 
+### Question Kya Keh Raha Hai? ❓
+
+* **Scenario:** Company ke paas **100 se zyada Windows aur Linux EC2 instances** chal rahe hain. Compliance rule ke mutabiq har maheenay performance issues check karne ke liye system logs collect karni hain.
+* **Requirement:** In logs ko review aur analyze karna hai, aur results ko S3 bucket mein retain karna hai.
+* **Goal:** Sab se **efficient aur minimal effort** (kam se kam mehnat) wala tareeqa konsa hai jisse yeh sab ho sakay?
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Install the unified CloudWatch Logs agent in each instance which will automatically collect and push data to CloudWatch Logs. Analyze the log data with CloudWatch Logs Insights.**
+* **Wajah:** **Unified CloudWatch Agent** ek standard tool hai jo Windows aur Linux dono ke system/application logs ko automatic collect karke CloudWatch ko bhej deta hai, aur **CloudWatch Logs Insights** bina kisi extra complex setup ke un logs ko fast query aur analyze karne ki sahulat deta hai.
+
+---
+
+
+
+---
+---
+---
+---
+
 
 ### Very important exam distinction
 
