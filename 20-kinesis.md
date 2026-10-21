@@ -1,3 +1,23 @@
+Bohat acha sawal hai! Isko bilkul asaan tarike se samajhte hain ke **Kinesis** aur **CloudFront + Lambda@Edge** dono ki zaroorat kyun parti hai:
+
+* **CloudFront + Lambda@Edge (User ki taraf ka layer - Frontend/Edge):**
+Sawal mein kaha gaya hai ke users **puri dunya (across the globe)** mein phaile hue hain. Jab dunya bhar ke users website ya mobile app use karte hain, toh unki requests ko handle karne aur low latency dene ke liye **CloudFront** (CDN) aur **Lambda@Edge** (jo users ke sab se qareebi edge location par chalta hai) ki zaroorat parti hai taake user ka data foran catch ho sakay.
+* **Kinesis (Data ka backend pipeline):**
+Jab user ki activities (jaise clickstream) capture ho jati hain, toh un immense streams of data ko real-time mein collect, process aur store karne ke liye **Kinesis** use hota hai.
+
+**Mukhtasar baat:**
+
+* **CloudFront + Lambda@Edge** dunya bhar ke users se fast aur low-latency ke sath data receive/intercept karne ke liye hain.
+* **Kinesis** us received data ko backend par real-time stream aur process karne ke liye hai.
+
+Dono mil kar ek complete global architecture banate hain!
+
+---
+
+---
+---
+---
+
 Is sawal se aap ka basic concept aur strong ho jayega!
 
 **Short Answer:** Kinesis Data Streams ka kaam **sirf data ko recieve, store, aur transmit (pass) karna** hai, data par computational logic / processing chalana nahi.
