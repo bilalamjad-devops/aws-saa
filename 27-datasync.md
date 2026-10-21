@@ -1,3 +1,9 @@
+
+<img width="256" height="247" alt="images" src="https://github.com/user-attachments/assets/91da8ff9-8e17-400a-8047-358dfb9ce620" />
+
+<img width="693" height="442" alt="images (2)" src="https://github.com/user-attachments/assets/59dc5adc-53c8-42a4-9517-71ba1d1053c8" />
+
+
 Aap ka doubt bohot valid hai, kyunke exam mein aksar log **AWS DataSync** aur **AWS Storage Gateway** ke beech confuse ho jatay hain.
 
 Dono services hybrid environment (On-premises $\leftrightarrow$ AWS) ke darmiyan data ke sath deal karti hain, lekin unka **PRIMARY PURPOSE** bilkul alag hai:
