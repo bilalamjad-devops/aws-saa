@@ -4,6 +4,31 @@
 <img width="693" height="442" alt="images (2)" src="https://github.com/user-attachments/assets/59dc5adc-53c8-42a4-9517-71ba1d1053c8" />
 
 
+### Question Kya Keh Raha Hai? ❓
+
+* Company ki global news website EC2 instances par hosted hai.
+* Traffic barhne ki wajah se website slow ho gayi hai aur visitors ko late response mil raha hai, jisse revenue ka nuqsan ho raha hai.
+* Goal yeh hai ke is issue ko **cost-effective manner** mein solve kiya jaye.
+
+---
+
+### Correct Answers Kya Keh Rahe Hain? (Select TWO) 💡
+
+1. **Use Amazon CloudFront with website as the custom origin.**
+* *Wajah:* CloudFront ek global Content Delivery Network (CDN) hai jo static aur dynamic content ko users ke qareebi edge locations se serve karta hai, jisse latency bohat kam ho jati hai aur servers par load barhta nahi hai.
+
+
+2. **Use Amazon ElastiCache for the website's in-memory data store or cache.**
+* *Wajah:* ElastiCache database queries aur session data ko memory (RAM) mein cache kar leta hai, jisse database ka load khatam hota hai aur website bohat tezi se load hoti hai.
+
+
+
+---
+
+---
+---
+---
+
 Aap ka doubt bohot valid hai, kyunke exam mein aksar log **AWS DataSync** aur **AWS Storage Gateway** ke beech confuse ho jatay hain.
 
 Dono services hybrid environment (On-premises $\leftrightarrow$ AWS) ke darmiyan data ke sath deal karti hain, lekin unka **PRIMARY PURPOSE** bilkul alag hai:
