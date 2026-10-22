@@ -123,9 +123,31 @@ Hotel booking company ke paas terabytes mein customer data aara ha hai. Architec
 > * **Amazon Redshift:** Data Warehousing & Fast Analytics on Massive Data (Terabytes/Petabytes).
 > * **Amazon ElastiCache:** In-memory caching (Redis/Memcached) for low-latency speed.
 > * **Amazon DynamoDB:** NoSQL Key-Value database (OLTP).
-> * **Amazon RDS:** Relational database (OLTP) for standard transactional workloads.
-> 
->
+> * **Amazon RDS:** Relational database (OLTP) for standard transactional workloads.> 
+
+
+---
+---
+---
+
+
+<img width="640" height="245" alt="rs-mgmt-restore-table-from-snapshot (1)" src="https://github.com/user-attachments/assets/533a0b22-cc1f-46b1-a26b-0fd6e4d7454d" />
+
+### Question Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek data analytics company apna data warehouse ke taur par **Amazon Redshift** use kar rahi hai.
+* **Requirement:** Ek aisi disaster recovery (DR) plan implement karni hai jo agar kisi poori AWS region mein outage (failure) aa jaye, tab bhi business chalta rahe aur data mehfooz rahe.
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Enable Cross-Region Snapshots Copy in your Amazon Redshift Cluster.**
+* **Wajah (Reason):** Amazon Redshift mein built-in **Cross-Region Snapshot Copy** feature hota hai jo automatically aapke cluster ke snapshots ko kisi dusri (backup) region mein copy karta rehta hai. Yeh disaster recovery ke liye sab se asaan, automated, aur best practice tareeqa hai (custom scripts ya manual S3 jobs likhne ki zaroorat nahi parti).
+
+---
+
+
 
 23-September-2026
 
