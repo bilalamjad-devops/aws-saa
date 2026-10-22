@@ -96,6 +96,24 @@ Aayein scenario ko Roman Urdu mein simple steps mein analyze karte hain:
 * **ETL Jobs & Schema Discovery / Data Cataloging:** $\rightarrow$ **AWS Glue**
 
 ---
+---
+---
+
+
+### Question Kya Keh Raha Hai? ❓
+
+* **Scenario:** Company ne apna data export kar ke ek **CSV file** ki shakal mein **Amazon S3 bucket** mein save kar diya hai.
+* **Requirement:** Manager ne kaha hai ke is data ki validation karni hai aur **standard SQL queries** use karni hain.
+* **Goal:** S3 mein rakhi hui CSV file par SQL queries chalane ka sab se **cost-effective aur sab se asaan (easiest)** tareeqa konsa hai?
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **To be able to run SQL queries, use Amazon Athena to analyze the export data file in S3.**
+* **Wajah (Reason):** **Amazon Athena** ek serverless interactive query service hai. Iska matlab hai ke aap ko koi database (jaise MySQL RDS) khareedne ya server chalane ki zaroorat nahi parti. Aap seedha S3 bucket mein rakhi hui CSV file par **Amazon Athena** ke zariye SQL queries chala sakte hain, aur jitni query chalayenge sirf usi ka kharcha hoga (Pay-as-you-go). Isliye yeh sab se fast, asaan, aur cost-effective tareeqa hai.
+
+---
 
 
 18-September-2026
