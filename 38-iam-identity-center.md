@@ -47,4 +47,25 @@ Exam mein confusion door karne ke liye yeh farq zaroor yaad rakhein:
 * **Trigger 2:** Jab company pehle se **Active Directory / Azure AD** use kar rahi ho aur employees ko AWS se connect karna ho $\rightarrow$ **IAM Identity Center with SAML 2.0 / AD Integration**.
 * **Trigger 3:** Jab requirement ho ke **administrative overhead minimize** ho aur manual cross-account roles na banane paden $\rightarrow$ **IAM Identity Center Permission Sets**.
 
-* 21-September-2026
+---
+---
+---
+
+### Question Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek financial organization AWS par cloud-native application bana rahi hai jisme Aurora, EFS, Step Functions, aur Systems Manager use ho rahe hain.
+* **Requirement:** Alag-alag teams (data science, engineering, compliance) ke liye **centralized authentication aur access management** chahiye, taake woh secure tareeqey se Aurora aur EFS ko access kar sakein. Solution mein **principle of least privilege** follow hona chahiye aur **administrative overhead (mehnat/complexity) kam se kam** honi chahiye.
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Enable the AWS IAM Identity Center with an Identity Center directory and create permission sets for granular access for Aurora and EFS. Assign teams to groups linked to specific permission sets based on their roles.**
+* **Wajah (Reason):** **AWS IAM Identity Center** (jise pehle AWS SSO kehte thay) centralized user authentication aur multi-account access management ke liye standard aur best service hai. Isme hum **permission sets** aur user groups ke zariye asani se least privilege access de sakte hain bina har account mein alag-alag IAM roles banaye, jisse administrative overhead bohat kam ho jata hai. *(Note: Service Control Policies (SCPs) guardrails ke liye hoti hain, user/team authentication ya granular permissions ke liye nahi).*
+
+---
+
+
+21-September-2026
+
+22-October-2026
