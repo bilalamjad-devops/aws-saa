@@ -202,6 +202,46 @@ Question ne pucha tha:
 Is liye correct answer **AWS Certificate Manager (ACM) se Public SSL/TLS Certificate generate karna** hai, kyun ke yeh bilkul free hai, worldwide browsers is par trust karte hain, aur renewal completely automatic hota hai.
 
 ---
+---
+---
+
+
+
+<img width="1293" height="607" alt="aws-certificate-manager-private-certificate-authority" src="https://github.com/user-attachments/assets/5c3dc9c5-58df-4d76-b131-28af4240c96d" />
+
+
+<img width="1515" height="849" alt="aws-certificate-manager-public-ssl-tls-certificate" src="https://github.com/user-attachments/assets/70593c22-fb31-4883-b8fb-729ce1c62124" />
+
+### Question Kya Keh Raha Hai? ❓
+
+* **Scenario:** Company ki global web applications hain jo ALBs (Application Load Balancers) aur ASG ke peeche chal rahi hain.
+* **Requirement:** Applications ko internet par public users ke liye secure banana hai, isliye **publicly trusted SSL certificate** chahiye jisme **operational overhead (mehnat/management) sab se kam** ho.
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Use the AWS Certificate Manager (ACM) to generate a public SSL/TLS certificate. Associate the new SSL/TLS certificate on the HTTPS listener of the ALBs.**
+
+---
+
+### Wajah aur Key Concepts 🔍
+
+* **AWS Certificate Manager (ACM):** Public SSL/TLS certificates generate karne ke liye ACM sab se behtareen aur asan service hai.
+* **Fawaid (Benefits):**
+1. Yeh certificates **bilkul free** milte hain agar AWS resources (jaise ALB) par use kiye jayein.
+2. ACM khud hi inki **automatic renewal** (expiry ke waqt renew karna) handle karta hai, is liye aap ko manually kuch nahi karna parta (Lowest operational overhead).
+3. Yeh seedha ALB ke HTTPS listener ke sath easily attach ho jate hain.
+
+
+* **Ghalat Options kyun hain? ❌**
+* *Private CA:* Yeh internal / private networks ke liye hota hai, public internet users ke liye nahi.
+* *Let's Encrypt (Self-hosted on EC2):* Isme khud server chalana parta hai aur renewals automate karni parti hain, jo ke extra overhead hai jabke AWS khud ACM deta hai.
+* *Self-signed certificates:* Yeh browsers par "Not Secure" ka warning dete hain kyunke yeh publicly trusted nahi hote.
+
+
+
+---
 
 12-September-2026
 
