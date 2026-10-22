@@ -122,7 +122,30 @@ Company ko rozana 10 ghante ki data processing job ke liye sab se cheap (cost-ef
 
 * **Reason:** Job khatam hotay hi cluster terminate karne wala (**Transient**) setup billing bachata hai, **Primary & Core nodes ko On-Demand** par rakhne se data loss nahi hota, aur **Task nodes ko Spot** par chalane se maximum cost saving milti hai.
 
+---
+---
+---
 
+### Question Kya Keh Raha Hai? ❓
+
+* **Scenario:** Company ek aisi custom messaging service bana rahi hai jo AI ko train karne ke liye rozana hazaron messages receive karegi.
+* **Processing:** In sab messages ko **Amazon EMR (Elastic MapReduce) cluster** ne process karna hai.
+* **Requirements:**
+1. Koi bhi message lost nahi hona chahiye.
+2. Duplicates (aik jaisi entries dobara) produce nahi honi chahiye.
+3. Messages EMR mein bilkul usi tarah **same order as arrival** (jis tarah aaein hain, usi tarah ki tarteeb mein) process hone chahiye.
+
+
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Create an Amazon Kinesis Data Stream to collect the messages.**
+* **Wajah (Reason):** **Amazon Kinesis Data Streams** real-time streaming data ko large scale par collect aur process karne ke liye design kiya gaya hai aur yeh **Amazon EMR** ke sath natively integrated hota hai. Kinesis shards ke andar records ki strict ordering maintain karta hai, data durability ensure karta hai (messages lost nahi hote), aur EMR clusters isse asani se sequential data read karke process kar sakte hain.
+* *(Note: SQS standard queue mein strict ordering ki guarantee nahi hoti, aur Firehose batch-oriented delivery ke liye hota hai jabke Kinesis Data Streams real-time streaming aur EMR processing ke liye perfect fit hain).*
+
+---
 
 11-September-2026
 
