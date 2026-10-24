@@ -170,6 +170,9 @@ Yeh events woh actions record karte hain jo **resource ke andar paray huay actua
 ---
 ---
 
+<img width="1079" height="671" alt="cloudtrail-data-events (1)" src="https://github.com/user-attachments/assets/1b4a2c1d-63a0-422d-bfea-b652efc83d46" />
+
+
 * **AWS DataSync:** Kyunke on-premises storage khatam ho rahi thi aur millions of obsolete records ko *foran* AWS par shift karna tha, iske liye **AWS DataSync** sab se fast aur secure online data transfer/migration service hai. (Storage Gateway tab use hota hai jab data on-prem rakhte hue hybrid access chahiye ho, lekin yahan data ko poori tarah move karna tha).
 
 
