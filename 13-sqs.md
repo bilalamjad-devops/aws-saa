@@ -469,7 +469,40 @@ Maan lein aap ek restaurant mein waiter hain aur chef (SQS queue) se pooch rahe 
 * **Long-polling / Short-polling:** Yeh polling configurations messages ko fetch karne ke tareeqay aur API costs/latency ko control karti hain, messages ko automatically delete nahi karti.
 
 ---
+---
+---
 
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek web-based ticketing service Amazon SQS aur EC2 instances ki fleet use kar rahi hai. EC2 instances queue ko bar bar poll karti hain (tight loops mein) taake throughput high rahe.
+* **Issue:** Is tarah bar bar empty responses ki wajah se unnecessary CPU cycles waste ho rahe hain aur AWS par operational costs barh rahe hain.
+* **Requirement:** System ko zyadah **cost-effective** banane ke liye Solutions Architect ko kya karna chahiye?
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Configure Amazon SQS to use long polling by setting the ReceiveMessageWaitTimeSeconds to a number greater than zero.**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **Short Polling vs. Long Polling:**
+* **Short Polling (`ReceiveMessageWaitTimeSeconds` = 0):** Isme SQS foran return kar deta hai, chahe queue khali ho. Is se bohot saari empty responses generate hoti hain jo API calls aur CPU cycles waste karti hain.
+* **Long Polling (`ReceiveMessageWaitTimeSeconds` > 0):** Isme SQS wait karta hai (maximum 20 seconds tak) ke jab tak koi message queue mein na aa jaye. Agar message nahi hota, toh yeh foran reply karne ke bajaye thori der wait karta hai, jisse empty responses ki tadad dramatic tareeqay se kam ho jati hai, CPU waste nahi hota, aur cost bhi bachti hai.
+
+
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **Short polling with `ReceiveMessageWaitTimeSeconds` > 0:** Yeh term mismatch hai; > 0 ka matlab long polling hota hai, short polling nahi.
+* **Long polling with `ReceiveMessageWaitTimeSeconds` to zero:** Zero set karne se **short polling** enable hoti hai, long polling nahi.
+* **Short polling with `ReceiveMessageWaitTimeSeconds` to zero:** Yeh already current problem hai jiski wajah se empty responses aur extra costs aa rahi hain.
+
+---
 
 3-September-2026
 
