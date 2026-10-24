@@ -442,6 +442,33 @@ Maan lein aap ek restaurant mein waiter hain aur chef (SQS queue) se pooch rahe 
 ---
 ---
 
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek startup company ki batch job application EC2 instance par chal rahi hai jo SQS queue se messages process karti hai (default settings ke sath).
+* **Configuration:** Is application ko **hafte mein ek baar** (once a week) run karne ke liye configure kiya gaya hai.
+* **Issue:** 2 hafte baad notice kiya gaya ke saare messages process nahi hue, kuch gayab/miss ho gaye hain.
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Amazon SQS has automatically deleted the messages that have been in a queue for more than the maximum message retention period.**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **SQS Message Retention Period:** Amazon SQS mein messages ka default retention period **4 days** hota hai (ise maximum 14 days tak barhaya ja sakta hai).
+* Jab aap ki batch job sirf hafte mein ek baar chal rahi hai, toh 4 din se purane jitne bhi messages queue mein pare rehte hain, SQS unhein automatically delete kar deta hai. Isi wajah se jab job chali, toh pichle bohot se messages pehle hi expire hokar delete ho chuke the.
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **Missing permissions:** Agar permissions ka masla hota, toh application aik bhi message read nahi kar pati, jabke yahan messages ke purane hone ki wajah se deletion ka issue hai.
+* **Long-polling / Short-polling:** Yeh polling configurations messages ko fetch karne ke tareeqay aur API costs/latency ko control karti hain, messages ko automatically delete nahi karti.
+
+---
 
 
 3-September-2026
@@ -457,3 +484,5 @@ Maan lein aap ek restaurant mein waiter hain aur chef (SQS queue) se pooch rahe 
 26-September-2026
 
 27-September-2026
+
+24-October-2026
