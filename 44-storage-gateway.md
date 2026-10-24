@@ -108,8 +108,48 @@ Bas terminalogy mein ek chota sa point clear kar lein:
 Aap ka concept ab bilkul crystal clear hai!
 
 ---
+---
+---
 
+
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek company ke paas on-premises data center mein bohot zyadah data hai. Woh cloud-backed storage volumes chahte hain jo on-premises application servers par **iSCSI** devices ke tor par mount ho sakein.
+* **Requirements:**
+1. On-site application **latest data ko locally** frequent access kare, jabke purana data rarely access ho.
+2. On-premises storage infrastructure ko scale karne ki zaroorat na pare (yani local storage kam se kam use ho).
+3. Low-latency access milay.
+
+
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Volume Gateway in cached mode**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **AWS Storage Gateway - Volume Gateway (Cached Mode):**
+* **iSCSI Block Storage:** Jab bhi exam mein iSCSI block storage volumes ki baat aaye, toh **Volume Gateway** select karna hota hai (File Gateway NFS/SMB ke liye hota hai aur Tape Gateway backups ke liye).
+* **Cached Mode ka Kamal:** Cached mode mein poora ka poora dataset **Amazon S3** par store hota hai, lekin jo data sab se zyadah use hota hai (latest/hot data), woh local gateway ki cache memory par store rehta hai. Is se on-premises storage par bohot bara bojh nahi parta (storage minimize ho jati hai) aur frequently accessed data ultra-low latency ke sath foran mil jata hai.
+
+
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **Volume Gateway in Stored Mode:** Stored mode mein poora ka poora dataset locally (on-premises) save hota hai aur uska backup S3 par jata hai. Iske liye aap ko apne on-premises storage ko massive scale karna parta, jabke sawal mein requirement hai ke on-premises storage ko scale karne ki zaroorat na pare.
+* **File Gateway:** Yeh file-based access (NFS/SMB) ke liye hota hai, iSCSI block storage ke liye nahi.
+* **Tape Gateway:** Yeh purane tape backups ko replace karke Virtual Tape Library (VTL) ke tor par S3 Glacier par backup rakhne ke liye hota hai.
+
+---
 
 24-September-2026
 
 25-September-2026
+
+24-October-2026
