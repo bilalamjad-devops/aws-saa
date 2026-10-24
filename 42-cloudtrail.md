@@ -134,9 +134,42 @@ Yeh events woh actions record karte hain jo **resource ke andar paray huay actua
 > **Exam Tip:**
 > * **Verify CloudTrail Log Integrity / Tampering Detection** = **CloudTrail Log File Validation** (Uses SHA-256 hashes & RSA signatures).
 > * **Detect Unusual API Call Spikes / Anomalies** = **CloudTrail Insights**.
-> 
->
+
+
+
+---
+---
+---
+
+
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek company apne cloud architecture ke operational issues ko troubleshoot karne ke liye AWS API call history log kar rahi hai.
+* **Requirement:** Solutions Architect ko ek aisa tareeqa implement karna hai jisse resources ki changes (creation, modification, deletion) foran identify ki ja sakein, aur generated log files **encrypted** hon taake security issues se bacha ja sakay.
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Use CloudTrail with its default settings.**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **By Default Encryption:** Bohat se log yeh sochte hain ke S3 bucket par alag se Server-Side Encryption (SSE) configure karni paregi, lekin AWS CloudTrail ki **default settings** yeh hoti hain ke woh log files ko automatically **Amazon S3 server-side encryption (SSE)** ke zariye encrypt karke S3 bucket mein deliver karta hai.
+* Is liye alag se koi extra configuration ya manual setup karne ki zaroorat nahi parti; CloudTrail default mein hi logs ko encrypt kar deta hai.
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* Baqi options mein unnecessary ya ghalat configurations (jaise Glacier par logs bhejna, ya AES-128 mention karna jabke S3 standard SSE use karta hai) di gayi hain, jabke default setting hi is requirement ko automatically pura kar deti hai.
+
+---
 
 24-September-2026
 
 01-October-2026
+
+24-October-2026
