@@ -168,6 +168,40 @@ Yeh teenon kaam **AppSync ke andar hi** aik ke baad aik ho jate hain. Aap ko bee
 * **Operational Efficiency:** Managed service hone ki waja se infrastructure, scaling, ya server code ka koi overhead nahi hota.
 
 ---
+---
+---
+
+### AWS AppSync Kya Hai? 🚀
+
+**AWS AppSync** ek fully managed **GraphQL service** hai jo aap ki applications (jaise mobile apps, web apps, ya microservices) ko data sources (jaise DynamoDB, Lambda, ya SQL databases) ke sath asani se connect karti hai.
+
+Asan alfaz mein, agar aap ko apni application ke liye ek aisi API chahiye jo bohot fast ho, real-time data sync kare, aur multiple jagahon se data ek hi request mein utha kar la sake, toh **AppSync** use hota hai.
+
+---
+
+### AppSync Ki Main Features 💡
+
+1. **GraphQL API Power:**
+* Traditional REST APIs mein agar aap ko alag-alag data chahiye ho toh multiple endpoints call karne parte hain. GraphQL mein client sirf wahi data mangwata hai jo use chahiye, ek hi request mein.
+
+
+2. **Multiple Data Sources Connectivity:**
+* AppSync seedha **Amazon DynamoDB, Aurora, OpenSearch, ya AWS Lambda** ke sath connect ho sakta hai bina kisi complex backend server ke.
+
+
+3. **Pipeline Resolvers (Jo pichle sawal mein use hue):**
+* Agar aap ko ek hi request ke andar multiple steps chalane hon—jaise pehle DynamoDB table A se data nikalna, phir table B mein write karna—toh AppSync ke pipeline resolvers yeh sara kaam baghair kisi extra code ke asani se kar dete hain.
+
+
+4. **Real-time & Offline Support:**
+* Yeh WebSockets use karta hai jis se real-time updates (jaise chat apps ya live tracking) milti hain, aur client offline hone par bhi data store karke baad mein sync kar sakta hai.
+
+
+
+---
+
 12-September-2026
 
 26-September-2026
+
+24-October-2026
