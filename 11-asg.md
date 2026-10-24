@@ -233,6 +233,36 @@ Is me **default Auto Scaling termination policy** use ho rahi hai. Auto Scaling 
 * **Predictive Scaling ka farq:** Yeh **proactive** hoti hai. Yeh pehle se machine learning ke zariye historical patterns analyze kar ke andaza laga leti hai ke kab traffic spike aane wala hai, aur traffic aane se **pehle hi** capacity advance mein launch kar deti hai. Is liye yeh long initialization times wale maslay ka behtareen hal hai.
 
 ---
+---
+---
+
+
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek application Auto Scaling group (ASG) of EC2 instances par hosted hai. Monitoring ko behtar banane ke liye, capacity ko barhana ya ghatana hai **"a set of scaling adjustments"** (mukhtalif steps ya adjustments ke set) ke mutabiq, jisme CloudWatch alarms ke metrics aur threshold values define ki jati hain jo scaling process ko trigger karte hain.
+* **Requirement:** Is scenario ke liye sab se suitable scaling policy konsi hai?
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Step scaling**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **Step Scaling:** Step scaling policy aap ko yeh ijazat deti hai ke aap **"a set of scaling adjustments"** define karein (yani mukhtalif steps). Misal ke tor par: agar CPU 10% se 20% tak barha hai toh 1 instance add karo, lekin agar CPU 20% se upar chala gaya hai toh aik sath 3 ya 4 instances add kar do. Is tarah metric kitna breach hua hai, uske hisab se multiple steps/adjustments kaam karti hain.
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **Simple Scaling:** Isme sirf **ek hi scaling adjustment** hoti hai (single fixed action), mukhtalif sets ya steps nahi hote.
+* **Target Tracking Scaling:** Isme aap ko steps ya alarms khud set nahi karne parte; aap sirf ek target value batate hain (jaise CPU = 50%), aur AWS khud-ba-khud background mein scaling manage karta hai.
+* **Scheduled Scaling:** Yeh fixed time ya date par scaling karne ke liye hoti hai (jaise subah 9 baje servers barha dena), alarm-based adjustments ke liye nahi.
+
+---
 
 
 
@@ -247,3 +277,5 @@ Is me **default Auto Scaling termination policy** use ho rahi hai. Auto Scaling 
 30-September-2026
 
 21-October-2026
+
+24-October-2026
