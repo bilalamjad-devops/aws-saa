@@ -1,0 +1,35 @@
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek fast-growing startup ke paas on-premises **Active Directory** hai. Woh nayi physical workstations khareedne ke bajaye employees ke liye cloud mein **virtual desktops** deploy karna chahte hain jo unke AWS VPC ke andar hon.
+* **Requirements:**
+1. Cloud infrastructure on-premises network ke sath communicate kar sakay (**VPN connection**).
+2. Active Directory integration zaroori hai (**AWS Directory Service**).
+3. Virtual desktops ki deployment honi chahiye.
+
+
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **AWS Directory Services, VPN connection, and Amazon Workspaces**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **Amazon WorkSpaces:** Yeh AWS ki managed **Desktop-as-a-Service (DaaS)** solution hai, jiske zariye aap cloud mein secure windows ya linux virtual desktops deploy karte hain.
+* **AWS Directory Service:** Iske zariye aap apne on-premises Active Directory ko AWS ke sath integrate kar sakte hain taake users apne purane credentials se hi login kar sakein.
+* **VPN Connection:** Iska maqsad AWS VPC aur on-premises network ke darmiyan secure hybrid connectivity establish karna hai.
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* Baqi options mein **Amazon S3** (object storage) ya **IAM** (access management) diya gaya hai jo virtual desktops provide nahi karte.
+* **ClassicLink** ek bohot purani aur ab **deprecated/retired** feature hai jo EC2-Classic instances ko VPC se connect karne ke liye hoti thi, isliye yeh bilkul irrelevant hai.
+
+---
+
+
+24-October-2026
