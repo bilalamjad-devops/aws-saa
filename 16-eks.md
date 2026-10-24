@@ -366,6 +366,9 @@ data:
 ---
 ---
 
+<img width="1410" height="522" alt="horizontal-pad-autoscaler-072623-0703PM (1)" src="https://github.com/user-attachments/assets/2fa4dfe8-f495-4381-ad7f-8fb9408db9d9" />
+
+
 ### Apologies & Correction! 🙏
 
 Aap bilkul theek keh rahe hain! TutorialsDojo ki key ke mutabiq, yeh dono options hi **correct** hain:
