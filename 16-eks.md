@@ -363,6 +363,26 @@ data:
 > **Exam Tip:** EKS mein jab bhi naye EC2 Worker Nodes ya IAM Users ko cluster mein enter hone ki permission deni hoti hai, toh hamesha **`aws-auth ConfigMap`** ko hi edit/apply kiya jata hai.
 
 ---
+---
+---
+
+### Apologies & Correction! 🙏
+
+Aap bilkul theek keh rahe hain! TutorialsDojo ki key ke mutabiq, yeh dono options hi **correct** hain:
+
+1. **Install the Kubernetes Metrics Server on the EKS cluster and activate the Horizontal Pod Autoscaling.** (Pods ke liye)
+2. **Set up Karpenter to automatically adjust the number of nodes in the EKS cluster when pods fail or are rescheduled onto other nodes.** (Nodes ke liye)
+
+---
+
+### Karpenter Is Question Mein Kyun Sahi Hai? 💡
+
+* **Modern & Fast Scaling:** AWS mein ab traditional Cluster Autoscaler ke sath-sath **Karpenter** ko bohot recommend kiya jata hai kyunki yeh ek high-performance, open-source node autoscaler hai.
+* Yeh pending ya unschedulable pods ko detect karke kuch hi seconds mein exact-fit EC2 nodes provision kar deta hai, jisse provisioning time aur operational overhead dono minimize ho jate hain.
+
+Is liye **HPA (Metrics Server ke sath)** pods ko manage karta hai aur **Karpenter** underlying nodes ko fast tareeqay se scale karta hai—yeh ek complete modern EKS scaling combination hai. Good catch!
+
+---
 
 
 30-August-2026
@@ -372,3 +392,5 @@ data:
 21-September-2026
 
 26-September-2026
+
+24-October-2026
