@@ -1172,6 +1172,40 @@ Isay mazeed asan lafzon mein samjhein:
 * **Babelfish ka Solution:** Babelfish ek **translator** ka kaam karta hai. Jab aap Aurora PostgreSQL par Babelfish on kar dete hain, toh woh SQL Server ki queries aur wire protocol ko seedha accept aur execute karne ke qabil ho jata hai.
 * **Faida:** Iska sab se bara faida yeh hai ke aap ko apni application ki queries ya code ko change kiye baghair seedha MS SQL Server se Aurora PostgreSQL par migrate karne ki ijazat mil jati hai.
 
+---
+---
+---
+
+
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek top investment bank ek nayi Forex trading platform bana rahi hai jisme high availability ke liye EC2 Auto Scaling group aur multi-AZ active-passive architecture use ki gayi hai. Database tier ke liye, **ek single Amazon Aurora instance** (`a single Amazon Aurora instance`) select kiya gaya hai.
+* **Requirement:** Agar primary database instance mein system failure ho jaye, toh is **single-instance** Aurora setup ke sath failover ke doran kya hoga?
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Aurora will attempt to create a new DB Instance in the same Availability Zone as the original instance and is done on a best-effort basis.**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **Single Instance vs. Replicas ka Farq:**
+* Agar aap ke paas Aurora cluster mein **Read Replicas** hon, toh failover ke waqt Aurora CNAME record ko healthy replica par flip kar deta hai.
+* Lekin is sawal mein saaf bataya gaya hai ke yeh **"a single Amazon Aurora instance"** hai (yani koi replica nahi hai). Aise case mein, agar instance fail ho jaye, toh Aurora storage toh distributed aur fault-tolerant hone ki wajah se safe rehti hai, lekin compute instance ko dubara banane ke liye Aurora **same Availability Zone mein ek naya DB instance create karne ki koshish karta hai**, aur yeh process **best-effort basis** par hota hai (yani agar us AZ mein capacity available ho toh ban jata hai).
+
+
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **CNAME flip wale options:** Yeh tab kaam karte hain jab aap ke paas multi-AZ deployment ke andar **Aurora Replicas** maujood hon. Jabki yahan single instance hai, is liye koi replica hi nahi hai jise point kiya ja sakay.
+* **Different AZ mein creation wala option:** Single instance ke failure par Aurora pehle **usi original AZ** mein instance recreate karne ki koshish karta hai, doosri AZ mein nahi.
+
+---
 
 28-September-2026
 
@@ -1220,3 +1254,5 @@ Isay mazeed asan lafzon mein samjhein:
 05-October-2026
 
 19-October-2026
+
+24-October-2026
