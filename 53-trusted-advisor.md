@@ -1,3 +1,6 @@
+<img width="1100" height="700" alt="AWS-Trusted-Advisor" src="https://github.com/user-attachments/assets/f975e37c-b39e-4353-999f-cd5edd4300f2" />
+
+
 **Haan, bilkul 100% sahi!**
 
 Is question ke **TWO correct answers** yahi dono hain:
