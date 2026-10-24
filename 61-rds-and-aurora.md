@@ -1206,6 +1206,40 @@ Isay mazeed asan lafzon mein samjhein:
 * **Different AZ mein creation wala option:** Single instance ke failure par Aurora pehle **usi original AZ** mein instance recreate karne ki koshish karta hai, doosri AZ mein nahi.
 
 ---
+---
+---
+
+
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek company on-premises database ko AWS par migrate kar rahi hai. Is database ke paas **50 TB se zyadah** consumer data hai, yeh highly transactional (**OLTP** - Online Transaction Processing) workload handle karta hai, aur mazeed barhta rahega.
+* **Requirements:** Solutions Architect ko yeh ensure karna hai ke database **ACID-compliant** ho aur applications ki **complex queries** ko asani se handle kar sakay.
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Amazon Aurora**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **Amazon Aurora:** Yeh AWS ka high-performance, fully managed relational database service hai jo MySQL aur PostgreSQL ke sath compatible hai.
+* Yeh **OLTP** workloads aur **ACID compliance** ko mukammal support karta hai.
+* Sab se main wajah yeh hai ke data pehle hi **50 TB** hai aur mazeed barhega. Standard databases kemukabilay, **Aurora automatically storage ko scale karta hai (upto 128 TB)** baghair kisi manual intervention ke, jo is massive scale ke liye perfect hai.
+
+
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **Amazon RDS:** Halanke RDS bhi relational aur ACID-compliant hai, lekin standard RDS mein large storage scaling ke liye manual limits set karni parti hain aur iski storage capacity ki limitations bhi Aurora se kam hoti hain.
+* **Amazon Redshift:** Yeh ek Data Warehousing service hai jo **OLAP** (Online Analytical Processing/Analytics) ke liye bani hai, na ke transactional OLTP workloads ke liye.
+* **Amazon DynamoDB:** Yeh ek NoSQL database hai, jabke sawal mein traditional relational database ki requirement hai jo complex SQL queries aur ACID transactions handle kar sakay.
+
+---
 
 28-September-2026
 
