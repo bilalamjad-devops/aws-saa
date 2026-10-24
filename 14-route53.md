@@ -500,6 +500,37 @@ Socho aap ki ek Pizza Company hai jis ki do branches hain: **Lahore Branch** aur
 | **Kabh use karein?** | Jab specific country ke liye specific language/laws hoon (e.g., German language website for Germany). | Jab global regions ke beech traffic ki distribution aur load ko manual balance karna ho. |
 
 ---
+---
+---
+
+
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Client apni website ek cluster of web servers par host kar raha hai jo public-facing Application Load Balancer (ALB) ke peeche hain, aur public DNS ke liye **Amazon Route 53** use kar raha hai.
+* **Requirement:** Route 53 mein **DNS zone apex record** (root domain, jaise `example.com` bina `www` ke) ko ALB par point karne ke liye kaise configure kiya jayega?
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Create an A record aliased to the load balancer DNS name.**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **Zone Apex Rule:** Traditional DNS standards ke mutabiq, **Zone Apex** (naked domain/root domain jaise `example.com`) par `CNAME` record create karna allowed nahi hota.
+* **Route 53 Alias Record:** AWS Route 53 ek khas feature provide karta hai jise **Alias Record** kehte hain. Yeh ek AWS-specific extension hai jo aap ko Zone Apex (`example.com`) par ek **A Record** banane ki ijazat deti hai jo directly AWS resources (jaise ALB, CloudFront, ya S3 bucket) ke DNS name par point karta hai. Route 53 is Alias A-record ko internally ALB ke IP addresses mein scale ke mutabiq resolve kar leta hai.
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **CNAME record pointing to load balancer DNS name:** DNS specifications ke mutabiq zone apex (`example.com`) par CNAME record banana **forbidden** hai (CNAME sirf subdomains jaise `[www.example.com](https://www.example.com)` par lag sakta hai).
+* **A record pointing to IP address:** Application Load Balancers ke IP addresses fixed nahi hote; woh scaling aur maintenance ke waqt change hotay rehte hain, is liye direct IP par A record nahi banaya jata.
+* **Alias for CNAME record:** Zone apex par CNAME use hi nahi ho sakta, is liye CNAME par alias ka koi waajob nahi.
+
+---
 
 1-September-2026
 
