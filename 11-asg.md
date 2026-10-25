@@ -207,6 +207,8 @@ Is me **default Auto Scaling termination policy** use ho rahi hai. Auto Scaling 
 ---
 ---
 
+<img width="1894" height="872" alt="Amazon EventBridge Rules-25MAR2026 (1)" src="https://github.com/user-attachments/assets/241f679a-a992-4083-b2c8-76d99a6c9812" />
+
 
 
 
