@@ -1,4 +1,38 @@
 
+<img width="563" height="545" alt="images (4) (1)" src="https://github.com/user-attachments/assets/2c6b6b9b-0e2f-44c7-8eef-15bc1fcaaa9c" />
+
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek company apni AI-powered medical diagnostic application ki performance ko accelerate karna chahti hai by running machine learning workloads on the edge of telecommunications carriers' **5G networks**.
+* **Requirements:**
+1. Application ko **Kubernetes cluster** par deploy karna hai.
+2. Single-digit millisecond latency (**ultra-low latency**) achieve karni hai (isliye edge computing / 5G zaroori hai).
+3. IAM users aur roles ke zariye cluster authentication ke liye **RBAC** management honi chahiye.
+
+
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Launch the application to an Amazon Elastic Kubernetes Service (Amazon EKS) cluster. Create node groups in AWS Wavelength Zones for the EKS cluster via the Wavelength service. Configure the EKS Cluster Access Management (CAM) API and create access entries and access policies to grant IAM users and roles the required Kubernetes permissions.**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **AWS Wavelength:** Yeh service AWS compute aur storage ko telecom carriers ke 5G data centers ke bilkul kareeb (edge par) deploy karti hai, jisse mobile users ya 5G network devices tak data pohnchne mein **single-digit millisecond latency** milti hai. EKS cluster ke node groups ko Wavelength Zones mein easily launch kiya ja sakta hai.
+* **EKS Cluster Access Management (CAM) API:** Yeh modern approach hai jiske zariye aap AWS IAM principals (users aur roles) ko EKS cluster ke andar access entries aur access policies ke through directly grant karte hain, bina puranay `aws-auth` ConfigMap ki complexity ke.
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **Option containing `AmazonECSConnectorAgentRole`:** Yeh role ECS (Elastic Container Service) ke liye hota hai, jabki yahan EKS (Kubernetes) use ho raha hai, is liye yeh irrelevant aur mismatched hai.
+* **Fargate on Wavelength Zones:** AWS Fargate natively Wavelength zones ke andar worker nodes ke tor par support nahi hota; Wavelength ke liye EC2-based node groups configure karne parte hain.
+* **`aws-iam-authenticator` installation option:** Yeh ek purana tareeqa tha (client-side binary tool), jabke modern EKS clusters ke liye AWS native **Cluster Access Management (CAM) API** aur Access Entries standard aur best practice ban chuki hain.
+
+---
 
 Aap ne bilkul spot-on pakda hai! Real-life infrastructure kaise kaam karta hai, iski wazahat step-by-step parhte hain:
 
