@@ -263,6 +263,37 @@ Is me **default Auto Scaling termination policy** use ho rahi hai. Auto Scaling 
 * **Scheduled Scaling:** Yeh fixed time ya date par scaling karne ke liye hoti hai (jaise subah 9 baje servers barha dena), alarm-based adjustments ke liye nahi.
 
 ---
+---
+---
+
+
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek application AWS Auto Scaling group (ASG) ke andar EC2 instances par chal rahi hai jo ALB ke peeche hain. Kuch instances health checks fail hone ki wajah se automatically terminate ho jati hain, jis ki wajah se local ephemeral logs zaya ho jatay hain.
+* **Requirement:** Solutions Architect ko ek aisa solution design karna hai jo instance terminate hone se *pehle* application aur server logs ko reliable tarika se collect kar le taake root cause analysis ki ja sakay, aur yeh **sab se asan (EASIEST)** tareeqay se ho.
+
+---
+
+### Correct Answer Kya Keh Raha Hai? 💡
+
+* **Add a lifecycle hook to your Auto Scaling group to move instances in the Terminating state to the Terminating:Wait state to delay the termination of unhealthy EC2 instances. Configure an Amazon EventBridge rule for the EC2 Instance-terminate Lifecycle Action Auto Scaling Event with an associated AWS Lambda function. Trigger the Amazon CloudWatch agent to push the application logs and then resume the instance termination once all the logs are sent to CloudWatch Logs.**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **ASG Lifecycle Hook (`Terminating:Wait`):** Jab bhi koi instance terminate honay lagti hai, lifecycle hook usay foran delete karne ke bajaye `Terminating:Wait` state mein rok deta hai. Is se instance kuch der ke liye pause ho jati hai aur humein log collection ke liye waqt mil jata hai.
+* **EventBridge Rule & Lambda:** Amazon EventBridge (CloudWatch Events) is termination lifecycle action ko detect karta hai aur ek AWS Lambda function ko trigger karta hai.
+* **CloudWatch Agent:** Lambda function instance par mojood CloudWatch agent ko trigger karta hai taake woh local logs ko CloudWatch Logs group mein safely push kar de. Jab logs successfully upload ho jatay hain, termination process ko resume kar diya jata hai.
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **Option containing `Pending:Wait`:** `Pending:Wait` state naye instances ke launch hone ke waqt use hoti hai, jabke termination ke liye **`Terminating:Wait`** state use hoti hai. Isliye yeh option ghalat hai.
+* **Step Functions / Complex Automation Scripts:** AWS Step Functions ya complex orchestration tools ka istemal is scenario mein zyadah operational overhead paida karta hai jabke EventBridge aur Lambda ka combination sab se simple aur direct built-in pattern hai.
+
+---
 
 
 
@@ -279,3 +310,5 @@ Is me **default Auto Scaling termination policy** use ho rahi hai. Auto Scaling 
 21-October-2026
 
 24-October-2026
+
+25-October-2026
