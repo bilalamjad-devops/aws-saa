@@ -417,6 +417,19 @@ Teeno SSE variants ka breakdown:
 * **KMS AWS Managed:** View access, zero deletion control.
 * **Customer Managed Key (Custom Key Store / CloudHSM):** Full control + instant removal capability.
 
+---
+---
+---
+
+
+<img width="956" height="817" alt="Amazon EBS encryption-19MAR2026 (2)" src="https://github.com/user-attachments/assets/6fa8011f-ac9f-4dd1-b41e-7bf8f93f2bfc" />
+
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **AWS KMS (Key Management Service):** Amazon EBS ki encryption mukammal tor par **AWS KMS** par depend karti hai.
+* Aap ya toh AWS ki taraf se di gayi default key (**Amazon-managed key**, jiska alias `aws/ebs` hota hai) use kar sakte hain.
+* Ya phir apni khud ki custom keys (**Customer-managed keys / your own keys**) KMS mein create kar ke EBS volume encryption ke liye select kar sakte hain.
 
 
 5-September-2026
@@ -432,3 +445,5 @@ Teeno SSE variants ka breakdown:
 30-September-2026
 
 08-October-2026
+
+25-October-2026
