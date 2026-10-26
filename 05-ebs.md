@@ -513,6 +513,45 @@ Is sawal ke 2 sahi jawab yeh hain:
 
 
 ---
+---
+---
+
+
+
+<img width="453" height="165" alt="image11 (2)" src="https://github.com/user-attachments/assets/578d6bda-1182-484f-b410-aeab2b03ee90" />
+
+
+### Sawal Kya Keh Raha Hai? ❓
+
+* **Scenario:** Ek agency AWS par EC2 instance host kar rahi hai aur us par **Enhanced Networking** enable karne ko kaha gaya hai.
+* **Requirement:** In options mein se kaun se **do (TWO)** sab se baray aur valid use cases hain jin ke liye Enhanced Networking use ki jati hai?
+
+---
+
+### Correct Answers (Select TWO) 💡
+
+1. **When you need a consistently lower inter-instance latencies**
+2. **When you need a higher packet per second (PPS) performance**
+
+---
+
+### Asan Alfaz Mein Wazahat (Explanation) 🔍
+
+* **Enhanced Networking:** Yeh ek aisi feature hai jo **SR-IOV (Single Root I/O Virtualization)** technology use karti hai taake network performance ko maximize kiya ja sakay. Iske do main fawaid hain:
+1. **Low Latency:** Do alag alag EC2 instances ke darmiyan data aane-jaane ka delay (**latency**) bohat kam aur stable ho jata hai.
+2. **High Packet Per Second (PPS):** Yeh network per second bohat zyadah data packets ko handle karne ki salahiyat (**high throughput & PPS performance**) deta hai, jo ke high-performance computing ya data-heavy applications ke liye bohat zaroori hai.
+
+
+
+---
+
+### Baqi Options Ghalat Kyun Hain? ❌
+
+* **High latency networking:** Latency kabhi bhi high nahi chahiye hoti; humein hamesha **low** latency chahiye hoti hai.
+* **Low packet-per-second performance:** Enhanced Networking ka maqsad low PPS nahi balkay **high PPS** dena hota hai.
+* **Dedicated connection to on-premises:** On-premises data center ke sath dedicated connection ke liye **AWS Direct Connect** ya VPN use hota hai, na ke Enhanced Networking.
+
+---
 
 31-August-2026
 
