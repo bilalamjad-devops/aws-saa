@@ -75,10 +75,6 @@ Example:
 * Aap **Amazon EventBridge** mein ek rule bana sakte hain jo in ACM expiration events ko detect kare, aur seedha **Amazon SNS** (Simple Notification Service) ke zariye security team ko alert email/notification bhej de.
 
 
-* **Option 2 (AWS Config + EventBridge + SNS):**
-* AWS Config ke pas ek built-in managed rule hota hai (`acm-certificate-expiration-check`) jo ACM certificates ki expiration date ko monitor karta hai.
-* Jab AWS Config kisi certificate ko flag karta hai ke woh expire hone wala hai, toh **EventBridge** us event ko pakar kar **SNS** ke zariye team ko notify kar deta hai.
-
 
 
 8-September-2026
