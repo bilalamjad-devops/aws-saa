@@ -445,6 +445,12 @@ Is Question mein **2 requirements** hain:
 ---
 
 
+<img width="1017" height="655" alt="td-example-eventbridge-rule-for-acm-01-08-25 (1)" src="https://github.com/user-attachments/assets/371b5162-8d39-45bd-b020-0c962c9b6377" />
+
+<img width="1017" height="411" alt="td-daystoexpiry-metric-01-08-25 (1)" src="https://github.com/user-attachments/assets/5bfc6efb-cdff-44c5-baa6-eb39189de9f9" />
+
+
+
 Bilkul theek samjhe aap! Is poore concept ka **main takeaway** yeh hai:
 
 ### 🎯 Key Takeaway:
