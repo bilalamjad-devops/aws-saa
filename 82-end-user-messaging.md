@@ -1,0 +1,43 @@
+
+24. Question
+
+A company is designing a customized text messaging service that targets its mobile app users. As part of its multi-engagement marketing campaign, a company needs to send a one-time confirmation message to all of its subscribers using Short Message Service (SMS). The solutions architect must design the system to allow a subscriber to reply to the SMS messages.
+
+The customer responses must be kept for an entire year for analysis and targeted sales promotions. In addition, the SMS responses must also be collected, processed, and analyzed in near-real-time.
+
+Which solution will meet these requirements with the LEAST operational overhead?
+
+- Launch a new Amazon Simple Queue Service (Amazon SQS) queue to send out SMS messages. Use AWS Step Functions and AWS Lambda to collect, process, and analyze responses. Store the data in Amazon S3 Glacier Instant Retrieval.
+- Create a new topic in Amazon Simple Notification Service (Amazon SNS) and an Amazon Kinesis data stream configured with all its default settings. Send SMS messages using SNS. Integrate the Kinesis data stream to the SNS topic for data collection, archiving, and analysis.
+- Set up an Amazon Connect contact flow to send the confirmation SMS messages to the mobile app users. Deploy an AWS Lambda function to process and analyze the responses. Store the data in Amazon S3 Glacier Flexible Retrieval.
+- `Configure AWS End User Messaging SMS to send confirmation messages using a two-way SMS-enabled phone number. Route incoming subscriber responses to an Amazon SNS topic and use AWS Lambda to process and forward the messages to Amazon Kinesis Data Streams for near-real-time analytics. Configure the Kinesis data stream with a retention period of 365 days.`
+
+<img width="1897" height="832" alt="AWS End User Messaging-13OCT2026" src="https://github.com/user-attachments/assets/a333120a-ee94-4b6d-9740-a526cca12ed3" />
+
+
+Aap ka flow **90% bilkul perfect hai**, bas Kinesis data retention aur Lambda sequencing ke hawalay se 2 choti clarification samjh lein:
+
+### 1. Kinesis Data Retention Limit (24 Hours vs 365 Days) ⏱️
+
+* Aap ne bilkul sahi kaha ke Kinesis Data Streams ka **default retention period 24 hours** hota hai.
+* Lekin aap is retention duration ko extend kar ke **maximum 365 days (1 saal)** tak set kar sakte hain. Is sawal mein specifically 1 saal ka data retain karne ka kaha gaya tha, is liye Kinesis ka 365-day retention feature directly match kar gaya.
+
+---
+
+### 2. Architecture ka Sahi Flow 🔄
+
+1. **Outbound SMS:** System **AWS End User Messaging SMS** ke zariye user ko 2-way phone number se confirmation SMS bhejta hai.
+2. **User Reply:** User SMS ka reply karta hai.
+3. **Capture via SNS:** Incoming response pehle **Amazon SNS** topic par aata hai.
+4. **Process via Lambda:** **AWS Lambda** SNS se event receive karta hai, message ko clean/process karta hai, aur **Kinesis Data Streams** mein push kar deta hai.
+5. **Real-time Streaming & Retention:** Kinesis stream data ko real-time analytics ke liye hold karti hai aur **365 days** tak retain rakhti hai.
+
+---
+
+25-October-2026
+
+26-October-2026
+
+27-October-2026
+
+27-October-2026
