@@ -61,6 +61,47 @@ Jab aap is template ko deploy karte hain, toh yeh aapke account mein EventBridge
 
 * **Working Hours / Scheduled Stop-Start:** Jab bhi question mein EC2/RDS ko fixed business hours par stop/start karke cost save karne ka poocha jaye, toh **AWS Instance Scheduler** sab se best, automated aur minimal effort wala solution hota hai.
 
+---
+---
+---
+
+
+### 1. Sawal Kya Keh Raha Hai? (Question Breakdown) ❓
+
+* **Scenario:** Ek DevOps engineer ne ek CloudFormation template likh kar review ke liye di hai. Aap code dekh kar foran batate hain ke yeh template deploy nahi ho sakti.
+* **Problem:** Neeche diye gaye JSON code mein aisi kya kami hai jis ki wajah se stack fail ho jayega?
+```json
+{
+   "AWSTemplateFormatVersion":"2010-09-09",
+   "Parameters":{...},
+   "Outputs":{...}
+}
+
+```
+
+
+
+---
+
+### 2. Sahi Jawab Kya Keh Raha Hai? (Correct Answer) 💡
+
+* **Option:** *The Resources section is missing.*
+* **Wazahat:**
+* AWS CloudFormation template ki anatomy mein **`Resources` section sab se main aur mandatory (lazmi)** hissa hota hai. Aap chahe Parameters rakhein ya na rakhein, lekin jab tak aap yeh define nahi karenge ke AWS par banana kya hai (jaise EC2 instance, S3 bucket, VPC), tab tak template kaam hi nahi kar sakti.
+* Is snippet mein `Outputs` ke andar `manilaInstance` ko refer kiya gaya hai, lekin code mein kahin bhi `Resources` section ke andar `manilaInstance` banaya hi nahi gaya!
+
+
+
+---
+
+### 3. Keyword Scanning Cheat Sheet 🔑
+
+| Question Keyword / Phrase | Direct Exam Mapping | Logic / Wajah |
+| --- | --- | --- |
+| **CloudFormation template missing core component / failing to deploy** | **`Resources` section is mandatory** | CloudFormation mein sirf ek hi section lazmi hota hai: `Resources`. Baqi sab (Parameters, Outputs, Mappings) optional hote hain. |
+| **`"AWSTemplateFormatVersion":"2010-09-09"`** | **Valid Version** | Yeh bilkul theek format version hai (aur dunya ka wahid valid version string bhi yehi hai, 2017 waghera kuch nahi hota). |
+
+---
 
 14-September-2026
 
