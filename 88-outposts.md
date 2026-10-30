@@ -1,4 +1,6 @@
 
+<img width="1200" height="630" alt="aws-outposts" src="https://github.com/user-attachments/assets/fe83bd25-4509-4222-8fd4-05f944c5db39" />
+
 
 Aap ne bilkul **100% sahi pakra hai!** Chaliye, in dono cheezon (Licensing restriction aur Latency) ko aapas mein jor kar bilkul crystal clear kar lete hain.
 
