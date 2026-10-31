@@ -1,3 +1,6 @@
+<img width="1200" height="630" alt="amazon-neptune" src="https://github.com/user-attachments/assets/0c6dd24c-88e2-444b-ac8c-692a20328a69" />
+
+
 Amazon Neptune AWS ki ek fully managed **Graph Database** service hai.
 
 Aap ne abhi tak SQL (Relational) ya DynamoDB (NoSQL) use kiya hoga, jahan data **rows aur columns** ya **key-value pairs** mein hota hai. Neptune aese kaam nahi karta — yeh data ko **Jaal (Web / Network)** ki shakal mein store karta hai.
