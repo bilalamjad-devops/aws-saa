@@ -908,6 +908,73 @@ Isliye SAA-C03 exam mein jab bhi **S3** ya **DynamoDB** ke liye private, cost-ef
 * **Create an SQS queue in front of DynamoDB:** SQS buffering ke liye kaam aa sakta hai lekin read operations ko speedup karne ya capacity ko scaling se handle karne ke liye yeh standard direct solution nahi hai, aur yeh architecture badal deta hai.
 
 ---
+---
+---
+
+
+15. Question
+
+The Bureau of Census and Statistics manages a geographic information systems (GIS) image database which has a single-table design. The system hosts high-resolution images that are uniquely identified by geographic codes. The database is updated on a minute-by-minute basis to detect any natural disasters like floods, volcanic eruptions, and other calamities.
+
+Due to the substantial volume of data, the department wants to migrate its existing Oracle database to the AWS Cloud. The department also aims to achieve a highly available and scalable solution, particularly during critical events and high data inflow.
+
+Which of the following options is the MOST cost-effective solution in this scenario?
+
+- Launch an Amazon RDS database in Multi-AZ Deployments configuration to ensure high availability and redundancy in case of failure. Set up the tables to store both the images and geographic codes
+- Host the images and geographic codes in an Amazon DynamoDB table. Set DynamoDB Accelerator (DAX) to enhance read performance when encountering high loads.
+- `Utilize an Amazon S3 bucket for storing the images. Launch an Amazon DynamoDB table with the geographic code as the primary key and the corresponding image S3 URL as the associated value.`
+- Store the images in the S3 bucket. Utilize Amazon Keyspaces (for Apache Cassandra) with the geographic code as the key and the corresponding image S3 URL as the value.
+
+Aaiye, is sawal ko bhi apne isi behtareen aur proven pattern ke sath step-by-step tor kar samajhte hain!
+
+---
+
+### 1. Sawal Kya Keh Raha Hai? (Question Breakdown) 🛑
+
+* **Scenario:** Ek GIS (Geographic Information Systems) database hai jismein **high-resolution images** hain, aur har image ko ek unique **geographic code** se pehchana jata hai (Single-table design).
+* **Workload:** Database ko har minute update kiya jata hai (natural disasters detect karne ke liye) aur data ka volume bohat bara hai.
+* **Goal:** Oracle database ko AWS par migrate karna hai, aur **sab se zyada cost-effective, highly available, aur scalable** solution dhoondni hai.
+
+---
+
+### 2. Sahi Jawab Kya Keh Raha Hai? (Correct Answer) 💡
+
+> **Utilize an Amazon S3 bucket for storing the images. Launch an Amazon DynamoDB table with the geographic code as the primary key and the corresponding image S3 URL as the associated value.**
+
+#### Deep-Dive Explanation:
+
+1. **S3 for Images (Unstructured Data):** High-resolution images heavy binary files hoti hain. Inhein kisi relational database (RDS) ya NoSQL table ke andar store karna mehnga aur ghalat tareeqa hai. **Amazon S3** duniya ka sab se sasta, scalable, aur durable object storage hai jo aisi images ke liye best hai.
+2. **DynamoDB for Metadata/Mapping (Single-Table Design):** DynamoDB ek fast, serverless NoSQL key-value database hai. Ismein aap geographic code ko primary key bana kar uske samne S3 bucket ka URL save kar lete hain. Yeh minute-by-minute updates aur massive scale ko aasani se handle karta hai bina kisi management overhead ke.
+
+---
+
+### 3. Baqi Options Kyun Ghalat Hain? ❌
+
+* **Option 1 (Amazon RDS Multi-AZ):**
+* *Ghalat kyun?* Relational database (RDS) mein high-res images ko store karna aur unhein scale karna bohot mehenga parta hai, aur RDS relational queries ke liye hota hai na ke massive blob/image storage ke liye.
+
+
+* **Option 2 (DynamoDB with DAX for storing images):**
+* *Ghalat kyun?* **DynamoDB ka max item size sirf 400 KB hota hai!** High-resolution GIS images megabytes (MBs) ki hoti hain, isliye aap images ko direct DynamoDB ke andar store hi nahi kar sakte.
+
+
+* **Option 4 (Amazon Keyspaces / Cassandra):**
+* *Ghalat kyun?* Managed Cassandra (Keyspaces) bohot complex aur mehenga hota hai. Native **DynamoDB** serverless, cost-effective, aur aisi key-value mapping ke liye AWS ka standard best practice tool hai.
+
+
+
+---
+
+### 🔑 Exam Keyword Memory Trick
+
+| Question Keyword / Phrase | Direct AWS Mapping | Logic / Wajah |
+| --- | --- | --- |
+| **"Store High-Resolution Images / Unstructured files at scale"** | **Amazon S3** | Heavy files/images ke liye S3 sab se sasta aur best object storage hai. |
+| **"Single-table design / Key-Value mapping at high frequency"** | **Amazon DynamoDB** | Fast key-value lookups aur minute-by-minute updates ke liye DynamoDB perfect hai. |
+
+---
+
+29-October-2026
 
 24-August-2026
 
@@ -928,3 +995,5 @@ Isliye SAA-C03 exam mein jab bhi **S3** ya **DynamoDB** ke liye private, cost-ef
 06-October-2026
 
 11-October-2026
+
+2-November-2026
