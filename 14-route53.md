@@ -1,4 +1,7 @@
-
+- point your domain name (tutorialsdojo.com) to the IPv4.
+- point your domain name (tutorialsdojo.com) to the IPv6.
+- point your domain name (tutorialsdojo.com) to the another domain name.
+- point your domain name (tutorialsdojo.com) to the AWS resource.
 
 ### 🔥 Your exam shortcut
 
