@@ -648,6 +648,22 @@ Ek company ki **stateless application** hai jo 7 EC2 instances par multiple Avai
 > **Stateless App + Traffic stuck on 1 EC2 instance ➔ Disable ALB Sticky Sessions**
 
 ---
+---
+---
+
+22. Question
+
+A company is revamping its existing stateless inventory management system. The application is deployed across 7 EC2 instances in multiple Availability Zones behind an Application Load Balancer (ALB). The application is designed to handle varying traffic patterns. Still, engineers have observed that traffic is consistently routed to a single EC2 instance, resulting in performance bottlenecks and higher latency for some requests.
+
+What is the most effective solution to resolve the underlying load balancing issue?
+
+- Utilize a Gateway Load Balancer (GWLB) instead of an ALB.
+- `Turn off sticky sessions on the Application Load Balancer (ALB).`
+- Terminate the favored EC2 instance and redeploy the remaining 6 EC2 instances evenly across all Availability Zones in the region.
+- Modify the interval for health checks in the ALB's target group settings.
+
+<img width="2040" height="1055" alt="StickySession_29JAN2024" src="https://github.com/user-attachments/assets/14572baa-3247-45e6-b78c-52e1543d306d" />
+
 
 1-Semtember-2026
 
