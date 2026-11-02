@@ -43,6 +43,7 @@ Cognito do hisson mein banta hota hai, aur AWS exam mein iska farq bohot pucha j
 ### 🧠 One-Line Exam Memory
 
 > **App User Sign-Up / Sign-In / MFA ➔ Cognito User Pools**
+
 > **App User ko AWS Services ka Access ➔ Cognito Identity Pools**
 
 ---
