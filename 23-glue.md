@@ -271,7 +271,218 @@ Yeh dono data ko visualize (charts aur graphs ki shakal mein) karne ke tools hai
 Kyunki sales team ko weekly revenue reports aur business analytics chahiye thin jo S3/Athena par bani tables se aani thin, na ke servers ke logs ya search data!
 
 ---
+---
+---
+
+20. Question
+
+A bank runs a daily AWS Glue ETL job to process XML financial data in an Amazon S3 bucket. New datasets are added to this S3 bucket each day. The solutions architect has observed that AWS Glue is repeatedly processing the entire dataset, including previously processed data, in every execution.
+
+The bank seeks an efficient method to ensure the AWS Glue ETL job processes only new or altered data, thus optimizing resources and processing time while maintaining data integrity.
+
+Which solution can satisfy this requirement?
+
+- Alter the AWS Glue job to incorporate the AWS Glue Data Quality feature.
+- `Enable job bookmarks on the AWS Glue job.`
+- Use the FindMatches machine learning (ML) transform within the AWS Glue job to selectively process the data.
+- Adjust the AWS Glue job configuration by setting the NumberOfWorkers field to 3.
+
+
+<img width="1453" height="1010" alt="job_bookmark_tutorialsdojo_aws_glue" src="https://github.com/user-attachments/assets/3d2404de-dc25-4450-8cca-bf8b2a9e7e64" />
+
+
+Yes — this question is actually testing one very specific **AWS Glue feature**.
+
+### 🎯 What is the question saying?
+
+The bank has:
+
+```text
+S3
+ ↓
+XML financial data
+```
+
+Every day, **new data is added**.
+
+But their Glue ETL job does this:
+
+```text
+Day 1:
+100 files → process all 100
+
+Day 2:
+20 new files added
+
+Glue processes:
+120 files ❌
+```
+
+So Glue is **processing old data again and again**.
+
+The bank wants:
+
+```text
+Day 1:
+100 files → process 100
+
+Day 2:
+20 new files → process ONLY 20 ✅
+
+Day 3:
+10 new files → process ONLY 10 ✅
+```
+
+This saves **processing time and resources**.
+
+---
+
+### ✅ Correct answer: Enable job bookmarks
+
+**AWS Glue Job Bookmarks** allow Glue to **remember what data it has already processed**.
+
+Think of a bookmark like a **bookmark in a book** 📖.
+
+If you read pages 1–100 today, you put a bookmark at page 100.
+
+Tomorrow:
+
+> "Continue from where I stopped."
+
+Similarly:
+
+```text
+First run:
+S3 files 1–100
+       ↓
+Glue processes them
+       ↓
+Bookmark remembers them
+
+Next run:
+S3 files 1–100 + 101–120
+                  ↑
+          Process only new data
+```
+
+So:
+
+> **Job Bookmark = remembers previously processed data and helps process only new/changed data.**
+
+---
+
+### ❌ Why the other answers?
+
+**Glue Data Quality**
+
+Used to check whether data is **valid/accurate/complete**.
+
+Example:
+
+> Is `customer_id` present?  
+> Is age within an expected range?
+
+It doesn't solve repeated processing.
+
+---
+
+**FindMatches ML Transform**
+
+Used to find **matching/duplicate records**.
+
+Example:
+
+```text
+John Smith, 123 Main St
+John Smith, 123 Main Street
+```
+
+It can identify that they may represent the same person.
+
+Not for tracking previously processed files.
+
+---
+
+**NumberOfWorkers = 3**
+
+Only changes the **amount of compute capacity**.
+
+It doesn't tell Glue:
+
+> "Don't process the old files."
+
+---
+
+### 🔥 SAA shortcut
+
+When you see:
+
+> **Glue keeps processing the same old data + want only new/changed data**
+
+Immediately think:
+
+**👉 Glue Job Bookmarks** ✅
+
+### 🧠 One-line memory
+
+**Job Bookmark = "Glue, remember what you already processed."**
+
+---
+---
+---
+
+Aaiye, is sawal ko bhi apne isi shandar pattern ke sath step-by-step tor kar samajhte hain!
+
+---
+
+### 1. Sawal Kya Keh Raha Hai? (Question Breakdown) 🛑
+
+* **Scenario:** Ek bank rozana **AWS Glue ETL job** chalata hai jo Amazon S3 bucket se XML financial data ko process karti hai. Har din naye datasets S3 bucket mein aate hain.
+* **Masla (Problem):** Solutions architect ne note kiya hai ke AWS Glue har baar **poora dataset dobara process kar raha hai**, jismein wo data bhi shamil hai jo pehle se process ho chuka hai.
+* **Goal:** Aisa efficient tareeqa dhoondna hai jisse AWS Glue sirf **naye ya change hue data (new or altered data)** ko process kare, taake time aur resources bachein.
+
+---
+
+### 2. Sahi Jawab Kya Keh Raha Hai? (Correct Answer) 💡
+
+> **Enable job bookmarks on the AWS Glue job.**
+
+#### Deep-Dive Explanation:
+
+1. **AWS Glue Job Bookmarks:** Yeh AWS Glue ka ek built-in feature hai jo pichli run ka state track karta hai. Jab aap job bookmarks enable karte hain, toh Glue ko yaad rehta hai ke kaunsa data pehle process ho chuka hai aur kaunsa naya hai. Agli baar jab job chalti hai, toh yeh sirf naye ya updated files/records ko uthata hai, purane data ko dobara touch nahi karta.
+2. Is se processing time aur cost dono bohot zyada bach jate hain.
+
+---
+
+### 3. Baqi Options Kyun Ghalat Hain? ❌
+
+* **Option 1 (AWS Glue Data Quality):**
+* *Ghalat kyun?* Data Quality feature sirf data ki accuracy aur correctness check karne ke liye hota hai (e.g., check karna ke koi field null toh nahi hai), yeh incremental data processing ya bookmarks ka kaam nahi karta.
+
+
+* **Option 3 (FindMatches ML transform):**
+* *Ghalat kyun?* FindMatches machine learning transform duplicate records ya matching records ko dhoondne ke liye use hota hai (jaise alag alag tables mein ek hi customer ka record match karna), na ke new data tracking ke liye.
+
+
+* **Option 4 (Setting NumberOfWorkers to 3):**
+* *Ghalat kyun?* Yeh sirf compute power (workers ki tadad) ko barhata ya ghatata hai; is se yeh masla hal nahi hota ke Glue poora data dobara kyun process kar raha hai.
+
+
+
+---
+
+### 🔑 Exam Keyword Memory Trick
+
+| Question Keyword / Phrase | Direct AWS Mapping | Logic / Wajah |
+| --- | --- | --- |
+| **"AWS Glue processing entire dataset repeatedly / Process only new or altered data"** | **AWS Glue Job Bookmarks** | Pichli run ka state save rakh kar sirf naye data ko process karne ke liye Job Bookmarks enable kiye jate hain. |
+
+---
+
+29-October-2026
 
 7-September-2026
 
 12-September-2026
+
+2-November-2026
