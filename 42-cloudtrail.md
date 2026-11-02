@@ -345,6 +345,78 @@ Company ko yeh verify/ensure karna hai ke CloudTrail log file ke sath koi **tamp
 > **CloudTrail Log Tampering Check ➔ Enable Log File Validation**
 
 ---
+---
+---
+
+25. Question
+
+A company has moved its suite of internal tools to AWS. For audit compliance, several CloudTrail trails are made to record all API calls. Each log file is also protected with server-side encryption with AWS KMS keys (SSE-KMS). Despite this, the company wants to ensure it can identify whether a log file has been tampered with.
+
+Which security measure should the solutions architect employ?
+
+- `Enable the CloudTrail Log File Validation feature on all trails.`
+- Enable CloudTrail Insights events.
+- Configure CloudWatch Logs to monitor all trails and use Amazon SNS to send notifications when a log file has been tampered with.
+- Use the CloudTrail Processing Library when doing audit compliance.
+
+<img width="1110" height="947" alt="aws-cloudtrail-log-file-validation (1)" src="https://github.com/user-attachments/assets/b8a72c1a-24c3-4eb0-b282-eebcb6c33268" />
+
+Aaiye is sawal ko apne ultra-fast aur keyword-driven breakdown ke sath samajhte hain! 🚀
+
+---
+
+### 🎯 1. Sawal Kya Keh Raha Hai? (Question Breakdown)
+
+Company ne internal tools AWS par shift kiye hain aur audit compliance ke liye **CloudTrail** ke zariye API calls log ho rahi hain (SSE-KMS encryption ke sath).
+
+* **Requirement:**
+Company ko yeh verify/ensure karna hai ke CloudTrail log file ke sath koi **tampering (modification ya deletion)** toh nahi hui.
+
+---
+
+### ✅ 2. Sahi Jawab Kya Keh Raha Hai? (Correct Answer)
+
+> **Enable the CloudTrail Log File Validation feature on all trails.**
+
+#### **Deep-Dive Explanation:**
+
+1. **CloudTrail Log File Validation:** Yeh builtin feature SHA-256 cryptographic hashing aur RSA digital signatures use karta hai.
+2. Yeh feature log file push hote hi ek digest file generate karta hai. Future mein aap `aws cloudtrail validate-logs` command se check kar sakte hain ke log file modify, edit ya delete toh nahi hui.
+
+---
+
+### ❌ 3. Baqi Options Kyun Ghalat Hain?
+
+* **CloudTrail Insights events:**
+* *Ghalat kyun?* Insights unusual operational activity / API call volume spikes detect karta hai, file tampering/integrity verify nahi karta.
+
+
+* **CloudWatch Logs + SNS for Tampering:**
+* *Ghalat kyun?* CloudWatch Logs log streams ko aggregate aur filter karta hai, lekin file-level cryptographic integrity/tampering validation nahi karta.
+
+
+* **CloudTrail Processing Library:**
+* *Ghalat kyun?* Yeh Java library hai jo CloudTrail logs ko custom code ke zariye read/process karne ke liye hoti hai, native tampering validation ke liye nahi.
+
+
+
+---
+
+### 🔍 4. Keyword Scanning & Exam Shortcut
+
+| Question Key Phrases | Direct AWS Mapping | Reason / Logic |
+| --- | --- | --- |
+| **"CloudTrail" + "Log file tampered with / Log Integrity"** | **Log File Validation** | Builtin feature specifically for tamper detection using SHA-256 hashes & digital signatures. |
+
+---
+
+### 🧠 One-Line Memory
+
+> **CloudTrail Log Tampering Check ➔ Enable Log File Validation**
+
+---
+
+29-October-2026
 
 29-October-2026
 
