@@ -415,6 +415,77 @@ Company ko yeh verify/ensure karna hai ke CloudTrail log file ke sath koi **tamp
 > **CloudTrail Log Tampering Check ➔ Enable Log File Validation**
 
 ---
+---
+---
+
+32. Question
+
+A company needs to design an online analytics application that uses Redshift Cluster for its data warehouse. Which of the following services allows them to monitor all API calls in Redshift instance and can also provide secured data for auditing and compliance purposes?
+
+- Amazon Redshift Spectrum
+- Amazon CloudWatch
+- AWS X-Ray
+- `AWS CloudTrail`
+
+Aaiye is sawal ko apne ultra-fast aur keyword-driven breakdown ke sath samajhte hain! 🚀
+
+---
+
+### 🎯 1. Sawal Kya Keh Raha Hai? (Question Breakdown)
+
+Ek online analytics application **Amazon Redshift Cluster** ko data warehouse ke taur par use kar rahi hai.
+
+* **Requirement:**
+1. Redshift instance mein hone wali tamam **API calls ko monitor/record** karna hai.
+2. Audit aur compliance ke liye secured data log provide karna hai.
+
+
+
+---
+
+### ✅ 2. Sahi Jawab Kya Keh Raha Hai? (Correct Answer)
+
+> **AWS CloudTrail**
+
+#### **Deep-Dive Explanation:**
+
+1. **AWS CloudTrail:** Yeh AWS ki primary auditing aur compliance service hai jo tamam AWS services (inculding Amazon Redshift) ki **API calls, user actions, aur management events** ko continually record/log karti hai.
+2. **Audit & Compliance:** CloudTrail logs ko S3 bucket mein encrypt (SSE-KMS) aur Log File Validation ke sath store kiya jata hai jo security auditing ke liye standard audit trail banata hai.
+
+---
+
+### ❌ 3. Baqi Options Kyun Ghalat Hain?
+
+* **Amazon Redshift Spectrum:**
+* *Ghalat kyun?* Spectrum Redshift ka feature hai jo S3 mein mojood files/data ko direct query karne ke liye use hota hai, API monitoring ke liye nahi.
+
+
+* **Amazon CloudWatch:**
+* *Ghalat kyun?* CloudWatch Performance Metrics (CPU utilization, Disk I/O) aur operational logs track karta hai, API call auditing ke liye nahi.
+
+
+* **AWS X-Ray:**
+* *Ghalat kyun?* X-Ray distributed applications ke latency issues, bottlenecks, aur request tracing (debugging) ke liye use hota hai.
+
+
+
+---
+
+### 🔍 4. Keyword Scanning & Exam Shortcut
+
+| Question Key Phrases | Direct AWS Mapping | Reason / Logic |
+| --- | --- | --- |
+| **"Monitor all API calls" + "Auditing and Compliance"** | **AWS CloudTrail** | Standard service for logging API history across AWS resources. |
+
+---
+
+### 🧠 One-Line Memory
+
+> **API Calls Tracking + Compliance Auditing ➔ AWS CloudTrail**
+
+---
+
+29-October-2026
 
 29-October-2026
 
@@ -431,3 +502,5 @@ Company ko yeh verify/ensure karna hai ke CloudTrail log file ke sath koi **tamp
 31-October-2026
 
 2-November-2026
+
+3-November-2026
