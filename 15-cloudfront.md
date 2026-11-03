@@ -229,6 +229,85 @@ Aayein, is question aur answer dono ko boht simple aur real-life example se sama
 | **Operational Overhead** | Serverless (no EC2 servers to manage/maintain). |
 
 ---
+---
+---
+
+30. Question
+
+A well-known music streaming service is planning to broaden its platform globally. However, the company must ensure that listeners in certain countries cannot access specific music content until it is officially launched in their respective regions, in accordance with its music licensing agreements and restrictions.
+
+To achieve this, the company will utilize Amazon CloudFront’s content delivery network and Origin Access Control (OAC) feature to prevent unauthorized users from accessing the content. Customized error messages must also be configured for users who are not authorized to access particular music tracks.
+
+What solution would be able to fulfill these requirements?
+
+- Configure CloudFront to return a custom error response to the viewer. Implement a time-restricted IAM access policy for CloudFront distribution.
+- `Configure CloudFront to return a custom error response to the viewer and apply geographic restrictions using an Allow list.`
+- Configure CloudFront to return a custom error response to the viewer. Use both signed URLs and signed cookies for secure content access.
+- Configure CloudFront to return a custom error response to the viewer. Set up a CloudFront Function URL to control access.
+
+<img width="1051" height="590" alt="geo-restriction-08-02-23-1842 (1)" src="https://github.com/user-attachments/assets/2eaf17ee-d601-4b34-bf45-709b55846762" />
+
+Aaiye is sawal ko apne crisp, fast-track aur keyword-focused breakdown ke sath samajhte hain! 🚀
+
+---
+
+### 🎯 1. Sawal Kya Keh Raha Hai? (Question Breakdown)
+
+Ek global music streaming service ko specific countries ke listeners ke liye music content access restrict karna hai (music licensing rules aur regional agreements ki wajah se).
+
+* **Key Requirements:**
+1. Geographic location (country) ke hisab se content access control karna hai.
+2. CloudFront OAC baseline security ke sath use ho raha hai.
+3. Restricted users ko custom error message show karwana hai.
+
+
+
+---
+
+### ✅ 2. Sahi Jawab Kya Keh Raha Hai? (Correct Answer)
+
+> **Configure CloudFront to return a custom error response to the viewer and apply geographic restrictions using an Allow list.**
+
+#### **Deep-Dive Explanation:**
+
+1. **CloudFront Geographic Restrictions (Geo Restriction / Geo Blocking):** CloudFront ka built-in feature hai jo user ke IP address se unki country determine karta hai. Aap **Allow list** (ya Block list) define karke specific countries ko access de ya rokh sakte hain.
+2. **Custom Error Response:** CloudFront mein jab Geo Restriction `403 Forbidden` return karta hai, toh aap custom error page (e.g., *"This content is not available in your country yet"*) display karwaye ke liye Custom Error Responses configure kar sakte hain.
+
+---
+
+### ❌ 3. Baqi Options Kyun Ghalat Hain?
+
+* **Time-restricted IAM access policy for CloudFront:**
+* *Ghalat kyun?* IAM policies CloudFront distribution access ke liye country-based geo-blocking provide nahi karti.
+
+
+* **Signed URLs and Signed Cookies:**
+* *Ghalat kyun?* Signed URLs/Cookies individual paid users ya time-limited private content access ke liye hote hain, country-level regional licensing restriction ke liye nahi.
+
+
+* **CloudFront Function URL:**
+* *Ghalat kyun?* CloudFront Functions Edge compute ke liye hain (jaise header rewrite/URL redirects). Native Geo Restriction feature ke hote huay complex functions likhna extra operational overhead hai.
+
+
+
+---
+
+### 🔍 4. Keyword Scanning & Exam Shortcut
+
+| Question Key Phrases | Direct AWS Mapping | Reason / Logic |
+| --- | --- | --- |
+| **"Listeners in certain countries cannot access" + "Music licensing restrictions"** | **CloudFront Geographic Restrictions (Allow/Block List)** | Native CloudFront feature for country-based access control. |
+| **"Custom error messages"** | **CloudFront Custom Error Response** | Replaces standard 403 Forbidden pages with friendly custom messages. |
+
+---
+
+### 🧠 One-Line Memory
+
+> **Country-Based Licensing Restriction + Custom Error ➔ CloudFront Geo Restriction (Allow List) + Custom Error Response**
+
+---
+
+29-October-2026
 
 30-August-2026
 
@@ -239,3 +318,5 @@ Aayein, is question aur answer dono ko boht simple aur real-life example se sama
 27-September-2026
 
 13-October-2026
+
+3-November-2026
