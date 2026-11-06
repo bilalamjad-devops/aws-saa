@@ -1,3 +1,15 @@
+3. Question
+
+The CTO of an e-commerce company wants to implement a continuous integration (CI) pipeline using AWS CodePipeline. The CTO wants to design the pipeline so that it automatically triggers whenever developers push code to the company’s private GitHub repository. The CTO also wants to ensure that the integration between AWS and GitHub is secure and auditable out of the box.
+
+What is the easiest way to trigger CodePipeline automatically upon a code commit while satisfying security and auditability requirements?
+
+- Set up Amazon API Gateway to expose a webhook endpoint that GitHub can call. Configure API Gateway to trigger CodePipeline via AWS Lambda. In the Lambda source code, invoke Amazon CloudWatch Logs APIs to perform logging.
+- `Configure AWS CodeConnections to integrate a private GitHub repository with CodePipeline. Use AWS CloudTrail logs for monitoring and auditing.`
+- Use Amazon EventBridge to poll the GitHub repository periodically and trigger the pipeline. Use AWS CloudTrail logs for monitoring and auditing.
+- Deploy a GitHub webhook listener application written in Python on AWS Elastic Beanstalk, and configure it to call CodePipeline. Ensure that the application writes logs to Amazon CloudWatch Logs.
+
+<img width="1680" height="876" alt="aws-codeconnections-2025Apr28" src="https://github.com/user-attachments/assets/bb3431e5-3428-4e02-a5ea-e870f9cd835c" />
 
 Yeh raha aapka agla behtareen MCQ! Chaliye is question ko aasan lafzon mein samajhte hain ke yeh kya pooch raha hai aur iska sahi jawab kya hai.
 
@@ -30,5 +42,7 @@ Yeh raha aapka agla behtareen MCQ! Chaliye is question ko aasan lafzon mein sama
 ---
 
 Kya aapko yeh concept aur iska reason achi tarah samajh aa gaya? Agar agla MCQ hai toh aap share kar sakte hain!
+
+4-November-2026
 
 6-November-2026
