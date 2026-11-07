@@ -248,6 +248,57 @@ What would be the MOST operationally efficient solution to ensure that the servi
 | **"EC2 instance as a proxy" (Trap Option)** | **High Operational Overhead** | EC2 manage karna padta hai, jabke serverless options mein management zero hoti hai. |
 
 ---
+---
+---
+
+4. Question
+
+A company seeks to rearchitect its subsystem to an event-driven design using AWS Lambda. However, the company has some hesitations, being that their workloads are all container-based Java services. The company wants to minimize cold starts and outlier latencies when serving requests in the most cost-effective manner.
+
+Which would meet the requirements?
+
+- Enable Lambda provisioned concurrency.
+- Configure response streaming for Lambda functions.
+- `Enable Lambda SnapStart.`
+- Set up Lambda layers for dependencies.
+
+<img width="780" height="283" alt="AWSLambdaSnapstart_08Feb2024" src="https://github.com/user-attachments/assets/547f4e63-47e2-4585-8fb5-47dc485434ba" />
+
+Yeh raha aapka agla behtareen MCQ! Chaliye is question ko aasan lafzon mein samajhte hain ke yeh kya pooch raha hai aur iska sahi jawab kya hai.
+
+---
+
+### 🧠 Question kya keh raha hai? (Scenario Breakdown)
+
+1. **Architecture:** Company apne subsystem ko event-driven design aur **AWS Lambda** par shift karna chahti hai.
+2. **Tech Stack:** Inke workloads **container-based Java services** hain.
+3. **Challenges & Goals:**
+* Java applications mein **cold starts** ka masla bohot common hota hai (JVM startup aur class loading ki wajah se).
+* Company chahti hai ke **cold starts** aur **outlier latencies** kam se kam hon.
+* Sath hi, yeh sab kuch **most cost-effective manner** mein hona chahiye (yani budget ka bhi khayal rakhna hai).
+
+
+
+---
+
+### 🔍 Options ka Tajziya (Analysis):
+
+* **Provisioned Concurrency:** Yeh cold starts ko khatam karta hai, lekin isme masla yeh hai ke yeh **bohot expensive** hota hai kyunki isme Lambda instances ko 24/7 warm rakhna parta hai (cost-effective requirement ke khilaf hai).
+* **Response Streaming:** Yeh large payloads ko stream karne ke liye hota hai, cold start latency reduce karne ke liye nahi.
+* **Lambda Layers:** Yeh sirf dependencies (libraries) ko manage karne ke liye hota hai, cold starts par iska koi direct positive impact nahi hota (balkay zyadatar layers add karne se cold start thora barh hi jata hai).
+* **Lambda SnapStart:** **SnapStart** specifically **Java** workloads ke liye design kiya gaya hai (aur ab container images ko bhi support karta hai). Yeh function initialization ko deployment time par hi kar leta hai aur ek snapshot bana kar cache kar leta hai. Jab request aati hai, toh yeh us snapshot se foran restore ho jata hai. Sab se bari baat yeh hai ke yeh Provisioned Concurrency ke muqablay mein **bohot zyada cost-effective** hai kyunki ismein idle instances ke liye extra pay nahi karna parta.
+
+---
+
+### ✅ Correct Answer:
+
+* **Enable Lambda SnapStart.**
+
+---
+
+4-November-2026
+
+7-November-2026
 
 26-October-2026
 
