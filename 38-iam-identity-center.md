@@ -64,7 +64,62 @@ Exam mein confusion door karne ke liye yeh farq zaroor yaad rakhein:
 * **Wajah (Reason):** **AWS IAM Identity Center** (jise pehle AWS SSO kehte thay) centralized user authentication aur multi-account access management ke liye standard aur best service hai. Isme hum **permission sets** aur user groups ke zariye asani se least privilege access de sakte hain bina har account mein alag-alag IAM roles banaye, jisse administrative overhead bohat kam ho jata hai. *(Note: Service Control Policies (SCPs) guardrails ke liye hoti hain, user/team authentication ya granular permissions ke liye nahi).*
 
 ---
+---
+---
 
+
+8. Question
+
+A multinational corporation is in the process of migrating its legacy applications from an on-premises Microsoft Active Directory to AWS. These applications are spread across multiple AWS accounts, which are managed collectively by AWS Organizations. The corporation is seeking a single sign-on (SSO) solution that allows the security team to use their current Active Directory credentials for authentication across all AWS accounts. Additionally, they need to maintain centralized user and group management in their existing on-premises Active Directory.
+
+Which approach should the corporation take to fulfill these requirements?
+
+- Set up an external identity provider (IdP) on an Amazon EC2 instance. Integrate this IdP with AWS IAM Identity Center as the identity source.
+- Implement AWS Directory Service's Managed Microsoft AD (Enterprise Edition). Set up the Active Directory as the principal identity provider for AWS IAM Identity Center.
+- `Activate AWS IAM Identity Center and establish a two-way forest trust relationship. Link the corporation's Active Directory (AD) with the IAM Identity Center via AWS Managed Microsoft AD.`
+- Utilize AWS Directory Service to establish a two-way trust relationship with the corporation's self-managed Active Directory for mutual authentication and access control.
+
+<img width="1920" height="799" alt="AWS-Managed-Microsoft-AD-04-13-2024" src="https://github.com/user-attachments/assets/0a39959e-45e8-4a93-87eb-c568af11d84b" />
+
+Yeh raha aapka agla MCQ! Chaliye is question ko aasan lafzon mein samajhte hain ke yeh kya pooch raha hai aur iska sahi jawab kya hai.
+
+---
+
+### 🧠 Question kya keh raha hai? (Scenario Breakdown)
+
+1. **Setup:** Ek multi-account AWS environment hai jo **AWS Organizations** ke zariye manage ho raha hai. Company ke paas ek **on-premises Microsoft Active Directory (AD)** hai.
+2. **Main Requirements:**
+* **Single Sign-On (SSO):** Security team apne mojooda Active Directory credentials use kar ke sabhi AWS accounts mein authenticate ho sakay.
+* **Centralized Management:** Users aur groups ki management central on-premises Active Directory mein hi honi chahiye (doori jagah duplicate na karni paray).
+
+
+
+---
+
+### 🔍 Options ka Tajziya (Analysis):
+
+* **AWS IAM Identity Center (pehle AWS SSO) + AWS Managed Microsoft AD (Forest Trust):**
+* Jab aapko multi-account structure (AWS Organizations) mein SSO chahiye ho, toh **AWS IAM Identity Center** standard service hai.
+* AWS IAM Identity Center ko directly on-premises self-managed AD se link karne ke liye **AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD)** use hota hai, jiske aur on-premises AD ke darmiyan **Two-Way Forest Trust** establish ki jati hai. Is se users apne local AD credentials se direct IAM Identity Center mein log in kar sakte hain.
+
+
+* **Options ka Muqabla:**
+* **Option 1 (EC2 par external IdP):** Self-managed IdP (jaise AD FS) EC2 par set up karna unnecessary operational overhead hai.
+* **Option 2 (Managed AD as principal identity provider):** AWS Managed Microsoft AD ko principal/direct identity provider ke taur par setup karna bina Forest Trust ke local on-premises AD ke users connect nahi karega.
+* **Option 4 (Only AWS Directory Service without IAM Identity Center):** Sirf AWS Directory Service direct multi-account SSO access manage nahi karti; iske liye IAM Identity Center ka sath hona lazmi hai.
+* **Option 3:** IAM Identity Center ko activate karna aur AWS Managed Microsoft AD ke zariye **two-way forest trust** establish karna exact best-practice AWS pattern hai.
+
+
+
+---
+
+### ✅ Correct Answer:
+
+* **Activate AWS IAM Identity Center and establish a two-way forest trust relationship. Link the corporation's Active Directory (AD) with the IAM Identity Center via AWS Managed Microsoft AD.**
+
+---
+
+4-November-2026
 
 21-September-2026
 
