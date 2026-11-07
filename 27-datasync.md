@@ -179,6 +179,52 @@ Hospital ne kaha hai ke **har ek patient file ko kis ne kab khola/read kiya, usk
 2. Files ko delete hone se bachane ke liye **S3 Object Lock**.
 3. Har file ke access ko track karne ke liye **CloudTrail Data Events**.
 
+---
+---
+---
+
+12. Question
+
+A company has a web crawler that regularly stores artifacts in an Amazon S3 bucket. An initial copy of the artifacts has been uploaded to another S3 bucket and an EFS volume. The company needs to ensure that any changes in the source bucket are replicated in the target resources.
+
+Which solution will meet these requirements with the LEAST operational overhead?
+
+- In the same VPC, launch an Amazon EC2 instance and mount the EFS file system. Write a cron job that synchronizes changes between the source and destination S3 buckets and file systems.
+- Create an AWS Privatelink endpoint for Amazon S3. Configure an AWS Lambda function to copy files to the EFS file system and the destination S3 bucket. Set up an EventBridge rule that invokes the function when the PutObject action occurs in the source bucket.
+- Create an AWS DataSync location and task for both the destination S3 bucket and the EFS file system. Configure transfer mode to transfer all data.
+- `Create an AWS DataSync location and task for both the destination S3 bucket and the EFS file system. Configure transfer mode to transfer only data that has changed.`
+
+Yeh raha aapka agla MCQ! Chaliye is question ko aasan lafzon mein samajhte hain ke yeh kya pooch raha hai aur iska sahi jawab kya hai.
+
+---
+
+### 🧠 Question kya keh raha hai? (Scenario Breakdown)
+
+1. **Setup:** Ek web crawler hai jo initial artifacts ko ek **Source S3 Bucket** mein store karta hai. Yeh data pehle se hi ek **Target S3 Bucket** aur ek **Target EFS Volume** par copy ho chuka hai.
+2. **Requirement:** Source S3 bucket mein hone wali kisi bhi nayi change/update ko Target S3 bucket aur Target EFS volume dono par replicate karna hai.
+3. **Key Constraint:** Solution aisa hona chahiye jisme **LEAST operational overhead** (kam se kam manual kaam, setup, aur maintenance) ho.
+
+---
+
+### 🔍 Options ka Tajziya (Analysis):
+
+* **Option 1 (EC2 + Cron Job):** EC2 instance launch karna aur cron job scripts likhna bohot zyada operational overhead waala kaam hai. Isme scripts maintain karni parengi aur scaling/failures ko khud manage karna parega.
+* **Option 2 (Lambda + EventBridge + PrivateLink):** Custom Lambda function likhna, network endpoint setup karna, aur code ko maintain karna automatic managed service ke muqablay mein zyada operational effort maangta hai.
+* **Option 3 (DataSync - Transfer ALL data):** DataSync pure data ko har baar transfer karega toh bandwidth aur cost dono waste hongi, jabke requirement sirf changes ko replicate karne ki hai.
+* **Option 4 (AWS DataSync - Transfer ONLY changed data):** **AWS DataSync** ek fully-managed data transfer service hai jo native S3 aur EFS integration support karti hai. Fast replication ke liye yeh specific locations (source S3, destination S3, destination EFS) banata hai aur setting mein *"transfer only data that has changed"* apply kar deta hai. Isme na koi EC2 manage karna milta hai na koi custom code likhna parta hai, jisse operational overhead kam se kam rehta hai.
+
+---
+
+### ✅ Correct Answer:
+
+* **Create an AWS DataSync location and task for both the destination S3 bucket and the EFS file system. Configure transfer mode to transfer only data that has changed.**
+
+---
+
+> 🧠 **Memory:** *AWS SAA-C03 certification preparation (daily MCQ reviews) + building a personal brand through technical Medium articles.*
+
+4-November-2026
+
 12-September-2026
 
 23-September-2026
