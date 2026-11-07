@@ -1,3 +1,8 @@
+- Run an AWS Glue Crawler to populate tables in the AWS Glue Data Catalog, then query the data using Amazon Athena.
+
+
+---
+
 Yes — this question is actually testing one very specific **AWS Glue feature**.
 
 ### 🎯 What is the question saying?
