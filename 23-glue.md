@@ -478,6 +478,61 @@ Aaiye, is sawal ko bhi apne isi shandar pattern ke sath step-by-step tor kar sam
 | **"AWS Glue processing entire dataset repeatedly / Process only new or altered data"** | **AWS Glue Job Bookmarks** | Pichli run ka state save rakh kar sirf naye data ko process karne ke liye Job Bookmarks enable kiye jate hain. |
 
 ---
+---
+---
+
+10. Question
+
+A company operates a data lake on Amazon S3, integrating data in Apache Parquet format from various sources. To enhance the data for analysis, the company employs multiple transformation steps. These include filtering anomalies, standardizing date and time formats, and generating analytical aggregates. The transformed data is stored in S3 buckets for access by data analysts.
+
+The company seeks a pre-built, non-coding solution for these data transformations. This solution must include data lineage and profiling features. Additionally, the data transformation steps must be transparent and shareable across the entire organization.
+
+What is the most suitable AWS solution to fulfill these specific needs?
+
+- Set up Amazon EMR to manage data transformation. Document and share the transformation steps with employees through EMR Studio notebooks.
+- Query data using Amazon Athena to execute the data transformation using SQL queries. Facilitate the sharing of these Athena SQL queries among employees.
+- `Utilize AWS Glue DataBrew for the data transformation tasks. Make the transformation steps available to employees through the use of DataBrew recipes.`
+- Leverage AWS Glue Studio's visual interface for data transformation. Use Amazon Redshift ML to generate predictive aggregates from the transformed data. Distribute the transformation process across the organization by utilizing Glue jobs.
+
+<img width="1754" height="696" alt="AWS_Glue-DataBrew_13_April_2024" src="https://github.com/user-attachments/assets/539b5a21-fde7-4711-8d30-7d587ca1eb70" />
+
+Yeh raha aapka agla behtareen MCQ! Chaliye is question ko aasan lafzon mein samajhte hain ke yeh kya pooch raha hai aur iska sahi jawab kya hai.
+
+---
+
+### 🧠 Question kya keh raha hai? (Scenario Breakdown)
+
+1. **Setup:** Company ke paas Amazon S3 par ek data lake hai jahan Apache Parquet format mein data store hai.
+2. **Task:** Data ko clean karna hai (filtering anomalies, standardizing date/time, aur analytical aggregates banana).
+3. **Main Constraints & Requirements:**
+* **Pre-built, non-coding solution:** Aisa tool ho jismein heavy coding ya custom scripts na likhni parein (visual/interactive ho).
+* **Data Lineage & Profiling:** Data profiling aur lineage (data kahan se aa raha hai aur kahan ja raha hai) ke features mojood hon.
+* **Transparent & Shareable:** Transformation steps transparent hon aur puri organization mein share kiye ja sakein.
+
+
+
+---
+
+### 🔍 Options ka Tajziya (Analysis):
+
+* **Option 1 (Amazon EMR + EMR Studio):** EMR Big Data processing (Spark, Hadoop) ke liye hai, lekin yeh "non-coding" requirement ko poora nahi karta kyunki isme notebooks aur coding karni parti hai.
+* **Option 2 (Amazon Athena):** Athena SQL-based querying ke liye hai, lekin yeh dedicated visual data preparation, data profiling, aur pre-built data lineage tool nahi hai.
+* **Option 4 (AWS Glue Studio + Redshift ML):** Glue Studio visual interface zaroor deta hai, lekin Redshift ML predictive aggregates ke liye hai aur yeh poora set "non-coding data preparation + recipes" wali requirement ko match nahi karta.
+* **Option 3 (AWS Glue DataBrew):** **AWS Glue DataBrew** ek visual, **no-code / low-code** data preparation tool hai jo data analysts aur data engineers ke liye design kiya gaya hai.
+* Isme built-in **data profiling** (data quality stats check karna) hoti hai.
+* Ismein **DataBrew recipes** hoti hain jo sare transformation steps ko record karti hain aur unhein easily puri organization ke sath share kiya ja sakta hai.
+
+
+
+---
+
+### ✅ Correct Answer:
+
+* **Utilize AWS Glue DataBrew for the data transformation tasks. Make the transformation steps available to employees through the use of DataBrew recipes.**
+
+---
+
+5-November-2026
 
 29-October-2026
 
