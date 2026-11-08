@@ -726,6 +726,65 @@ Socho aap AWS Cloud ho aur aap ne apne Office (Customer Gateway) se ek dedicated
 * **VPC Endpoint:** Yeh VPC ko specific AWS services (jaise S3 ya DynamoDB) se privately connect karne ke liye hota hai, do alag VPCs ke instances ko aapas mein connect karne ke liye nahi.
 
 ---
+---
+---
+
+20. Question
+
+A healthcare provider is expanding its operations by integrating various specialized medical applications into its AWS environment. Each application must operate within its own isolated VPC to maintain compliance with data security regulations. These applications need to access a central VPC that hosts shared services. Additionally, the applications should be able to communicate with each other for data synchronization and reporting purposes. The healthcare provider plans to integrate dozens more applications over the next year.
+
+Which of the following will minimize administrative overhead while meeting these requirements?
+
+- `Implement an AWS Transit Gateway and connect it with the application VPCs and the shared services VPC. Update the route tables and add routes in the application VPCs and the shared services VPC to route traffic through the transit gateway.`
+- Set up a connection between the application VPCs and the shared service VPC by using AWS Direct Connect. Update and add routes from the application VPCs to the shared services VPC and vice versa.
+- Establish VPN tunnels linking each application VPC and the shared services VPC. Configure routing in the application VPC subnets to enable communication with the shared services VPC.
+- Connect the application VPCs and shared services VPC using the Amazon VPC peering connections. Configure the peering connection to add routes between the VPCs.
+
+<img width="1318" height="1080" alt="td-transit-gateway-05-24-2024" src="https://github.com/user-attachments/assets/dd5602d5-c801-445e-8c4f-f39c15b85802" />
+
+<img width="757" height="780" alt="hub-spoke-1 (1)" src="https://github.com/user-attachments/assets/9bf30617-9371-4b98-9f94-6aa71b64e14f" />
+
+
+
+
+
+Koi baat nahi! Is question ko bilkul simple aur asan lafzon mein samajhte hain:
+
+---
+
+### 1. Problem Kya Thi?
+
+* Company ke paas bohot saari alag-alag **VPCs** (Virtual Private Clouds) hain.
+* Har app apni apni isolated VPC mein chal rahi hai.
+* In sab ko aapas mein bhi communicate karna hai (data sync ke liye) aur ek **Shared Services VPC** (jahan common tools ya databases hain) se bhi connect hona hai.
+* Sab se bari baat: **Agle ek saal mein aur bhi bohot saari nayi apps/VPCs add hone wali hain.**
+
+---
+
+### 2. Peering (Galat Tareeqa) Kyun Masla Banta?
+
+* Agar aap **VPC Peering** use karte, toh har VPC ko doosri VPC ke sath alag se connect karna parta (jaise ek jaal ya web ban jata hai).
+* Agar 10 VPCs hongi, toh aapko aapas mein connect karne ke liye bohat sare connections manage karne parenge. Aur jab koi nayi VPC aayegi, toh sab ke route tables dobara update karne parenge. Isse **administrative overhead** (bohot zyada mehnat aur confusion) ho jati hai.
+
+---
+
+### 3. Transit Gateway (Sahi Tareeqa) Kaise Kaam Karta Hai?
+
+* **Transit Gateway** ek **Central Hub** (ya aik bara router) ki tarah hai.
+* Aap sari application VPCs aur Shared Services VPC ko is Central Hub ke sath connect kar dete hain (Hub-and-Spoke model).
+* **Fayda:** Kal ko agar 50 nayi VPCs bhi aayin, toh unhein sirf is Central TGW ke sath attach karna parta hai. Baaki sari VPCs aapas mein automatically connect ho jati hain. Mehnat aur configuration na-hone ke barabar ho jati hai!
+
+---
+
+### 💡 Short Rule of Thumb for SAA-C03:
+
+> Jab bhi exam mein **"Multiple VPCs"**, **"Centralized Hub"**, ya **"Scaling for many VPCs in the future"** ka zikr ho, ankhain band karke **AWS Transit Gateway** select karna hai!
+
+---
+
+4-November-2026
+
+8-November-2026
 
 28-September-2026
 
