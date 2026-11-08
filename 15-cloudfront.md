@@ -306,6 +306,61 @@ Ek global music streaming service ko specific countries ke listeners ke liye mus
 > **Country-Based Licensing Restriction + Custom Error ➔ CloudFront Geo Restriction (Allow List) + Custom Error Response**
 
 ---
+---
+---
+
+21. Question
+
+An organization operates a high-traffic static website hosted on Amazon S3, which is distributed via Amazon CloudFront. The current CloudFront distribution has a default Time-to-Live (TTL) of 10 seconds, leading to no caching. The company aims to implement caching to enhance website performance while ensuring that outdated content is not served for more than a few minutes post-deployment.
+
+Which caching strategies should a solutions architect apply to achieve these objectives?
+
+- Set up Amazon S3 lifecycle policies to automatically delete objects older than 7 days, ensuring that CloudFront edge caches are regularly purged of stale content.
+- `Set the CloudFront default TTL to 4 minutes and implement a Cache-Control private directive on objects stored within Amazon S3.`
+- Deploy an AWS Lambda@Edge function to insert an Expires header into HTTP responses. Set this function to trigger on viewer response.
+- Apply a default TTL of 4 minutes on the S3 bucket.
+
+
+<img width="1315" height="731" alt="Amazon_CloudFront_Policies_4June2024" src="https://github.com/user-attachments/assets/6de27f36-7367-4c8d-840d-26a21de9ccdf" />
+
+Koi baat nahi! Is question ko simple steps mein samajhte hain:
+
+---
+
+### 1. Problem Kya Thi?
+
+* Main issue yeh tha ke website ka content cache nahi ho raha tha (TTL sirf 10 seconds tha), jis se site slow chal rahi thi.
+* Company chahti thi ke caching **start** ho taake site fast ho, lekin purana content max **kuch minutes** (3-5 minutes) se zyada screen par na nazar aaye.
+
+---
+
+### 2. AWS Caching Ka Simple Asool:
+
+* **TTL (Time-To-Live)** humesha **CloudFront** par set hota hai, S3 bucket par nahi.
+* Agar aap CloudFront ka **Default TTL = 4 minutes** set karte hain:
+1. Content Edge Locations par 4 minutes ke liye store (cache) ho jayega.
+2. 4 minutes ke baad CloudFront automatically S3 se naya content mangwaye ga. Is se purana content 4 minutes se zyada nahi dikhega.
+
+
+
+---
+
+### 3. Baaqi Options Kyun Wrong Hain?
+
+* **S3 Par TTL Lagana:** S3 bucket ke paas TTL set karne ki koi option nahi hoti (TTL CloudFront ka feature hai).
+* **S3 Lifecycle Policy:** Yeh 7 din baad S3 se file delete karta hai, CloudFront ki cache ko update nahi karta.
+
+---
+
+### 💡 Short Rule of Thumb:
+
+> CloudFront caching controls (TTL) hamesha **CloudFront Distribution** ki settings par lagaye jaate hain, S3 bucket par nahi.
+
+---
+
+4-November-2026
+
+8-November-2026
 
 29-October-2026
 
