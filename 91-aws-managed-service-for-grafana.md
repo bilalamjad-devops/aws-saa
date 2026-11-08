@@ -49,5 +49,59 @@ Aaiye, is sawal ko bhi apne usi shandar pattern ke sath step-by-step tor kar sam
 | **"Prometheus + Grafana monitoring on AWS / Managed Open-Source"** | **AMP (AWS Managed Service for Prometheus) + AMG (Amazon Managed Grafana)** | Metrics ke liye AMP aur visualization ke liye AMG use hota hai. |
 
 ---
+---
+---
+
+23. Question
+
+An organization wants to use Amazon Managed Grafana for data visualization tasks. The primary data source is an Amazon Relational Database Service (Amazon RDS) instance. The requirement is to ensure the visualization process is secure and the data is not exposed over the internet.
+
+Which approach should the business take to meet these requirements?
+
+- Configure an Amazon RDS Multi-AZ deployment with an Amazon S3 Inventory as the data connection for visualization in Managed Grafana.
+- `Establish a managed Grafana workspace within an Amazon Virtual Private Cloud, establish a private endpoint for RDS, and subsequently connect this endpoint as the data connection within the Grafana workspace.`
+- Set up a Managed Grafana workspace with a public endpoint. Configure an AWS PrivateLink endpoint to facilitate a secure connection to RDS, and integrate RDS as the data connection in the Grafana workspace.
+- Establish a Managed Grafana workspace outside a VPC. Implement a public endpoint for RDS, and assign this endpoint as the data connection within the Grafana workspace.
+
+<img width="1347" height="773" alt="Amazon_Managed_Grafana_workspace_14_April_2024" src="https://github.com/user-attachments/assets/d688254a-177c-4d89-b7e9-69508e50bac6" />
+
+### 🧠 Question Kya Keh Raha Hai? (Scenario Breakdown)
+
+1. **Setup:** Organization Amazon Managed Grafana ko data visualization ke liye use karna chahti hai.
+2. **Data Source:** Main data source Amazon RDS (Relational Database Service) instance hai.
+3. **Security Requirement:** Visualization process completely **secure** hona chahiye aur database ka data **public internet par expose nahi hona chahiye**.
+
+---
+
+### 🔍 Keyword Scanning (Sawal se Sahi Jawab Tak)
+
+* **Keywords in Question:** `"Amazon Managed Grafana"`, `"Amazon RDS"`, `"not exposed over the internet"`, `"secure data connection"`.
+* **Matching AWS Feature:**
+* **VPC-connected Grafana Workspace:** 👉 Amazon Managed Grafana workspace ko VPC ke andar configure kiya jata hai (VPC connection settings ke sath) taake woh private resources tak rasai haasil kar sake.
+* **Private Connectivity:** 👉 Amazon RDS ke liye **Private Endpoint** (VPC Subnets & Security Groups) configuration use hoti hai taake tamam traffic AWS backbone network ke andar rahe aur public internet par na jaye.
+
+
+
+---
+
+### ❌ Baaqi Options Kyun Galat Hain?
+
+* **Option 1 (RDS Multi-AZ + S3 Inventory):** Multi-AZ deployment High Availability ke liye hoti hai, secure visualization network setup ke liye nahi. S3 Inventory operational metadata track karti hai, database graphics ke liye data source nahi banti.
+* **Option 3 (Public Endpoint Grafana + PrivateLink to RDS):** Grafana workspace par public endpoint aur Internet access open rakhna security compliance ke khilaf hai jab requirement pure private access ki ho.
+* **Option 4 (Public Endpoint for RDS):** RDS ko public endpoint dena aur internet par expose karna explicit requirement ("data is not exposed over the internet") ko violate karta hai.
+
+---
+
+### ✅ Correct Answer:
+
+* **Establish a managed Grafana workspace within an Amazon Virtual Private Cloud, establish a private endpoint for RDS, and subsequently connect this endpoint as the data connection within the Grafana workspace.**
+
+---
+
+**Summary:** Amazon Managed Grafana supports VPC connectivity, allowing it to securely query private Amazon RDS instances via internal endpoints without exposing data to the public internet.
+
+4-November-2026
+
+8-November-2026
 
 31-October-2026
