@@ -431,6 +431,79 @@ Teeno SSE variants ka breakdown:
 * Aap ya toh AWS ki taraf se di gayi default key (**Amazon-managed key**, jiska alias `aws/ebs` hota hai) use kar sakte hain.
 * Ya phir apni khud ki custom keys (**Customer-managed keys / your own keys**) KMS mein create kar ke EBS volume encryption ke liye select kar sakte hain.
 
+---
+---
+---
+
+
+19. Question
+
+A company is looking to protect its mobile app’s sensitive data, which is encrypted using client-side encryption with AWS KMS managed keys (CSE-KMS). To enhance security, the company wishes to implement a mechanism that not only prevents the accidental deletion of KMS keys but also alerts administrators via email if there’s an attempt to delete a KMS key.
+
+Which of the following solutions fulfills these requirements with minimal operational overhead?
+
+- Set up an Amazon EventBridge rule that triggers attempts to delete a KMS key. Connect this rule to an AWS Config rule that reverses any deletion attempts. Then, configure an Amazon SNS topic to alert administrators whenever this event occurs.
+
+- Implement an AWS Lambda function to block the deletion of KMS keys. Set up an Amazon CloudWatch alarm that triggers deletion attempts. Use Amazon EventBridge to call the Lambda function when a DeleteKey action is detected. Lastly, notify administrators via an Amazon Simple Notification Service (Amazon SNS) topic.
+
+- `Configure an Amazon EventBridge rule to detect DeleteKey operations on AWS KMS. Link this rule to an AWS Systems Manager Automation runbook designed to cancel a key in pending deletion state. Additionally, set the EventBridge rule to notify administrators through an Amazon SNS topic upon such an attempt.`
+- Establish an AWS CloudTrail to monitor KMS key deletion attempts. Configure CloudTrail to send logs to Amazon CloudWatch Logs. Create a CloudWatch Logs metric filter to detect DeleteKey events and trigger an Amazon SNS notification to administrators.
+
+<img width="941" height="730" alt="Amazon_EventBridge_rule_on_AWS_KMS_13_April_2024" src="https://github.com/user-attachments/assets/f077e9e7-ca96-4e12-aa60-2c96d7b50ffb" />
+
+Is question ko ek real-world example se bilkul simple karke samajhte hain:
+
+---
+
+### 1. Problem Kya Thi?
+
+Aapki company chahti hai ke:
+
+1. Jab bhi koi ghalti se KMS encryption key delete karne lage, toh **koyi automatic system us deletion ko rok de (cancel kar de)**.
+2. Sath hi Admin ko **email alert** chala jaye.
+3. Yeh kaam karne ke liye humein **kam se kam mehnat/code (minimal operational overhead)** karna pare.
+
+---
+
+### 2. AWS Mein KMS Key Deletion Kaise Kaam Karti Hai?
+
+AWS mein KMS Key achanak ek second mein delete nahi hoti. Jab aap delete dabatay hain, toh key **7 se 30 din ke liye "Pending Deletion" status** mein chali jaati hai.
+
+Is time period ke andar agar aap **CancelKeyDeletion** ka button dabadain, toh key delete hone se bach jaati hai.
+
+---
+
+### 3. Har Service Ka Role (Kyun Use Hui?)
+
+* **EventBridge (The Alarm Detector):**
+* **Role:** Yeh Security Guard hai jo hamesha nazar rakhta hai.
+* **Kyun?** Jaise hi kisi ne KMS Key Delete karne ki koshish ki, EventBridge ko foran pata chal jata hai ke *"Event occur ho gaya hai!"*
+
+
+* **SSM Automation Runbook (The Pre-built Robot):**
+* **Role:** Yeh pre-built (pehle se bana hua) automated script/tool hai jo AWS ka apna feature hai.
+* **Kyun?** EventBridge is Robot ko ishara karta hai, aur yeh Robot khud ba khud AWS API chala kar us key ki deletion ko **Cancel** kar deta hai. Isme humein **ziyada code ya Lambda function likhne ki zaroorat nahi parti**, is liye yeh "minimal operational overhead" hai.
+
+
+* **Amazon SNS (The Messaging System):**
+* **Role:** Notification sender.
+* **Kyun?** EventBridge isy bolta hai ke Admin ko email notification bhej do ke *"kisi ne key delete karne ki koshish ki thi, lekin humne SSM Runbook se rok di hai."*
+
+
+
+---
+
+### 💡 Ek Line Mein Poora Flow:
+
+> **EventBridge** ne dekha key delete hone lagi hai ➔ **SSM Runbook** ne foran deletion cancel kar di ➔ **SNS** ne Admin ko email alert bhej diya.
+
+---
+
+**Summary:** AWS EventBridge detects the deletion API call instantly, triggers a pre-built SSM Automation runbook to execute `CancelKeyDeletion` with zero custom code, and uses SNS to email administrators.
+
+4-November-2026
+
+5-November-2026
 
 5-September-2026
 
