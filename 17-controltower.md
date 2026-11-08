@@ -146,6 +146,61 @@ Ab woh chahte hain ki:
 
 AWS Control Tower inherently AWS Organizations ko govern karta hai. Isme **Account Drift Detection** ka built-in feature hota hai—jaise hi koi OU structure ya governance rules ko chedta hai, Control Tower bina kisi custom script ya extra monitoring rule ke automated alert generate kar deta hai.
 
+---
+---
+---
+
+22. Question
+
+A company needs to limit the visibility and discoverability of workloads across AWS accounts with differing administrative requirements. Using AWS Organizations, a solutions architect and accounts stakeholders grouped accounts into organizational units (OU).
+
+A solution is required that will monitor changes to the OU hierarchy and allow stakeholders to subscribe to related alerts.
+
+Which option meets these requirements with the LEAST administrative overhead?
+
+- Use AWS Control Tower to provision the AWS accounts. Set up AWS Config aggregated rules.
+- Use AWS CloudFormation stacksets to create resources across Organizations. Initiate the drift detection operation on a stack to identify changes.
+- Use AWS Service Catalog to create accounts in Organizations. Configure an AWS CloudTrail organization trail to consolidate changes across accounts.
+- `Use AWS Control Tower to provision the AWS accounts. Enable account drift notifications.`
+
+### 🧠 Question Kya Keh Raha Hai? (Scenario Breakdown)
+
+1. **Setup:** Company ne AWS Organizations use karke alag-alag accounts ko **Organizational Units (OUs)** mein categorize/group kiya hai.
+2. **Requirement:** Ek aisa solution chahiye jo **OU hierarchy mein hone wali kisi bhi change ko monitor kare** (yani koi account kisi OU se move hua ya remove hua/drift hua) aur stakeholders ko iski **alerts/notifications** bheje.
+3. **Key Constraint:** **LEAST administrative overhead** (built-in AWS features use hon, custom code ya monitoring scripts kam se kam likhni paren).
+
+---
+
+### 🔍 Keyword Scanning (Sawal se Sahi Jawab Tak)
+
+* **Keywords in Question:** `"AWS Organizations"`, `"Organizational Units (OU) hierarchy"`, `"monitor changes / drift"`, `"subscribe to related alerts"`, `"LEAST administrative overhead"`.
+* **Matching AWS Feature:**
+* **Governance at Scale:** 👉 **AWS Control Tower** (jo multi-account environment ko manage aur provision karta hai).
+* **OU / Account Drift Detection:** 👉 **AWS Control Tower Account Drift Notifications** (Control Tower mein jab koi account ya OU structure governance standard se baahir nikalta hai ya drift hota hai, toh Control Tower native notifications produce karta hai).
+
+
+
+---
+
+### ❌ Baaqi Options Kyun Galat Hain?
+
+* **AWS Config Aggregated Rules (Option 1):** AWS Config resource-level compliance ke liye hota hai, Control Tower ke OU-level landing zone structure aur account placement drifts ke liye **Control Tower Account Drift Notifications** direct native feature hai.
+* **CloudFormation Drift Detection (Option 2):** CloudFormation Drift detection resource properties ko check karta hai, lekin continuous event-driven notifications ke liye drift operations manuallly initiate karna complex operational overhead add karta hai.
+* **AWS Service Catalog + CloudTrail (Option 3):** Service Catalog accounts provision kar sakta hai, lekin CloudTrail logs par custom alerts/parsing setup karna manual overhead barhata hai. Native drift notifications Control Tower mein built-in hain.
+
+---
+
+### ✅ Correct Answer:
+
+* **Use AWS Control Tower to provision the AWS accounts. Enable account drift notifications.**
+
+---
+
+**Summary:** AWS Control Tower automates multi-account governance and provides native Account Drift Notifications to alert stakeholders whenever accounts or OUs deviate from organizational standards with zero operational effort.
+
+4-November-2026
+
+8-November-2026
 
 31-August-2026
 
