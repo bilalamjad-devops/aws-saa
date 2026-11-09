@@ -484,6 +484,60 @@ Ek online analytics application **Amazon Redshift Cluster** ko data warehouse ke
 > **API Calls Tracking + Compliance Auditing ➔ AWS CloudTrail**
 
 ---
+---
+---
+
+
+36. Question
+
+A company has moved its suite of internal tools to AWS. For audit compliance, several CloudTrail trails are made to record all API calls. Each log file is also protected with server-side encryption with AWS KMS keys (SSE-KMS). Despite this, the company wants to ensure it can identify whether a log file has been tampered with.
+
+Which security measure should the solutions architect employ?
+
+- `Enable the CloudTrail Log File Validation feature on all trails.`
+- Configure CloudWatch Logs to monitor all trails and use Amazon SNS to send notifications when a log file has been tampered with.
+- Use the CloudTrail Processing Library when doing audit compliance.
+- Enable CloudTrail Insights events.
+
+<img width="1110" height="947" alt="aws-cloudtrail-log-file-validation (2)" src="https://github.com/user-attachments/assets/1e6536c0-ce54-4afc-87a6-c4591b267b10" />
+
+
+### 🧠 Question Kya Keh Raha Hai? (Scenario Breakdown)
+
+1. **Setup:** Company ne apne internal tools AWS par shift kiye hain. Audit compliance ke liye multiple **AWS CloudTrail** trails chal rahe hain jo saari API calls ko record karte hain. Logs Amazon S3 mein AWS KMS (SSE-KMS) encryption ke sath save ho rahe hain.
+2. **Requirement:** Security aur audit team yeh verify / ensure karna chahti hai ke log files S3 bucket mein aane ke baad unke sath **kisi ne koi chhed-chhad (tampering / modification / deletion) toh nahi ki**.
+3. **Goal:** Sahi AWS security feature select karna jo tampered log files ko detect / identify kar sake.
+
+---
+
+### 🔍 Keyword Scanning (Sawal se Direct Sahi Jawab Tak)
+
+* **Keywords in Question:** `"CloudTrail"`, `"identify whether a log file has been tampered with"`, `"log file security / integrity"`.
+* **Matching AWS Feature:**
+* **CloudTrail Log File Validation:** AWS CloudTrail ka native feature hai jo **SHA-256 cryptographic hashing** aur **RSA digital signatures** use karta hai. Is se aap instantly verify kar sakte hain ke CloudTrail log file deliver hone ke baad intact rahi hai ya change/tamper hui hai.
+
+
+
+---
+
+### ❌ Baaqi Options Kyun Galat Hain?
+
+* **Option 2 (CloudWatch Logs + SNS):** CloudWatch Logs real-time monitoring aur log storage ke liye hota hai, yeh S3 mein stored CloudTrail files ki cryptographic tampering hash-validation native target ke taur par nahi karta.
+* **Option 3 (CloudTrail Processing Library):** Yeh Java library logs ko programmatic processing ke liye use hoti hai, yeh automated, native integrity validation feature nahi hai.
+* **Option 4 (CloudTrail Insights):** CloudTrail Insights unusual API activity (jaise sudden surge in write calls) ko detect karta hai, log file Integrity / Tampering validation ke liye nahi hota.
+
+---
+
+### ✅ Correct Answer:
+
+* **Enable the CloudTrail Log File Validation feature on all trails.**
+
+---
+
+### 🔑 Exam Tip:
+
+> Jab bhi exam sawal mein **CloudTrail** ke sath **"tamper"**, **"tampering"**, **"integrity"**, ya **"modified log files"** ke lafz aayein, toh 100% sahi jawab **CloudTrail Log File Validation** hi hoga!
+
 
 29-October-2026
 
