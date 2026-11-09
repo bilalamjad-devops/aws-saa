@@ -1,3 +1,64 @@
+Yes. **AWS DRS and AWS Transform MGN are different services.** The names are confusing because both involve replication.
+
+### 🔑 Simple distinction
+
+| Service | Main purpose | Think |
+|---|---|---|
+| **AWS Transform MGN** | **Migrate** servers to AWS | 🏠 Move house |
+| **AWS DRS** | **Disaster recovery** | 🚑 Emergency backup |
+
+### 1. AWS Transform MGN
+
+Used when your goal is:
+
+> "I have on-premises VMs. I want to move them to AWS."
+
+Flow:
+
+**On-prem VM → Replication → Test → Cutover → AWS**
+
+That's exactly the question you just asked.
+
+---
+
+### 2. AWS DRS
+
+Used when your goal is:
+
+> "My primary server/data center might fail. I need a continuously replicated recovery environment in AWS."
+
+Flow:
+
+**Primary server → Continuous replication → AWS recovery environment → Recover when needed**
+
+It is for **business continuity / disaster recovery**, not primarily for permanently migrating the server.
+
+### 🔥 Exam shortcut
+
+If you see:
+
+**"Migrate / lift-and-shift / rehost on-prem servers to AWS"**
+
+→ **AWS Transform MGN** ✅
+
+If you see:
+
+**"Disaster recovery / recover after failure / RPO / RTO / recovery environment"**
+
+→ **AWS DRS** ✅
+
+So yes:
+
+> **Transform MGN ≠ DRS**. They are separate services with different purposes.
+
+
+
+9-November-2026
+
+---
+---
+---
+
 15. Question
 
 An e-commerce company plans to optimize its disaster recovery configuration using AWS Cloud to minimize operational disruptions during outages or major system maintenance for its on-premises Microsoft SQL Server-based application. The objective is to achieve a recovery point objective (RPO) of 60 seconds or less and a recovery time objective (RTO) of 1 hour.
