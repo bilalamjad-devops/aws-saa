@@ -446,6 +446,7 @@ So:
 
 **Cross-account Lambda invocation → Resource-based policy + `lambda:InvokeFunction`** ✅
 
+<img width="1152" height="674" alt="aws-lambda-iam-policy-secure-access" src="https://github.com/user-attachments/assets/2f83339f-162a-40c3-b567-b0d8456e883d" />
 
 
 4-November-2026
