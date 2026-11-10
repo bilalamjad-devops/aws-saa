@@ -1,6 +1,8 @@
 
 <img width="1200" height="630" alt="14670aba-c37a-49af-bd0a-2d425eb764d0" src="https://github.com/user-attachments/assets/d5b1e710-ea10-4c18-ab9d-ab78adaaa75b" />
 
+<img width="1163" height="807" alt="AWS Transform MGN-12OCT2026 (1)" src="https://github.com/user-attachments/assets/66f1e0b7-14e0-4daa-8962-63b539a21d43" />
+
 
 
 Yes — **you are correct**, and I need to correct my previous answer. I checked the exact Tutorials Dojo question, and the three answers are indeed **3, 4, and 5**. [Tutorials Dojo](https://portal.tutorialsdojo.com/quizzes/timed-mode-diagnostic-test-aws-certified-solutions-architect-associate/?utm_source=chatgpt.com)
