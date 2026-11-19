@@ -138,6 +138,7 @@ Multiple AWS accounts ko ek hi umbrella ke neeche **centrally manage karne, cons
 ### 🔑 Direct Memory Trick (Exam Key):
 
 > **Consolidate & Centrally Manage Multiple Accounts = AWS Organizations**
+
 > **Share Transit Gateway / Subnets / Route 53 Resolver Rules across Accounts = AWS Resource Access Manager (RAM)**
 
 ---
