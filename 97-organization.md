@@ -54,5 +54,58 @@ Multiple AWS accounts ko ek hi umbrella ke neeche **centrally manage karne, cons
 > **Share Transit Gateway / Subnets / Route 53 Resolver Rules across Accounts = AWS Resource Access Manager (RAM)**
 
 ---
+---
+---
+
+5. Question
+
+A startup has multiple AWS accounts that are assigned to its development teams. Since the company is projected to grow rapidly, the management wants to consolidate all of its AWS accounts into a multi-account setup. To simplify the login process on the AWS accounts, the management wants to utilize its existing directory service for user authentication
+
+Which combination of actions should a solutions architect recommend to meet these requirements? (Select TWO.)
+
+- `On the master account, use AWS Organizations to create a new organization with all features turned on. Invite the child accounts to this new organization.`
+- Create an identity pool on Amazon Cognito and configure it to use the company’s directory service. Configure AWS IAM Identity Center (AWS Single Sign-On) to accept Cognito authentication.
+- `Configure AWS IAM Identity Center (AWS Single Sign-On) for the organization and integrate it with the company’s directory service using the Active Directory Connector`
+- On the master account, use AWS Organizations to create a new organization with all features turned on. Enable the organization’s external authentication and point it to use the company’s directory service.
+- Create Service Control Policies (SCP) in the organization to manage the child accounts. Configure AWS IAM Identity Center (AWS Single Sign-On) to use AWS Directory Service.
+
+Koi baat nahi! Bilkul aasan, rozmarra ki misaal se samajhte hain — koi mushkil lafz nahi.
+
+### Misaal Se Samjhein:
+
+Sochhein ek company ke paas **10 alag-alag AWS accounts** hain (har team ka apna account).
+Company ke **2 masle** hain:
+
+---
+
+### Masla 1: "Saare 10 accounts ko ek hi jagah ikatha (consolidate) karna hai."
+
+* **Hal:** **AWS Organizations**
+* **Kaise?** Ek main account (Master/Management account) par **AWS Organizations** banayein aur uske **All Features** on kar dein. Phir baqi saare 9 accounts ko us mein **invite** karke add kar lein. Ab saare 10 accounts ek hi chhat (umbrella) ke neeche aa gaye.
+* *(Yeh pehla sahi option hai: **"On the master account, use AWS Organizations to create a new organization with all features turned on. Invite the child accounts..."**)*
+
+---
+
+### Masla 2: "Employees ko har AWS account ka alag username/password yaad na rakhna pare — woh apne office wale purane login (Directory Service) se hi saare AWS accounts khol lein."
+
+* **Hal:** **AWS IAM Identity Center (AWS SSO)** + **AD Connector**
+* **Kaise?**
+1. **AWS IAM Identity Center (AWS SSO):** Yeh ek "Single Sign-On" darwaza hai — employee ek baar login karega aur usay apne saare AWS accounts ek hi screen par nazar aa jayenge.
+2. **Active Directory Connector (AD Connector):** Yeh ek **taar (bridge)** ki tarah hai jo AWS IAM Identity Center ko company ke office wale purane login system (Active Directory) se jod deta hai.
+
+
+* *(Yeh doosra sahi option hai: **"Configure AWS IAM Identity Center (AWS Single Sign-On) for the organization and integrate it with the company’s directory service using the Active Directory Connector."**)*
+
+---
+
+### Bas Yeh 2 Naam Yaad Rakh Lein (Exam Cheat Code):
+
+1. **Multiple AWS accounts ko ikatha karna** = **AWS Organizations (All Features)**
+2. **Office ke purane login se AWS mein single login** = **AWS IAM Identity Center + AD Connector**
+
+Ab bataiye, kya ab yeh dono points bilkul clear ho gaye? Agar clear hain toh agla sawal bhejein!
+
 
 13-November-2026
+
+20-November-2026
