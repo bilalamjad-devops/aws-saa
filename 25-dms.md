@@ -170,6 +170,53 @@ On-premises Oracle database ko AWS mein shift karne ke liye **AWS DMS** sab se f
 * **AWS Schema Conversion Tool (Option 5):** SCT tab use hota hai jab aap **heterogeneous migration** kar rahe hon (misal ke taur par Oracle se PostgreSQL par jana ho). Yahan source aur target dono Oracle hain (homogeneous migration), is liye schema conversion tool ki zaroorat nahi hai.
 
 ---
+---
+---
+
+6. Question
+
+A company hosts its web application on a set of Amazon EC2 instances in an Auto Scaling group behind an Application Load Balancer (ALB). The application has an embedded NoSQL database. As the application receives more traffic, the application becomes overloaded mainly due to database requests. The management wants to ensure that the database is eventually consistent and highly available.
+
+Which of the following options can meet the company requirements with the least operational overhead?
+
+- Configure the Auto Scaling group to spread the EC2 instances across three Availability Zones. Configure replication of the NoSQL database on the set of EC2 instances to spread the database load.
+- `Configure the Auto Scaling group to spread the EC2 instances across three Availability Zones. Use the AWS Database Migration Service (AWS DMS) with a replication server and an ongoing replication task to migrate the embedded NoSQL database to Amazon DynamoDB.`
+- Change the ALB with a Network Load Balancer (NLB) to handle more traffic. Use the AWS Glue DynamoDB export connector to export data from Amazon DynamoDB to Amazon S3 for analytics periodically, and continue running the application’s NoSQL database on the EC2 instances.
+- Change the ALB with a Network Load Balancer (NLB) to handle more traffic and integrate AWS Global Accelerator to ensure high availability. Configure replication of the NoSQL database on the set of EC2 instances to spread the database load.
+
+Is sawal ka **sahi option** neeche diya gaya hai:
+
+### ✅ Sahi Option:
+
+* **Configure the Auto Scaling group to spread the EC2 instances across three Availability Zones. Use the AWS Database Migration Service (AWS DMS) with a replication server and an ongoing replication task to migrate the embedded NoSQL database to Amazon DynamoDB.**
+
+---
+
+### 💡 Asaan Roman Urdu Mein Logic (Misaal Ke Sath)
+
+Sawal ke **3 main keywords** dekhein:
+
+1. **"Embedded NoSQL database" (EC2 ke andar chalne wala NoSQL database)** — Jab database EC2 ke andar chal raha ho, toh traffic barhne par EC2 overloaded ho jati hai aur aapko khud usay manage/scale karna parta hai.
+2. **"Eventually consistent and highly available"** — Yeh seedha **Amazon DynamoDB** ki pehchan hai! DynamoDB ek fully managed, serverless NoSQL database hai jo by default multi-AZ (highly available) hota hai aur eventually consistent reads support karta hai.
+3. **"Least operational overhead"** — Management chahti hai ke aapko khud database ki replication ya servers manage na karne parein. **AWS DMS (Database Migration Service)** ke zariye aap purana NoSQL database **Amazon DynamoDB** mein migrate kar dete hain, aur phir AWS khud poora database manage karta hai.
+
+---
+
+### ❌ Baqi Options Kyun Galat Hain?
+
+* **Option 1 ("Configure replication of the NoSQL database on the set of EC2 instances"):** EC2 par khud NoSQL replication manage karne mein **bahut zyada operational overhead** hota hai (scaling, patching, backups khud karne parte hain).
+* **Option 3 ("Change ALB with NLB... continue running NoSQL database on EC2"):** Load balancer badalne se database ka load kam nahi hoga, aur database abhi bhi EC2 par hi chal raha hai.
+* **Option 4 ("Change ALB with NLB + Global Accelerator + EC2 replication"):** Phir se EC2 par database replication manage karni paregi, jo "least operational overhead" ke khilaf hai.
+
+---
+
+### 🎯 SAA-C03 Exam Cheat Code
+
+Jab bhi sawal mein:
+
+* **"NoSQL database"** + **"high availability / eventually consistent"** + **"least operational overhead"** aaye $\rightarrow$ aankhein band karke **Amazon DynamoDB** (aur migration ke liye **AWS DMS**) wala option chunein!
+
+Agla sawal bhejein!
 
 
 
@@ -182,3 +229,5 @@ On-premises Oracle database ko AWS mein shift karne ke liye **AWS DMS** sab se f
 13-October-2026
 
 13-November-2026
+
+20-November-2026
